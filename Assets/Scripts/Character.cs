@@ -10,8 +10,7 @@ public class Character : MonoBehaviour
     private float _maxStamina;
     private float _curStamina;
 
-    private float _maxFassion;
-    private float _curFassion;
+    private float _fassion;
 
     private float _maxSociability;
     private float _curSociability;
@@ -47,23 +46,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    public float MaxFassion
+    public float Fassion
     {
-        get { return _maxFassion; }
+        get { return _fassion; }
 
         set
         {
-            _maxFassion = value;
-        }
-    }
-
-    public float CurFassion
-    {
-        get { return _curFassion; }
-
-        set
-        {
-            _curFassion = value;
+            _fassion = value;
         }
     }
 
