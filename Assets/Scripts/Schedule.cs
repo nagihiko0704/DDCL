@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Schedule : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Task[,] taskArray = new Task[6, 7];
 
-    // Update is called once per frame
-    void Update()
+    public Schedule()
     {
-        
+        for(int row = 0; row < 6; row++)
+        {
+            for(int col = 0; col < 7; col++)
+            {
+                this.taskArray[row, col] = new Rest((0, 0));
+            }
+        }
     }
 }
