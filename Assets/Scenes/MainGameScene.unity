@@ -837,7 +837,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61a6e76203cfd44cb8054f76559125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scheduleList: []
+  scheduleList:
+  - {fileID: 735137229}
+  - {fileID: 223855646}
+  - {fileID: 1371376801}
+  - {fileID: 582080129}
+  - {fileID: 1911949606}
+  - {fileID: 674849348}
 --- !u!4 &570364727
 Transform:
   m_ObjectHideFlags: 0
