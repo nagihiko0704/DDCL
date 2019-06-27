@@ -14,18 +14,54 @@ public class Task : MonoBehaviour
 
     //task's event
     public Event taskEvent;
+
+    public Task()
+    {
+        this.staminaVal = 0;
+        this.socialVal = 0;
+        this.scheduleLocation = (0, 0);
+        this.taskEvent = null;
+    }
+
+    public Task((int, int) _scheduleLocation)
+    {
+        this.scheduleLocation = _scheduleLocation;
+    }
 }
 
 
 public class Study : Task
 {
+    private int _favor;
+    private float _score;
+
     public Study((int, int) _scheduleLocation)
     {
         this.staminaVal = -5f;
         this.socialVal = 0;
 
         this.scheduleLocation = _scheduleLocation;
-    }       
+    }
+
+    public int Favor
+    {
+        get { return _favor; }
+
+        set
+        {
+            _favor = value;
+        }
+    }
+
+    public float Score
+    {
+        get { return _score; }
+
+        set
+        {
+            _score = value;
+        }
+    }
 }
 public class Club : Task
 {
