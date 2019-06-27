@@ -17,12 +17,11 @@ public class GameManager : SingletonBehaviour<GameManager>
     //for mentoring
     public Schedule mentorSchedule;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = new Player();
 
-        initMentorSchedule();
+        InitMentorSchedule();
         currentSchedule = player.schedules[0];
         currentTask = currentSchedule.taskArray[(int) Period.First, (int) Day.Mon];
 
@@ -35,7 +34,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         
     }
 
-    void initMentorSchedule()
+    void InitMentorSchedule()
     {
         Debug.Log("Init mentor schedule");
 
