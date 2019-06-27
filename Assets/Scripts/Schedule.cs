@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Schedule : MonoBehaviour
+public class Schedule
 {
     public Task[,] taskArray = new Task[6, 7];
 
@@ -12,7 +12,7 @@ public class Schedule : MonoBehaviour
         {
             for(int col = 0; col < 7; col++)
             {
-                this.taskArray[row, col] = new Rest((0, 0));
+                this.taskArray[row, col] = new Rest((row, col));
             }
         }
     }

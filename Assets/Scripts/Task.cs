@@ -9,37 +9,38 @@ public class Task : MonoBehaviour
     public float socialVal;
 
     //where is task in scedule
-    public (int, int) sceduleLocation; 
+    public (int, int) scheduleLocation;
 
 
-    //need to add event
+    //task's event
+    public Event taskEvent;
 }
 
 
 public class Study : Task
 {
-    public Study((int, int) _sceduleLocation)
+    public Study((int, int) _scheduleLocation)
     {
         this.staminaVal = -5f;
         this.socialVal = 0;
 
-        this.sceduleLocation = _sceduleLocation;
+        this.scheduleLocation = _scheduleLocation;
     }       
 }
 public class Club : Task
 {
-    public Club((int, int) _sceduleLocation)
+    public Club((int, int) _scheduleLocation)
     {
         this.staminaVal = -8f;
         this.socialVal = 0;
 
-        this.sceduleLocation = _sceduleLocation;
+        this.scheduleLocation = _scheduleLocation;
     }
 }
 
 public class Rest : Task
 {
-    public Rest((int, int) _sceduleLocation)
+    public Rest((int, int) _scheduleLocation)
     {
         //I don't know
     }
