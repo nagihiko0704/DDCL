@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Task : MonoBehaviour
+public class Task
 {
     //stats that task make player's change
     public float staminaVal;
@@ -78,6 +78,6 @@ public class Rest : Task
 {
     public Rest((int, int) _scheduleLocation)
     {
-        //I don't know
+        this.scheduleLocation = _scheduleLocation;
     }
 }

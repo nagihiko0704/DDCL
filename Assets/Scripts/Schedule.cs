@@ -15,7 +15,7 @@ public class Schedule
         //intiate with rest task
         for(int row = 0; row < 6; row++)
         {
-            for(int col = 0; col < 7; col++)
+            for(int col = 0; col < 5; col++)
             {
                 this.taskArray[row, col] = new Rest((row, col));
             }
