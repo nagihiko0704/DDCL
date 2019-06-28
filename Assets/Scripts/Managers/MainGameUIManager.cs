@@ -25,8 +25,8 @@ public class MainGameUIManager : MonoBehaviour
 
     private void SetScheduleUI()
     {
-        Schedule _curSchedule = GameManager.Inst.currentSchedule;
-        Day _curDay = GameManager.Inst.currentTask.scheduleLocation.Item2;
+        Schedule _curSchedule = ScheduleManager.Inst.CurrentSchedule;
+        Day _curDay = ScheduleManager.Inst.CurrentTask.scheduleLocation.Item2;
 
         Task tempTask;
         Color colorTaskBg;
