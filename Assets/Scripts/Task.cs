@@ -9,7 +9,7 @@ public class Task
     public float socialVal;
 
     //where is task in scedule
-    public (int, int) scheduleLocation;
+    public (Period, Day) scheduleLocation;
 
 
     //task's event
@@ -23,7 +23,7 @@ public class Task
         this.taskEvent = null;
     }
 
-    public Task((int, int) _scheduleLocation)
+    public Task((Period, Day) _scheduleLocation)
     {
         this.scheduleLocation = _scheduleLocation;
     }
@@ -35,7 +35,7 @@ public class Study : Task
     private int _favor;
     private float _score;
 
-    public Study((int, int) _scheduleLocation)
+    public Study((Period, Day) _scheduleLocation)
     {
         this.staminaVal = -5f;
         this.socialVal = 0;
@@ -65,7 +65,7 @@ public class Study : Task
 }
 public class Club : Task
 {
-    public Club((int, int) _scheduleLocation)
+    public Club((Period, Day) _scheduleLocation)
     {
         this.staminaVal = -8f;
         this.socialVal = 0;
@@ -76,7 +76,7 @@ public class Club : Task
 
 public class Rest : Task
 {
-    public Rest((int, int) _scheduleLocation)
+    public Rest((Period, Day) _scheduleLocation)
     {
         this.scheduleLocation = _scheduleLocation;
     }

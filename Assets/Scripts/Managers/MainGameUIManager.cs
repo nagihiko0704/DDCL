@@ -14,8 +14,8 @@ public class MainGameUIManager : MonoBehaviour
     //this game's schedule
     private Task _curTask;
     private Schedule _curSchedule;
-    private int _curPeriod;
-    private int _curDay;
+    private Period _curPeriod;
+    private Day _curDay;
      
     
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class MainGameUIManager : MonoBehaviour
         //for every task in current schedule
         for (int task = 0; task < 6; task++)
         {
-            tempTask = _curSchedule.taskArray[task, _curDay];
+            tempTask = _curSchedule.taskArray[task, (int)_curDay];
             colorTaskBg = new Color(0f, 0f, 0f);
             taskName = "삐\n빅";
 

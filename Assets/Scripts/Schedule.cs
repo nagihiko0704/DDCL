@@ -17,39 +17,39 @@ public class Schedule
         {
             for(int col = 0; col < 5; col++)
             {
-                this.taskArray[row, col] = new Rest((row, col));
+                this.taskArray[row, col] = new Rest(((Period)row, (Day)col));
             }
         }
     }
 
     public void AddTask(Player player, Task taskType)
     {
-        int period = taskType.scheduleLocation.Item1;
-        int day = taskType.scheduleLocation.Item2;
+        Period period = taskType.scheduleLocation.Item1;
+        Day day = taskType.scheduleLocation.Item2;
 
         for(int week = 1; week <= 16; week++)
         {
             taskType.scheduleLocation = (period, day);
-            player.schedules[week - 1].taskArray[period, day] = taskType;
+            player.schedules[week - 1].taskArray[(int)period, (int)day] = taskType;
             player.schedules[week - 1].scheduleWeek = week;
         }
     }
 
     public void AddTask(Schedule schedule, Task taskType)
     {
-        int period = taskType.scheduleLocation.Item1;
-        int day = taskType.scheduleLocation.Item2;
+        Period period = taskType.scheduleLocation.Item1;
+        Day day = taskType.scheduleLocation.Item2;
 
         taskType.scheduleLocation = (period, day);
-        schedule.taskArray[period, day] = taskType;
+        schedule.taskArray[(int)period, (int)day] = taskType;
     }
 
     public void AddTask(Task taskType)
     {
-        int period = taskType.scheduleLocation.Item1;
-        int day = taskType.scheduleLocation.Item2;
+        Period period = taskType.scheduleLocation.Item1;
+        Day day = taskType.scheduleLocation.Item2;
 
         taskType.scheduleLocation = (period, day);
-        this.taskArray[period, day] = taskType;
+        this.taskArray[(int)period, (int)day] = taskType;
     }
 }

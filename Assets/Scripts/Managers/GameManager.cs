@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Day { Mon, Tue, Wed, Thu, Fri };
+public enum Period { First, Second, Third, Fourth, Fifth, Sixth };
+
 public class GameManager : SingletonBehaviour<GameManager>
 {
     public Player player;
@@ -10,9 +13,6 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public List<int> eventLog = new List<int>();
     public List<Task> taskLog = new List<Task>();
-
-    private enum Day { Mon, Tue, Wed, Thu, Fri };
-    private enum Period { First, Second, Third, Fourth, Fifth, Sixth };
 
     //for mentoring
     public Schedule mentorSchedule;
@@ -41,22 +41,22 @@ public class GameManager : SingletonBehaviour<GameManager>
         mentorSchedule = new Schedule();
 
         //mon
-        mentorSchedule.AddTask(new Study(((int)Period.First, (int)Day.Mon)));
-        mentorSchedule.AddTask(new Study(((int)Period.Second, (int)Day.Mon)));
-        mentorSchedule.AddTask(new Club(((int)Period.Third, (int)Day.Mon)));
-        mentorSchedule.AddTask(new Study(((int)Period.Fourth, (int)Day.Mon)));
+        mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
+        mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
+        mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
+        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon)));
 
         //tue
-        mentorSchedule.AddTask(new Study(((int)Period.Second, (int)Day.Tue)));
-        mentorSchedule.AddTask(new Study(((int)Period.Third, (int)Day.Tue)));
-        mentorSchedule.AddTask(new Club(((int)Period.Fifth, (int)Day.Tue)));
-        mentorSchedule.AddTask(new Club(((int)Period.Sixth, (int)Day.Tue)));
+        mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
+        mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
+        mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue)));
 
         //wed
-        mentorSchedule.AddTask(new Study(((int)Period.First, (int)Day.Wed)));
-        mentorSchedule.AddTask(new Study(((int)Period.Second, (int)Day.Wed)));
-        mentorSchedule.AddTask(new Club(((int)Period.Third, (int)Day.Wed)));
-        mentorSchedule.AddTask(new Study(((int)Period.Fourth, (int)Day.Wed)));
+        mentorSchedule.AddTask(new Study((Period.First, Day.Wed)));
+        mentorSchedule.AddTask(new Study((Period.Second, Day.Wed)));
+        mentorSchedule.AddTask(new Club((Period.Third, Day.Wed)));
+        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Wed)));
 
         player.schedules[0] = mentorSchedule;
     }
@@ -65,20 +65,20 @@ public class GameManager : SingletonBehaviour<GameManager>
     {
         while(true)
         {
-            int curTaskPeriod;
-            int curTaskDay;
+            Period curTaskPeriod;
+            Day curTaskDay;
 
-            int nextTaskPeriod;
-            int nextTaskDay;
+            Period nextTaskPeriod;
+            Day nextTaskDay;
 
             curTaskPeriod = currentTask.scheduleLocation.Item1;
             curTaskDay = currentTask.scheduleLocation.Item2;
 
-            nextTaskPeriod = (curTaskPeriod + 1) % 6;
+            nextTaskPeriod = (Period)(((int)curTaskPeriod + 1) % 6);
             nextTaskDay = curTaskDay;
-            if (curTaskPeriod == 5)
+            if (curTaskPeriod == Period.Sixth)
             {
-                nextTaskDay = (curTaskDay + 1) % 5;
+                nextTaskDay = (Day)(((int)curTaskDay + 1) % 5);
             }
 
             Debug.Log("Period: " + curTaskPeriod + " Day: " + curTaskDay);
@@ -86,7 +86,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
             yield return new WaitForSeconds(3.0f);
 
-            currentTask = currentSchedule.taskArray[nextTaskPeriod, nextTaskDay];            
+            currentTask = currentSchedule.taskArray[(int)nextTaskPeriod, (int)nextTaskDay];            
             Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             Debug.Log("---------");
         }
