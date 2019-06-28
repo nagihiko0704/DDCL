@@ -10,39 +10,24 @@ public class MainGameUIManager : MonoBehaviour
 
     //task background
     
-
-    //this game's schedule
-    private Task _curTask;
-    private Schedule _curSchedule;
-    private Period _curPeriod;
-    private Day _curDay;
-     
     
     // Start is called before the first frame update
     void Start()
     {
-        _curTask = GameManager.Inst.currentTask;
-        _curSchedule = GameManager.Inst.currentSchedule;
-        _curPeriod = _curTask.scheduleLocation.Item1;
-        _curDay = _curTask.scheduleLocation.Item2;
-
-
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_curDay != GameManager.Inst.currentTask.scheduleLocation.Item2)
-        {
-            _curDay = GameManager.Inst.currentTask.scheduleLocation.Item2;
-        }
-
         SetScheduleUI();
     }
 
     private void SetScheduleUI()
     {
+        Schedule _curSchedule = GameManager.Inst.currentSchedule;
+        Day _curDay = GameManager.Inst.currentTask.scheduleLocation.Item2;
+
         Task tempTask;
         Color colorTaskBg;
         string taskName;
