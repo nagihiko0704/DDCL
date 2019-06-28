@@ -58,12 +58,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
         mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue)));
 
-        //wed
-        mentorSchedule.AddTask(new Study((Period.First, Day.Wed)));
-        mentorSchedule.AddTask(new Study((Period.Second, Day.Wed)));
-        mentorSchedule.AddTask(new Club((Period.Third, Day.Wed)));
-        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Wed)));
-
         GameManager.Inst.player.schedules[0] = mentorSchedule;
     }
 
