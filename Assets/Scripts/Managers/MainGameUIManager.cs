@@ -7,6 +7,7 @@ public class MainGameUIManager : MonoBehaviour
 {
     //schedule window
     public GameObject[] scheduleList = new GameObject[6];
+    public GameObject taskIndicator;
 
     //task background
     
@@ -21,6 +22,7 @@ public class MainGameUIManager : MonoBehaviour
     void Update()
     {
         SetScheduleUI();
+        SetDoingTaskIndicator();
     }
 
     private void SetScheduleUI()
@@ -63,5 +65,25 @@ public class MainGameUIManager : MonoBehaviour
         }
     }
 
-   
+    private void SetDoingTaskIndicator()
+    {
+        const float TOTAL_SCHEDULE_TIME = 36f;
+        const float START_Y = -600f;
+        const float END_Y = 600f;
+        float currentTime = ScheduleManager.Inst.curTime;
+
+        float indicatorX;
+        float indicatorY = taskIndicator.transform.localPosition.y;
+        
+
+        //time ratio of current time and total time
+        float timeRatio = currentTime / TOTAL_SCHEDULE_TIME;
+        //Debug.Log(timeRatio);
+
+        indicatorX = Mathf.Lerp(START_Y, END_Y, timeRatio);
+
+        Vector3 indicatorLoaction = new Vector3(indicatorX, indicatorY);
+
+        taskIndicator.transform.localPosition = indicatorLoaction;
+    }
 }

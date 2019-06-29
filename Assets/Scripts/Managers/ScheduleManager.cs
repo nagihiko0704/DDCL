@@ -11,6 +11,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     public Period currentPeriod = Period.First;
     public Day currentDay = Day.Mon;
 
+    public float curTime = 0;
+
+    public bool doEvent = false;
 
     //for mentoring
     public Schedule mentorSchedule;
@@ -33,8 +36,19 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {   
+        if(!doEvent)
+        {
+            float tempTime = Time.deltaTime;
+            curTime += tempTime;
+            
+            //Debug.Log(curTime);
+
+            if(curTime > 36f)
+            {
+                curTime = 0;
+            }
+        }
     }
 
     //for mentoring
@@ -65,7 +79,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         {
             Period nextTaskPeriod;
             Day nextTaskDay;
-
+                     
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
             if (currentPeriod == Period.Sixth)
@@ -94,6 +108,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         Event _curEvent = CurrentTask.taskEvent;
 
+        doEvent = true;
+
         //do event
         //TODO: learn coroutine
         //1. show event pop-up UI (with MainGameUIManager)
@@ -101,5 +117,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         //3. if button click -> then close & end this function
 
         yield return null;
+
+        doEvent = false;
     }
 }
