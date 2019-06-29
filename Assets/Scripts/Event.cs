@@ -20,6 +20,8 @@ public class Event : ScriptableObject
 
     public List<string> resultMessage;
 
-    public float staminaVal;
-    public float socialVal;
+    public List<Sprite> resultSituation;
+
+    public List<float> staminaVal;
+    public List<float> socialVal;
 }
