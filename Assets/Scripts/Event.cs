@@ -10,6 +10,7 @@ public class Event : ScriptableObject
     public float eventProbability;
 
     public string title;
+    [TextArea]
     public string message;
 
     public Sprite situation;
@@ -18,6 +19,7 @@ public class Event : ScriptableObject
 
     public List<string> choiceMessage;
 
+    [TextArea]
     public List<string> resultMessage;
 
     public List<Sprite> resultSituation;
