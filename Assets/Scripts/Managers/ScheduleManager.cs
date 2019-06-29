@@ -43,13 +43,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         {
             float tempTime = Time.deltaTime;
             curTime += tempTime;
-            
-            //Debug.Log(curTime);
-
-            if(curTime > 36f)
-            {
-                curTime = 0;
-            }
         }
     }
 
