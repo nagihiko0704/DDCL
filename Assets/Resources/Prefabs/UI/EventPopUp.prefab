@@ -351,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8598992226613432628}
+  - component: {fileID: 8607946361197851517}
   m_Layer: 5
   m_Name: EventPopUp
   m_TagString: Untagged
@@ -378,6 +379,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 900, y: 1300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8607946361197851517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7674847964688882103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390c0a1fd068af84aa24d70615821ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonChoice: {fileID: 3824624388929324897, guid: 8eff5d49dc8395a4daaaabc9408758ba,
+    type: 3}
+  textMessage: {fileID: 1109549799625796655}
+  imageSituation: {fileID: 597142342335674828}
+  choiceArea: {fileID: 5948917286800037298}
 --- !u!1 &9129571825141292469
 GameObject:
   m_ObjectHideFlags: 0
