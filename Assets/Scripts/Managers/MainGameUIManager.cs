@@ -10,7 +10,13 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public GameObject taskIndicator;
 
     //task background
-    
+
+
+    //main game canvas
+    public GameObject mainGameCanvas;
+
+    //event popup
+    public GameObject eventPopUp;
     
     // Start is called before the first frame update
     void Start()
@@ -85,5 +91,12 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         Vector3 indicatorLoaction = new Vector3(indicatorX, indicatorY);
 
         taskIndicator.transform.localPosition = indicatorLoaction;
+    }
+
+    public void MakeEventPopUp(Event _curEvent)
+    {
+        GameObject _instance;
+        _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
+        _instance.GetComponent<EventPopUp>().Init(_curEvent);
     }
 }
