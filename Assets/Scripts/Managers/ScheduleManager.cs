@@ -11,8 +11,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     public Period currentPeriod = Period.First;
     public Day currentDay = Day.Mon;
 
-    public List<int> eventLog = new List<int>();
-    public List<Task> taskLog = new List<Task>();
 
     //for mentoring
     public Schedule mentorSchedule;
