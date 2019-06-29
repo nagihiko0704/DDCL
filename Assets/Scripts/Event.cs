@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Event
+[CreateAssetMenu(fileName = "New Event", menuName = "Event")]
+public class Event : ScriptableObject
 {
-    private int _eventCode;
+    public int eventCode;
     //Probability is in 0-1
-    private float _eventProbability;
+    public float eventProbability;
 
-    private float _staminaVal;
-    private float _socialVal;
+    public string title;
+    public string explanation;
 
-    public Event()
+    public Sprite situation;
+
+    public List<string> choice;
+
+    public float staminaVal;
+    public float socialVal;
+
+    
+
+
+    /*public Event()
     {
         this._eventCode = 0;
         this._eventProbability = 0;
@@ -65,5 +76,5 @@ public class Event
         {
             _socialVal = value;
         }
-    }
+    }*/
 }
