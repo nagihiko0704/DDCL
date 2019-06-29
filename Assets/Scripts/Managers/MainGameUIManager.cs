@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainGameUIManager : MonoBehaviour
+public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 {
     //schedule window
     public GameObject[] scheduleList = new GameObject[6];
