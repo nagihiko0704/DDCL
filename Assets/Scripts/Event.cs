@@ -10,15 +10,15 @@ public class Event : ScriptableObject
     public float eventProbability;
 
     public string title;
-    public string explanation;
+    public string message;
 
     public Sprite situation;
 
     //TODO: add minigame
 
-    public List<string> choice;
+    public List<string> choiceMessage;
 
-    public List<string> result;
+    public List<string> resultMessage;
 
     public float staminaVal;
     public float socialVal;
