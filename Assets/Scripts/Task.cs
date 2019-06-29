@@ -27,6 +27,11 @@ public class Task
     {
         this.scheduleLocation = _scheduleLocation;
     }
+
+    public Task((Period, Day) _scheduleLocation, Event _taskEvent) : this(_scheduleLocation)
+    {
+        this.taskEvent = _taskEvent;
+    }
 }
 
 
@@ -35,12 +40,16 @@ public class Study : Task
     private int _favor;
     private float _score;
 
-    public Study((Period, Day) _scheduleLocation)
+    public Study((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
         this.staminaVal = -5f;
         this.socialVal = 0;
+    }
 
-        this.scheduleLocation = _scheduleLocation;
+    public Study((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
+    {
+        this.staminaVal = -5f;
+        this.socialVal = 0;
     }
 
     public int Favor
@@ -65,19 +74,28 @@ public class Study : Task
 }
 public class Club : Task
 {
-    public Club((Period, Day) _scheduleLocation)
+    public Club((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
         this.staminaVal = -8f;
         this.socialVal = 0;
+    }
 
-        this.scheduleLocation = _scheduleLocation;
+    public Club((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
+    {
+        this.staminaVal = -8f;
+        this.socialVal = 0;
     }
 }
 
 public class Rest : Task
 {
-    public Rest((Period, Day) _scheduleLocation)
+    public Rest((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
-        this.scheduleLocation = _scheduleLocation;
+        
+    }
+
+    public Rest((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
+    {
+        
     }
 }

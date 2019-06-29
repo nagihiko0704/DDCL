@@ -16,6 +16,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     //for mentoring
     public Schedule mentorSchedule;
+    public Event firstEvent;
+    public Event secondEvent;
 
     public Schedule CurrentSchedule
     {
@@ -50,13 +52,13 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
         mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
         mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
-        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon)));
+        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
 
         //tue
         mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
         mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
         mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-        mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue)));
+        mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
 
         GameManager.Inst.player.schedules[0] = mentorSchedule;
     }
