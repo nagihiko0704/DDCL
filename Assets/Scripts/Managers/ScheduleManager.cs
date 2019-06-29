@@ -79,11 +79,29 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             Debug.Log("task: " + CurrentTask);
 
             yield return new WaitForSeconds(3.0f);
+            if (CurrentTask.taskEvent != null)
+            {
+                yield return StartCoroutine(DoEvent());
+            }
+            yield return new WaitForSeconds(3.0f);
 
             currentPeriod = nextTaskPeriod;
             currentDay = nextTaskDay;
             Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             Debug.Log("---------");
         }
+    }
+
+    IEnumerator DoEvent()
+    {
+        Event _curEvent = CurrentTask.taskEvent;
+
+        //do event
+        //TODO: learn coroutine
+        //1. show event pop-up UI (with MainGameUIManager)
+        //2. if button click -> then change character stat & show event result pop-up UI
+        //3. if button click -> then close & end this function
+
+        yield return null;
     }
 }
