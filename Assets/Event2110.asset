@@ -22,7 +22,7 @@ MonoBehaviour:
   - "\uD655\uC778"
   resultMessage:
   - "\uBA38\uB9AC\uAC00 \uC88B\uC544\uC9C4 \uAE30\uBD84\uC785\uB2C8\uB2E4! \uC544\uBB34\uD2BC
-    \uADF8\uB807\uC2B5\uB2C8\uB2E4."
+    \uADF8\uB807\uC2B5\uB2C8\uB2E4.\n\n\uCE5C\uD654\uB825 +3"
   resultSituation:
   - {fileID: 0}
   staminaVal:
