@@ -67,7 +67,7 @@ public class EventPopUp : MonoBehaviour
 
             if (_choiceCount > 1)
             {
-                _instance.transform.localPosition = new Vector2(-200 + 100 * i, 0);
+                _instance.transform.localPosition = new Vector2(-200 + 400 * i, 0);
             }
 
             _textChoiceButton.GetComponent<Text>().text = _choiceMessage[i];
