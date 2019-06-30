@@ -15,11 +15,17 @@ MonoBehaviour:
   eventCode: 2110
   eventProbability: 0
   title: "\uC2A4\uD130\uB514"
-  message: "\uC9C4\uD589\uC911"
+  message: "\uC2A4\uD130\uB514\uAC00 \uC9C4\uD589\uB429\uB2C8\uB2E4. \uD559\uC0DD
+    \uC5EC\uB7EC\uBA85\uC774 \uBAA8\uC5EC \uACF5\uBD80\uB97C \uD569\uB2C8\uB2E4."
   situation: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   choiceMessage:
   - "\uD655\uC778"
-  resultMessage: []
-  resultSituation: []
-  staminaVal: []
-  socialVal: []
+  resultMessage:
+  - "\uBA38\uB9AC\uAC00 \uC88B\uC544\uC9C4 \uAE30\uBD84\uC785\uB2C8\uB2E4! \uC544\uBB34\uD2BC
+    \uADF8\uB807\uC2B5\uB2C8\uB2E4."
+  resultSituation:
+  - {fileID: 0}
+  staminaVal:
+  - 0
+  socialVal:
+  - 3

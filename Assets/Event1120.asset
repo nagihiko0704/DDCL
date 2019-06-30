@@ -20,7 +20,12 @@ MonoBehaviour:
   situation: {fileID: 0}
   choiceMessage:
   - "\uC640 \uAC1C\uAFC0!"
-  resultMessage: []
-  resultSituation: []
-  staminaVal: []
-  socialVal: []
+  resultMessage:
+  - "\uC870\uAE08\uC758 \uAC71\uC815\uD558\uB294 \uB9C8\uC74C\uC744 \uAC00\uC9C0\uACE0
+    \uADC0\uD55C \uD734\uC2DD\uC744 \uC990\uAC81\uAC8C \uC990\uACBC\uC2B5\uB2C8\uB2E4."
+  resultSituation:
+  - {fileID: 0}
+  staminaVal:
+  - 3
+  socialVal:
+  - 0
