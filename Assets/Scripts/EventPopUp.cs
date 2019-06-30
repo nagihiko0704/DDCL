@@ -9,9 +9,9 @@ public class EventPopUp : MonoBehaviour
 
     public GameObject buttonChoice;
 
-    public GameObject textTitle;
-    public GameObject textMessage;
-    public GameObject imageSituation;
+    public Text textTitle;
+    public Text textMessage;
+    public Image imageSituation;
 
     public GameObject choiceArea;
 
@@ -35,9 +35,9 @@ public class EventPopUp : MonoBehaviour
 
         this.taskEvent = _taskEvent;
 
-        this.textTitle.GetComponent<Text>().text = taskEvent.title;
-        this.textMessage.GetComponent<Text>().text = taskEvent.message;
-        this.imageSituation.GetComponent<Image>().sprite = taskEvent.situation;
+        this.textTitle.text = taskEvent.title;
+        this.textMessage.text = taskEvent.message;
+        this.imageSituation.sprite = taskEvent.situation;
         MakeChoiceButtons(taskEvent.choiceMessage);
     }
 
@@ -92,8 +92,10 @@ public class EventPopUp : MonoBehaviour
             GameManager.Inst.player.playerCharacter.CurSocial += taskEvent.socialVal[_choiceIndex];
 
             //change textMessage, imageSituation
-            this.textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_choiceIndex];
-            this.imageSituation.GetComponent<Image>().sprite = taskEvent.resultSituation[_choiceIndex];
+            this.textMessage.text = taskEvent.resultMessage[_choiceIndex];
+            this.imageSituation.sprite = taskEvent.resultSituation[_choiceIndex];
+
+            this.imageSituation.transform.localPosition = new Vector2(0, -135);
 
             //re-make choice buttons like this
             MakeChoiceButtons(_choiceMessage);
