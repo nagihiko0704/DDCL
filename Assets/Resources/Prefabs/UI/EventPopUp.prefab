@@ -393,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonChoice: {fileID: 3824624388929324897, guid: 8eff5d49dc8395a4daaaabc9408758ba,
     type: 3}
+  textTitle: {fileID: 9129571825141292469}
   textMessage: {fileID: 1109549799625796655}
   imageSituation: {fileID: 597142342335674828}
   choiceArea: {fileID: 5948917286800037298}
