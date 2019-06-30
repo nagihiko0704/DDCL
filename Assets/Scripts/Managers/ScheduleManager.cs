@@ -105,14 +105,11 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         doEvent = true;
 
-        //do event
-        //TODO: learn coroutine
-        //1. show event pop-up UI (with MainGameUIManager)
-        //2. if button click -> then change character stat & show event result pop-up UI
-        //3. if button click -> then close & end this function
+        MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
-        yield return null;
-
-        doEvent = false;
+        while (doEvent)
+        {
+            yield return null;
+        }
     }
 }

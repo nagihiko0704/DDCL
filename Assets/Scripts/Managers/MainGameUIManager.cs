@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainGameUIManager : MonoBehaviour
+public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 {
     //schedule window
     public GameObject[] scheduleList = new GameObject[6];
@@ -18,6 +18,12 @@ public class MainGameUIManager : MonoBehaviour
     public GameObject textDay;
     public GameObject textTime;
 
+    //main game canvas
+    public GameObject mainGameCanvas;
+
+    //event popup
+    public GameObject eventPopUp;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -205,5 +211,12 @@ public class MainGameUIManager : MonoBehaviour
         textMonth.GetComponent<Text>().text = "03월";
         textDay.GetComponent<Text>().text = "02일";
         textTime.GetComponent<Text>().text = "AM  10:00";
+    }
+    
+    public void MakeEventPopUp(Event _curEvent)
+    {
+        GameObject _instance;
+        _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
+        _instance.GetComponent<EventPopUp>().Init(_curEvent);
     }
 }
