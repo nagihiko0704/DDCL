@@ -10,6 +10,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public List<int> eventLog = new List<int>();
     public List<Task> taskLog = new List<Task>();
 
+
+    //for lecture choice mini game
+    public int lectureChoiceNum;
+
     void Awake()
     {
         player = new Player();
