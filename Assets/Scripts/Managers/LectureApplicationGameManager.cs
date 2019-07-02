@@ -20,6 +20,9 @@ public class LectureApplicationGameManager : MonoBehaviour
 
     public const int GAME_TIME = 30;
 
+
+    private int _clickCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +33,16 @@ public class LectureApplicationGameManager : MonoBehaviour
     void Update()
     {
         
-    }
+    } 
 
     private void AddApplicationCount()
     {
-        //use GameManger's variable
+        //use private variable
     }
 
     private void ApplicationEnd()
     {
         //if game time is over, go lecture result scene
+        //and save score in GameManager
     }
 }
