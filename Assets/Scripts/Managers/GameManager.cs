@@ -13,7 +13,6 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     //for lecture choice score
     public int lectureChoiceScore;
-
     void Awake()
     {
         player = new Player();

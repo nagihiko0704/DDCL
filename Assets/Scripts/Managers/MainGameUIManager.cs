@@ -23,7 +23,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     //event popup
     public GameObject eventPopUp;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetScheduleUI();
         SetDoingTaskIndicator();
         SetTimeUI();
-        //SetDateUI();
+        SetDateUI();
     }
 
     private void SetScheduleUI()
@@ -112,25 +112,58 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     //2. SetDateUI and CalculateDate should be changed
 
 
-    //private void SetDateUI()
-    //{
+    private void SetDateUI()
+    {
+        (int, int) startDate;
+        (int, int) resultDate;
 
+        int passedDayNum =(int)((ScheduleManager.Inst.curTime) / 36f);
 
-    //    Debug.Log(textDay.GetComponent<Text>().text.Substring(0, 1));
-    //    Debug.Log(textDay.GetComponent<Text>().text.Substring(1, 1));
+        string resultMonth;
+        string resultDay;
 
+        if(passedDayNum < 1)
+        {
+            return;
+        }
 
-    //    //int curMonth = Int32.Parse(textMonth.GetComponent<Text>().text.Substring(0, 1)) * 10
-    //    //                    + Int32.Parse(textMonth.GetComponent<Text>().text.Substring(1, 1));
-    //    //int curDay = Int32.Parse(textDay.GetComponent<Text>().text.Substring(0, 1)) * 10
-    //    //                    + Int32.Parse(textDay.GetComponent<Text>().text.Substring(1, 1));
+        switch (GameManager.Inst.player.playerCharacter.StartSemester)
+        {
+            case (1):
+                startDate = (3, 2);
+                break;
+            case (2):
+                startDate = (9, 1);
+                break;
 
-    //    //(int, int) calculatedDate = CalculateDate((curMonth, curDay));
+            default:
+                startDate = (0, 0);
+                break;
+        }
 
-    //    //textMonth.GetComponent<Text>().text = calculatedDate.Item1.ToString();
-    //    //textDay.GetComponent<Text>().text = calculatedDate.Item2.ToString();
+        resultDate = startDate;
 
-    //}
+        for (int day = passedDayNum; day > 0; day--)
+        {
+            resultDate = CalculateDate((resultDate));
+        }
+
+        resultMonth = resultDate.Item1.ToString();
+        resultDay = resultDate.Item2.ToString();
+
+        if(resultMonth.Length < 2)
+        {
+            resultMonth = "0" + resultMonth;
+        }
+
+        if(resultDay.Length < 2)
+        {
+            resultDay = "0" + resultDay;
+        }
+
+        textMonth.GetComponent<Text>().text = resultMonth + "월";
+        textDay.GetComponent<Text>().text = resultDay + "일";
+    }
 
     private void SetTimeUI()
     {
@@ -179,37 +212,47 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         textTime.GetComponent<Text>().text = dayAndNight + "  " + hourString + ":" + minString;
     }
 
-    //need to change
-    //private (int, int) CalculateDate((int, int) date)
-    //{
-    //    int month = date.Item1;
-    //    int day = date.Item2;
+    private (int, int) CalculateDate((int, int) date)
+    {
+        int month = date.Item1;
+        int day = date.Item2;
 
-    //    //array for month has same days
-    //    int[] month31 = { 1, 3, 5, 7, 8, 10, 12 };
-    //    int[] month30 = { 4, 6, 9, 11 };
-    //    int month28 = 2;
+        //array for month has same days
+        int[] month31 = { 1, 3, 5, 7, 8, 10, 12 };
+        int[] month30 = { 4, 6, 9, 11 };
+        int month28 = 2;
 
-    //    day++;
+        day++;
 
-    //    //if day exceed month's day, change month
-    //    if((month31.Contains(month) && day > 31)
-    //        || (month30.Contains(month) && day > 30)
-    //        || (month28 == month && day > 28))
-    //    {
-    //        day = 1;
-    //        month++;
-    //        //month has to be 1-12
-    //        month = ((month) % 12) + 1;
-    //    }
+        //if day exceed month's day, change month
+        if ((month31.Contains(month) && day > 31)
+            || (month30.Contains(month) && day > 30)
+            || (month28 == month && day > 28))
+        {
+            day = 1;
+            month++;
+            //month has to be 1-12
+            month = ((month) % 12) + 1;
+        }
 
-    //    return (month, day);
-    //}
+        return (month, day);
+    }
 
     private void InitDateTimeUI()
     {
-        textMonth.GetComponent<Text>().text = "03월";
-        textDay.GetComponent<Text>().text = "02일";
+        //set start date depend on start semester
+        switch(GameManager.Inst.player.playerCharacter.StartSemester)
+        {
+            case (1):
+                textMonth.GetComponent<Text>().text = "03월";
+                textDay.GetComponent<Text>().text = "02일";
+                break;
+            case (2):
+                textMonth.GetComponent<Text>().text = "09월";
+                textDay.GetComponent<Text>().text = "01일";
+                break;
+        }
+
         textTime.GetComponent<Text>().text = "AM  10:00";
     }
     
