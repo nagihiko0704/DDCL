@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character
 {
+    public string name;
+
     //character's stat
     private float _intelligence;
 
@@ -14,6 +16,9 @@ public class Character
 
     private float _maxSociability;
     private float _curSociability;
+
+    //character's semester start date
+    private int _startSemester;
 
     //each stat's max value
     private const float MAX_INTELLI = 200f;
@@ -116,5 +121,35 @@ public class Character
                 _curSociability = _maxSociability;
             }
         }
+    }
+
+    public int StartSemester
+    {
+        get { return _startSemester; }
+
+        set
+        {
+            _startSemester = value;
+        }
+    }
+}
+
+public class Newbie : Character
+{
+    public Newbie()
+    {
+        Character character = new Character();
+
+        //set character name
+        character.name = "뉴비";
+
+        //set character stat
+        character.Intelli = Random.Range(125, 151);
+        character.CurStamina = Random.Range(115, 191);
+        character.Fassion = Random.Range(10, 36);
+        character.CurSocial = Random.Range(50, 176);
+
+        //set character start semester
+        character.StartSemester = 1;
     }
 }
