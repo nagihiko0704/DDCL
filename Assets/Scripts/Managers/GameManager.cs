@@ -11,8 +11,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     public List<Task> taskLog = new List<Task>();
 
 
-    //for lecture choice mini game
-    public int lectureChoiceNum;
+    //for lecture choice score
+    public int lectureChoiceScore;
 
     void Awake()
     {
