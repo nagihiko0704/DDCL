@@ -24,9 +24,15 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     //event popup
     public GameObject eventPopUp;
 
+    public float TASK_TIME;
+    public float SCHEDULE_TIME;
+
     // Start is called before the first frame update
     void Start()
     {
+        TASK_TIME = GameManager.TASK_TIME;
+        SCHEDULE_TIME = TASK_TIME * 6;
+
         InitDateTimeUI();
     }
 
@@ -81,7 +87,6 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     private void SetDoingTaskIndicator()
     {
-        const float TOTAL_SCHEDULE_TIME = 36f;
         const float START_Y = -600f;
         const float END_Y = 600f;
         float currentTime = ScheduleManager.Inst.curTime;
@@ -89,14 +94,14 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         float indicatorX;
         float indicatorY = taskIndicator.transform.localPosition.y;
         
-        //set currentTime period 36s
-        if(currentTime > 36f)
+        //set currentTime period as schedule time
+        if(currentTime > SCHEDULE_TIME)
         {
-            currentTime %= 36;
+            currentTime %= SCHEDULE_TIME;
         }
 
         //time ratio of current time and total time
-        float timeRatio = currentTime / TOTAL_SCHEDULE_TIME;
+        float timeRatio = currentTime / SCHEDULE_TIME;
 
         indicatorX = Mathf.Lerp(START_Y, END_Y, timeRatio);
 
@@ -117,7 +122,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         (int, int) startDate;
         (int, int) resultDate;
 
-        int passedDayNum =(int)((ScheduleManager.Inst.curTime) / 36f);
+        int passedDayNum =(int)((ScheduleManager.Inst.curTime) / SCHEDULE_TIME );
 
         string resultMonth;
         string resultDay;
@@ -175,8 +180,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         string minString;
         string dayAndNight;
 
-        hour =  (((int)curTime) / 3) % 12;
-        minute = ((int)curTime) % 3;
+        hour =  (int)(curTime / (TASK_TIME / 2)) % 12;
+        minute = (int)((curTime * 1.5) % 3);
 
         //Debug.Log(hour);
 

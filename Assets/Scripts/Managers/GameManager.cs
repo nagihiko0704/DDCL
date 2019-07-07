@@ -15,6 +15,10 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     //for lecture Application score
     public int lectureApplicationScore;
+
+    public const float TASK_TIME = 4f;
+
+
     void Awake()
     {
         player = new Player();
