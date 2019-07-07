@@ -10,9 +10,11 @@ public class GameManager : SingletonBehaviour<GameManager>
     public List<int> eventLog = new List<int>();
     public List<Task> taskLog = new List<Task>();
 
-
     //for lecture choice score
-    public int lectureChoiceScore;
+    public int[] lectureChoiceScore = new int[5];
+
+    //for lecture Application score
+    public int lectureApplicationScore;
     void Awake()
     {
         player = new Player();
