@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class Character
 {
+    public string name;
+
     //character's stat
-    private float _intelligence;
+    protected float _intelligence;
 
-    private float _maxStamina;
-    private float _curStamina;
+    protected float _maxStamina;
+    protected float _curStamina;
 
-    private float _fassion;
+    protected float _fassion;
 
-    private float _maxSociability;
-    private float _curSociability;
+    protected float _maxSociability;
+    protected float _curSociability;
+
+    //character's semester start date
+    protected int _startSemester;
 
     //each stat's max value
-    private const float MAX_INTELLI = 200f;
-    private const float MAX_STAMINA = 200f;
-    private const float MAX_FASSION = 50f;
-    private const float MAX_SOCIAL = 200f;
+    protected const float MAX_INTELLI = 200f;
+    protected const float MAX_STAMINA = 200f;
+    protected const float MAX_FASSION = 50f;
+    protected const float MAX_SOCIAL = 200f;
 
 
     public float Intelli
@@ -116,5 +121,35 @@ public class Character
                 _curSociability = _maxSociability;
             }
         }
+    }
+
+    public int StartSemester
+    {
+        get { return _startSemester; }
+
+        set
+        {
+            _startSemester = value;
+        }
+    }
+}
+
+public class Newbie : Character
+{
+    public Newbie()
+    {
+        Character character = new Character();
+
+        //set character name
+        this.name = "뉴비";
+
+        //set character stat
+        this._intelligence = Random.Range(125, 151); 
+        this._curStamina = Random.Range(115, 191);
+        this._fassion = Random.Range(10, 36);
+        this._curSociability = Random.Range(50, 176);
+
+        //set character start semester
+        this._startSemester = 1;
     }
 }
