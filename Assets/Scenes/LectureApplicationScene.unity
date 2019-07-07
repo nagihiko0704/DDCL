@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 488144159}
   - component: {fileID: 488144158}
   m_Layer: 0
-  m_Name: ImageLectureChoiceBackground
+  m_Name: ImageLectureApplicationBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 1715883082}
   - component: {fileID: 1715883081}
   m_Layer: 0
-  m_Name: LectureChoiceCanvas
+  m_Name: LectureApplicationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
