@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class LectureList
 {
-    public Dictionary<string, Task> lectureList = new Dictionary<string, Task>();
+    public Dictionary<string, List<Task>> lectureList = new Dictionary<string, List<Task>>();
 
     public LectureList()
     {
-        //add lecture list: name, type, grade
+        this.lectureList.Add("S", new List<Task>());
+        this.lectureList.Add("A", new List<Task>());
+        this.lectureList.Add("B", new List<Task>());
+        this.lectureList.Add("C", new List<Task>());
 
-        this.lectureList.Add("S", new Study("암벽등반", Type.Sport, "S"));
+
+        //add lectures here: grade, new Study(name, type, grade)
+        //s grade
+        AddTaskByGrade("S", new Study("암벽 등반", Type.Sport, "S"));
+
+        //a grade
+
+        //b grade
+
+        //c grade
+    }
+
+    public void AddTaskByGrade(string grade, Task task)
+    {
+        List<Task> tempTaskList = new List<Task>();
+
+        this.lectureList[grade] = tempTaskList;
+        tempTaskList.Add(task);
+
+        this.lectureList[grade] = tempTaskList;
     }
 }
