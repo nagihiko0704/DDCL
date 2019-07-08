@@ -36,7 +36,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         TASK_TIME = GameManager.TASK_TIME;
 
-        InitMentorSchedule();
+        //InitMentorSchedule();
         StartCoroutine(DoTask());
     }
 
@@ -51,25 +51,35 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     }
 
     //for mentoring
-    void InitMentorSchedule()
+    //void InitMentorSchedule()
+    //{
+    //    Debug.Log("Init mentor schedule");
+
+    //    mentorSchedule = new Schedule();
+
+    //    //mon
+    //    mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
+    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
+    //    mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
+    //    mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
+
+    //    //tue
+    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
+    //    mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
+    //    mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+    //    mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
+
+    //    GameManager.Inst.player.schedules[0] = mentorSchedule;
+    //}
+
+    private void InitSchedule()
     {
-        Debug.Log("Init mentor schedule");
 
-        mentorSchedule = new Schedule();
+    }
 
-        //mon
-        mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
-        mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
-        mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
-        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
+    private void InitScheduleType1()
+    {
 
-        //tue
-        mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
-        mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
-        mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-        mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
-
-        GameManager.Inst.player.schedules[0] = mentorSchedule;
     }
 
     IEnumerator DoTask()
