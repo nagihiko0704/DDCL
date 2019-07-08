@@ -16,6 +16,11 @@ public class GameManager : SingletonBehaviour<GameManager>
     //for lecture Application score
     public int lectureApplicationScore;
 
+    //for lecture supplement scene, schedule manager
+    public int[] lectureScore = new int[5];
+
+    public LectureList lectureList = new LectureList();
+
     public const float TASK_TIME = 4f;
 
 
