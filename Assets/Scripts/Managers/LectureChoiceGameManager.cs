@@ -32,7 +32,9 @@ public class LectureChoiceGameManager : MonoBehaviour
     private int _choiceNum = 0;
     private int choiceNumNow = 0;
 
-    private const float TIME_LIMIT = 4f;
+    private const float TIME_LIMIT = 4;
+    private float limitTime=TIME_LIMIT;
+
     private readonly int[] SCORE = { 10, 7, 4, 1 };
 
     // Start is called before the first frame update
@@ -44,13 +46,31 @@ public class LectureChoiceGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_choiceNum == 5)
+		//timer
+		float time = Time.deltaTime;
+		limitTime -= time;
+
+        //To make sure you made your choice in time.
+		if (limitTime <= 0)
+		{
+			if (_choiceNum == choiceNumNow)
+			{
+				GameManager.Inst.lectureChoiceScore[_choiceNum] = 1;
+				limitTime = TIME_LIMIT;
+				Debug.Log(1);
+				_choiceNum++;
+			}
+		}
+
+        //if u play the game 5 times, change to application scene.
+		if (_choiceNum == 5)
         {
             SceneManager.LoadScene(2);
             Destroy(this.gameObject);
         }
 
-        if (_choiceNum == choiceNumNow + 1)
+		//if u already made ur choice, do LectureChoiceGame() again.
+		if (_choiceNum == choiceNumNow + 1)
         {
             LectureChoiceGame();
             choiceNumNow++;
