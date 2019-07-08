@@ -16,6 +16,8 @@ public class Event : ScriptableObject
     public Sprite situation;
 
     //TODO: add minigame
+    [TextArea]
+    public string minigameExplanation;
 
     public List<string> choiceMessage;
 
