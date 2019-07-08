@@ -61,7 +61,7 @@ public class LectureApplicationGameManager : MonoBehaviour
         //and save score in GameManage
 
         GameManager.Inst.lectureApplicationScore = _clickCount;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 }
  

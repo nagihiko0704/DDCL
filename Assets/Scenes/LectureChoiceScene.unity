@@ -275,7 +275,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117766083}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655576477}
+        m_MethodName: OnLecture1ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &117766083
@@ -554,7 +565,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 928632514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655576477}
+        m_MethodName: OnLecture2ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &928632514
@@ -1018,16 +1040,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonLectures:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1081655774}
+  - {fileID: 117766080}
+  - {fileID: 928632511}
+  - {fileID: 2019351551}
   spriteLectureButtonBackground:
   - {fileID: 21300000, guid: 4d23f6689ed719841a8568f10ac89018, type: 3}
   - {fileID: 21300000, guid: f1014383e2a200947babad64b0b39999, type: 3}
   - {fileID: 21300000, guid: 374e20b0d00918c45b589c92f94c563f, type: 3}
   - {fileID: 21300000, guid: 52cb1b5615375a34894b77ca232c375e, type: 3}
-  _lectureChoiceScore: 00000000000000000000000000000000
 --- !u!1 &1824482220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1292,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2019351554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655576477}
+        m_MethodName: OnLecture3ButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2019351554
