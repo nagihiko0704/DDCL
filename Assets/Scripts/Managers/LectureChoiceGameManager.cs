@@ -15,9 +15,10 @@ public class LectureChoiceGameManager : MonoBehaviour
     //3. implement time limit with using TIME_LIMIT
     //3-1. note that if time limit is over, score must be stored as 1
     //4. make LectureChoiceGame() played 5 times
-    //5. change to lecture apllication scene
-    //6. if all goes right, delete annotations
-    //7.  **add your own annotaiton about variables and methods**
+    //4-1. each score should be saved in lectureChoiceScore which is GameManager's variable
+    //5. then change to lecture apllication scene
+    //6. **if all goes right, delete annotations**
+    //7. **add your own annotaiton about variables and methods**
     //
     //you can change, add, or delete variables and methods
     //if you have any question please feel free to ask me any time
@@ -34,11 +35,6 @@ public class LectureChoiceGameManager : MonoBehaviour
     //ordered by degree of goodness
     //check LectureChoiceGameManager inspector window
     public Sprite[] spriteLectureButtonBackground = new Sprite[4];
-
-    //for store score by lecture
-    //[SerializeField] makes priavte value be shown in inspector window
-    [SerializeField]
-    private int[] _lectureChoiceScore = new int[4];
 
     //array element value is decending order of goodness
     //value range: 0-3
@@ -101,7 +97,7 @@ public class LectureChoiceGameManager : MonoBehaviour
     {
         //sample
         int goodOrder = _goodLectureOrder[0];
-        _lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
+        GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
         _choiceNum++;
     }
 

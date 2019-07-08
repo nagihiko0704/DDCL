@@ -60,7 +60,7 @@ public class LectureApplicationGameManager : MonoBehaviour
         //if game time is over, go lecture result scene
         //and save score in GameManage
 
-        GameManager.Inst.lectureChoiceScore = _clickCount;
+        GameManager.Inst.lectureApplicationScore = _clickCount;
         SceneManager.LoadScene(1);
     }
 }

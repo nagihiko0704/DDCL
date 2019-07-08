@@ -15,6 +15,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public bool doEvent = false;
 
+    public float TASK_TIME;
+
     //for mentoring
     public Schedule mentorSchedule;
     public Event firstEvent;
@@ -32,6 +34,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     // Start is called before the first frame update
     void Start()
     {
+        TASK_TIME = GameManager.TASK_TIME;
+
         InitMentorSchedule();
         StartCoroutine(DoTask());
     }
@@ -85,12 +89,12 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
             Debug.Log("task: " + CurrentTask);
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(TASK_TIME / 2);
             if (CurrentTask.taskEvent != null)
             {
                 yield return StartCoroutine(DoEvent());
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(TASK_TIME / 2);
 
             currentPeriod = nextTaskPeriod;
             currentDay = nextTaskDay;
