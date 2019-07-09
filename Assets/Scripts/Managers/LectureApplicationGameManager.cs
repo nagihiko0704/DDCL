@@ -19,10 +19,11 @@ public class LectureApplicationGameManager : MonoBehaviour
     //inspector window
     public Button buttonApplication;
 
-    public const int GAME_TIME = 30;
+    public const int GAME_TIME = 10;
     public float countTime = GAME_TIME;
 
     private int _clickCount;
+    private int applicationScore;
 
     // Start is called before the first frame update
     void Start()
@@ -59,8 +60,16 @@ public class LectureApplicationGameManager : MonoBehaviour
     {
         //if game time is over, go lecture result scene
         //and save score in GameManage
+        if (_clickCount > 23)
+            applicationScore = 10;
+        else if (_clickCount >= 19)
+            applicationScore = 7;
+        else if (_clickCount >= 15)
+            applicationScore = 4;
+        else
+            applicationScore = 1;
 
-        GameManager.Inst.lectureApplicationScore = _clickCount;
+        GameManager.Inst.lectureApplicationScore = applicationScore;
         SceneManager.LoadScene(3);
     }
 }
