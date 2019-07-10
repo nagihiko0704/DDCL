@@ -6,23 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class LectureApplicationGameManager : MonoBehaviour
 {
-
-    //TODO: count number as button clicked, and go result scene if game ends
-    //1. fill AddApplicationCount method
-    //2. fill ApplicationEnd method
-    //3. if all goes right, delete this
-    //4. **add your own annotaiton about variables and methods**
-
-
-    //you need to add button
-    //at lecture application game manager
-    //inspector window
     public Button buttonApplication;
 
-    public const int GAME_TIME = 30;
+    public const int GAME_TIME = 2;
     public float countTime = GAME_TIME;
+    public int lectureCount;
 
     private int _clickCount;
+    private int applicationScore;
 
     // Start is called before the first frame update
     void Start()
@@ -37,31 +28,47 @@ public class LectureApplicationGameManager : MonoBehaviour
     {
         float time = Time.deltaTime;
         countTime -= time;
-        //Debug.Log(countTime);
+
         if (countTime <= 0)
         {
-            Debug.Log(countTime+"   "+_clickCount);
-            
-            ApplicationEnd();
+            ApplicationEnd(lectureCount);
         }
+
+        if (lectureCount == 5)
+        {
+            SceneManager.LoadScene(3);
+        }
+            
     }
 
     private void AddApplicationCount()
     {
         _clickCount++;
-        Debug.Log("clickCount:" + _clickCount);
-
     }
     
 
 
-    private void ApplicationEnd()
+    private void ApplicationEnd(int lecture)
     {
         //if game time is over, go lecture result scene
         //and save score in GameManage
+        if (_clickCount > 23)
+            applicationScore = 10;
+        else if (_clickCount >= 19)
+            applicationScore = 7;
+        else if (_clickCount >= 15)
+            applicationScore = 4;
+        else
+            applicationScore = 1;
 
-        GameManager.Inst.lectureApplicationScore = _clickCount;
-        SceneManager.LoadScene(1);
+        Debug.Log(_clickCount+" "+applicationScore);
+
+        
+        GameManager.Inst.lectureApplicationScore[lecture] = applicationScore;
+
+        lectureCount++;
+        countTime = 2;
+        _clickCount = 0;
     }
 }
  

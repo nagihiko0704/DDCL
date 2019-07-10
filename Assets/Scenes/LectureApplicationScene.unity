@@ -373,7 +373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonApplication: {fileID: 1670002219}
-  countTime: 30
+  countTime: 2
+  lectureCount: 0
 --- !u!4 &1076407832
 Transform:
   m_ObjectHideFlags: 0
@@ -603,6 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonApplication: {fileID: 1670002219}
   countTime: 30
+  lectureCount: 0
 --- !u!1 &1715883080
 GameObject:
   m_ObjectHideFlags: 0

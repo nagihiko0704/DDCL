@@ -14,7 +14,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public int[] lectureChoiceScore = new int[5];
 
     //for lecture Application score
-    public int lectureApplicationScore;
+    public int[] lectureApplicationScore=new int[5];
 
     public const float TASK_TIME = 4f;
 
