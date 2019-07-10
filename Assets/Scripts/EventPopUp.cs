@@ -35,9 +35,9 @@ public class EventPopUp : MonoBehaviour
 
         this.taskEvent = _taskEvent;
 
-        this.textTitle.text = taskEvent.title;
-        this.textMessage.text = taskEvent.message;
-        this.imageSituation.sprite = taskEvent.situation;
+        this.textTitle.text = taskEvent.SelectedTitle;
+        this.textMessage.text = taskEvent.SelectedMessage;
+        this.imageSituation.sprite = taskEvent.SelectedSituation;
         MakeChoiceButtons(taskEvent.choiceMessage);
     }
 
