@@ -30,13 +30,7 @@ public class LectureResultGameManager : MonoBehaviour
             if (lectureFinalScore[i] >= 20)
             {
                 //s
-                foreach(KeyValuePair<string,Task> item in list.lectureList)
-                {
-                    string found = "S";
-                    var lectureS=list.lectureList.Where()
-
-
-                }
+                
             }
             else if (lectureFinalScore[i] >= 17)
                 //a
