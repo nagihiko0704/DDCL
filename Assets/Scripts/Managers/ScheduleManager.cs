@@ -17,6 +17,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public float TASK_TIME;
 
+    public List<Task> lectureList = new List<Task>();
+
     //for mentoring
     public Schedule mentorSchedule;
     public Event firstEvent;
@@ -35,6 +37,11 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     void Start()
     {
         TASK_TIME = GameManager.TASK_TIME;
+
+        for(int i = 0; i < 5; i++)
+        {
+            lectureList[i] = null;
+        }
 
         //InitMentorSchedule();
         StartCoroutine(DoTask());
@@ -80,6 +87,43 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     private void InitScheduleType1()
     {
 
+    }
+
+    private void GetLecture(int lectureNum)
+    {
+        int lectureScore = GameManager.Inst.lectureScore[lectureNum];
+        string lectureGrade = null;
+        Task lecture;
+
+        if(lectureScore >= 20)
+        {
+            lectureGrade = "S";
+        }
+        else if(lectureScore >= 17 && lectureScore < 20)
+        {
+            lectureGrade = "A";
+        }
+        else if(lectureScore >= 11 && lectureScore < 17)
+        {
+            lectureGrade = "B";
+        }
+        else if(lectureScore < 11)
+        {
+            lectureGrade = "C";
+        }
+
+
+        List<Task> taskList = GameManager.Inst.lectureList.lectureList[lectureGrade];
+
+        lecture = taskList[Random.Range(0, 6)];
+
+        if(lectureList.Contains(lecture))
+        {
+            GetLecture(lectureNum);
+            return;
+        }
+
+        lectureList.Add(lecture);
     }
 
     IEnumerator DoTask()
