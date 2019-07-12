@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LectureList
 {
-    public Dictionary<string, Task> lectureList = new Dictionary<string, Task>();
+    public Dictionary<string, List<Task>> lectureList = new Dictionary<string, List<Task>>();
 
     public LectureList()
     {
-        //add lecture list: name, type, grade
+
+
 
         this.lectureList.Add("S01", new Study("암벽등반", Type.Sport, "S"));
         this.lectureList.Add("S02", new Study("논리설계", Type.Major, "S"));
@@ -31,5 +32,8 @@ public class LectureList
         this.lectureList.Add("C02", new Study("법학통론", Type.Discuss, "C"));
         this.lectureList.Add("C03", new Study("스포츠 댄스", Type.Sport, "C"));
         this.lectureList.Add("C04", new Study("피겨 댄스", Type.Sport, "C"));
+        
     }
-}
+
+    }
+
