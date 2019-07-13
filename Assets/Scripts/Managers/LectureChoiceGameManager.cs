@@ -66,7 +66,7 @@ public class LectureChoiceGameManager : MonoBehaviour
 		if (_choiceNum == 5)
         {
             SceneManager.LoadScene(2);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
 
 		//if u already made ur choice, do LectureChoiceGame() again.
@@ -116,8 +116,9 @@ public class LectureChoiceGameManager : MonoBehaviour
         //sample
         int goodOrder = _goodLectureOrder[0];
         GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
-        _choiceNum++;
+        
         Debug.Log(SCORE[goodOrder]);
+        _choiceNum++;
     }
 
     //add this fuction as onClick() in ButtonLecture1 inspector window
@@ -125,8 +126,9 @@ public class LectureChoiceGameManager : MonoBehaviour
     {
         int order1 = _goodLectureOrder[1];
         GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order1];
-		_choiceNum++;
+		
         Debug.Log(SCORE[order1]);
+        _choiceNum++;
     }
 
     //add this fuction as onClick() in ButtonLecture2 inspector window
@@ -134,8 +136,9 @@ public class LectureChoiceGameManager : MonoBehaviour
     {
         int order2 = _goodLectureOrder[2];
         GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order2];
-		_choiceNum++;
+		
         Debug.Log(SCORE[order2]);
+        _choiceNum++;
     }
 
     //add this fuction as onClick() in ButtonLecture3 inspector window
@@ -143,7 +146,8 @@ public class LectureChoiceGameManager : MonoBehaviour
     {
         int order3 = _goodLectureOrder[3];
         GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order3];
-		_choiceNum++;
+		
         Debug.Log(SCORE[order3]);
+        _choiceNum++;
     }
 }
