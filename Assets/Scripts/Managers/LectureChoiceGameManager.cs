@@ -88,7 +88,7 @@ public class LectureChoiceGameManager : MonoBehaviour
         }
 
         Shuffle(_goodLectureOrder);
-        Debug.Log(_goodLectureOrder[0]+"    "+_goodLectureOrder[1]+"    "+_goodLectureOrder[2]+"    "+_goodLectureOrder[3]);
+        //Debug.Log(_goodLectureOrder[0]+"    "+_goodLectureOrder[1]+"    "+_goodLectureOrder[2]+"    "+_goodLectureOrder[3]);
         for (int i = 0; i < 4; i++)
         {
             int x=_goodLectureOrder[i];
