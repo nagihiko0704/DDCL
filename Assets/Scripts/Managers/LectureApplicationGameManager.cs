@@ -52,11 +52,11 @@ public class LectureApplicationGameManager : MonoBehaviour
     {
         //if game time is over, go lecture result scene
         //and save score in GameManage
-        if (_clickCount > 23)
+        if (_clickCount >= 23)
             applicationScore = 10;
-        else if (_clickCount >= 19)
+        else if (_clickCount >=19&&_clickCount<23)
             applicationScore = 7;
-        else if (_clickCount >= 15)
+        else if (_clickCount >= 15&&_clickCount<19)
             applicationScore = 4;
         else
             applicationScore = 1;
