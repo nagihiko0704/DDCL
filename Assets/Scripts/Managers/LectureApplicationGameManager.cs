@@ -64,7 +64,7 @@ public class LectureApplicationGameManager : MonoBehaviour
         Debug.Log(lecture+" "+_clickCount+" "+applicationScore);
 
         
-        GameManager.Inst.lectureApplicationScore[lecture] = applicationScore;
+        GameManager.lectureApplicationScore[lecture] = applicationScore;
 
         lectureCount++;
         countTime = 2;

@@ -11,10 +11,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public List<Task> taskLog = new List<Task>();
 
     //for lecture choice score
-    public int[] lectureChoiceScore = new int[5];
-
+    public static int[] lectureChoiceScore = new int[5];
+    
     //for lecture Application score
-    public int[] lectureApplicationScore=new int[5];
+    public static int[] lectureApplicationScore=new int[5];
 
     //for lecture supplement scene, schedule manager
     public int[] lectureScore = new int[5];

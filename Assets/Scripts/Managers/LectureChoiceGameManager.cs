@@ -55,7 +55,7 @@ public class LectureChoiceGameManager : MonoBehaviour
 		{
 			if (_choiceNum == choiceNumNow)
 			{
-				GameManager.Inst.lectureChoiceScore[_choiceNum] = 1;
+				GameManager.lectureChoiceScore[_choiceNum] = 1;
 				limitTime = TIME_LIMIT;
 				Debug.Log(1);
 				_choiceNum++;
@@ -115,7 +115,7 @@ public class LectureChoiceGameManager : MonoBehaviour
     {
         //sample
         int goodOrder = _goodLectureOrder[0];
-        GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
+        GameManager.lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
         
         Debug.Log(SCORE[goodOrder]);
         _choiceNum++;
@@ -125,7 +125,7 @@ public class LectureChoiceGameManager : MonoBehaviour
     public void OnLecture1ButtonClicked()
     {
         int order1 = _goodLectureOrder[1];
-        GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order1];
+        GameManager.lectureChoiceScore[_choiceNum] = SCORE[order1];
 		
         Debug.Log(SCORE[order1]);
         _choiceNum++;
@@ -135,7 +135,7 @@ public class LectureChoiceGameManager : MonoBehaviour
     public void OnLecture2ButtonClicked()
     {
         int order2 = _goodLectureOrder[2];
-        GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order2];
+        GameManager.lectureChoiceScore[_choiceNum] = SCORE[order2];
 		
         Debug.Log(SCORE[order2]);
         _choiceNum++;
@@ -145,7 +145,7 @@ public class LectureChoiceGameManager : MonoBehaviour
     public void OnLecture3ButtonClicked()
     {
         int order3 = _goodLectureOrder[3];
-        GameManager.Inst.lectureChoiceScore[_choiceNum] = SCORE[order3];
+        GameManager.lectureChoiceScore[_choiceNum] = SCORE[order3];
 		
         Debug.Log(SCORE[order3]);
         _choiceNum++;
