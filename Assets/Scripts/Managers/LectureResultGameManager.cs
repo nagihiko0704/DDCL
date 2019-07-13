@@ -10,8 +10,8 @@ public class LectureResultGameManager : MonoBehaviour
     public LectureList list = new LectureList();
     public List<Task> tempList = new List<Task>();
 
-    private int[] lectureFinalScore = new int[5];
-
+    //private int[] lectureFinalScore = new int[5];
+    private int lectureFinalScore;
 
     void Start()
     {
@@ -22,9 +22,11 @@ public class LectureResultGameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            lectureFinalScore[i] = GameManager.Inst.lectureApplicationScore[i] + GameManager.Inst.lectureChoiceScore[i];
+            int lectureAppScore = GameManager.Inst.lectureApplicationScore[i];
+            int lectureChoScore = GameManager.Inst.lectureChoiceScore[i];
+            lectureFinalScore = lectureAppScore+lectureChoScore;
 
-            if (lectureFinalScore[i] >= 20)
+            if (lectureFinalScore >= 20)
             {
                 //s
                 var countS = list.lectureList["S"].Count;
@@ -34,7 +36,7 @@ public class LectureResultGameManager : MonoBehaviour
 
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumS].taskName +"    S급";
             }
-            else if (lectureFinalScore[i] >= 17)
+            else if (lectureFinalScore >= 17&&lectureChoScore<20)
             {
                 //a
                 var countA = list.lectureList["A"].Count;
@@ -45,7 +47,7 @@ public class LectureResultGameManager : MonoBehaviour
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumA].taskName + "    A급";
             }
                 
-            else if (lectureFinalScore[i] >= 11)
+            else if (lectureFinalScore >= 11&&lectureChoScore<17)
             {
                 //b
                 var countB = list.lectureList["B"].Count;
