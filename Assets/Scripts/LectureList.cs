@@ -56,3 +56,4 @@ public class LectureList
 		this.lectureList[grade] = tempTaskList;
 	}
 }
+
