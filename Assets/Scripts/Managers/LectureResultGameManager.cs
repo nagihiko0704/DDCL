@@ -19,17 +19,16 @@ public class LectureResultGameManager : MonoBehaviour
 
     void Start()
     {
-        lectureAppScore = GameManager.lectureApplicationScore;
-        lectureChoScore = GameManager.lectureChoiceScore;
         SetLecture();
     }
 
     void SetLecture()
     {
+        lectureAppScore = GameManager.lectureApplicationScore;
+        lectureChoScore = GameManager.lectureChoiceScore;
         for (int i = 0; i < 5; i++)
         {
-            //lectureAppScore = GameManager.lectureApplicationScore;
-            //lectureChoScore = GameManager.lectureChoiceScore;
+        
             lectureFinalScore = lectureAppScore[i]+lectureChoScore[i];
             Debug.Log(lectureAppScore+" "+lectureChoScore+" "+lectureFinalScore);
 
@@ -41,10 +40,11 @@ public class LectureResultGameManager : MonoBehaviour
                 var countS = tempList.Count;
                 int lectureNumS = Random.Range(0, countS);
 
-                Debug.Log(countS+"  "+lectureNumS);
-
+                Debug.Log(lectureFinalScore);
 
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumS].taskName +"    S급";
+                list.lectureList["S"].RemoveAt(lectureNumS);
+                
             }
             else if (lectureFinalScore >= 17&&lectureFinalScore<20)
             {
@@ -53,10 +53,11 @@ public class LectureResultGameManager : MonoBehaviour
                 var countA = tempList.Count;
                 int lectureNumA = Random.Range(0, countA);
 
-                Debug.Log(countA + "  " + lectureNumA);
+                Debug.Log(lectureFinalScore);
 
 
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumA].taskName + "    A급";
+                list.lectureList["A"].RemoveAt(lectureNumA);
             }
                 
             else if (lectureFinalScore >= 11&&lectureFinalScore<17)
@@ -67,9 +68,10 @@ public class LectureResultGameManager : MonoBehaviour
                 var countB = tempList.Count;
                 int lectureNumB = Random.Range(0, countB);
 
-                Debug.Log(countB + "  " + lectureNumB);
+                Debug.Log(lectureFinalScore);
 
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumB].taskName + "    B급";
+                list.lectureList["B"].RemoveAt(lectureNumB);
             }
 
             else
@@ -79,10 +81,10 @@ public class LectureResultGameManager : MonoBehaviour
                 var countC = tempList.Count;
                 int lectureNumC = Random.Range(0, countC);
 
-                Debug.Log(countC + "  " + lectureNumC);
-
+                Debug.Log(lectureFinalScore);
 
                 gameLecture[i].GetComponent<Text>().text = tempList[lectureNumC].taskName + "    C급";
+                list.lectureList["C"].RemoveAt(lectureNumC);
             }
 
         }
