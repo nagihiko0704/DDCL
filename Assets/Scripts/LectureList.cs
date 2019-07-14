@@ -50,7 +50,7 @@ public class LectureList
 	{
 		List<Task> tempTaskList = new List<Task>();
 
-		this.lectureList[grade] = tempTaskList;
+        tempTaskList=this.lectureList[grade];
 		tempTaskList.Add(task);
 
 		this.lectureList[grade] = tempTaskList;
