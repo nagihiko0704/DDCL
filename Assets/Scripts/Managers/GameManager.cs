@@ -14,10 +14,10 @@ public class GameManager : SingletonBehaviour<GameManager>
     public static int[] lectureChoiceScore = new int[5];
     
     //for lecture Application score
-    public static int[] lectureApplicationScore=new int[5];
+    public static int[] lectureApplicationScore = new int[5];
 
     //for lecture supplement scene, schedule manager
-    public int[] lectureScore = new int[5];
+    public Study[] studyResultArray = new Study[5];
 
     public LectureList lectureList = new LectureList();
 
