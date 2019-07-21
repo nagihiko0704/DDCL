@@ -22,6 +22,8 @@ public class LectureResultGameManager : MonoBehaviour
         lectureAppScore = GameManager.lectureApplicationScore;
         lectureChoScore = GameManager.lectureChoiceScore;
         SetLecture();
+        //if lectures are determined, then set schedule
+        //ScheduleManager.Inst.InitSchedule();
     }
 
     void SetLecture()
