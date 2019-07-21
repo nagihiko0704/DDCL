@@ -19,10 +19,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public List<Task> lectureList = new List<Task>();
 
-    //for mentoring
-    public Schedule mentorSchedule;
-    public Event firstEvent;
-    public Event secondEvent;
+    //for schedule form
+    public Schedule[] playerSchedule;
+    public Study[] studyResult;
 
     public Schedule CurrentSchedule
     {
@@ -43,7 +42,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             lectureList[i] = null;
         }
 
-        //InitMentorSchedule();
+        playerSchedule = GameManager.Inst.player.schedules;
+        studyResult = GameManager.Inst.studyResultArray;
+
         StartCoroutine(DoTask());
     }
 
@@ -57,74 +58,95 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
     }
 
-    //for mentoring
-    //void InitMentorSchedule()
-    //{
-    //    Debug.Log("Init mentor schedule");
 
-    //    mentorSchedule = new Schedule();
-
-    //    //mon
-    //    mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
-    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
-    //    mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
-    //    mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
-
-    //    //tue
-    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
-    //    mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
-    //    mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-    //    mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
-
-    //    GameManager.Inst.player.schedules[0] = mentorSchedule;
-    //}
-
-    private void InitSchedule()
+    public void InitSchedule()
     {
+        Schedule tempSchedule = new Schedule();
 
+        int randomNum = Random.Range(1, 5);
+
+        switch(randomNum)
+        {
+            case (1):
+                InitScheduleType1(tempSchedule);
+                break;
+            case (2):
+                break;
+            case (3):
+                break;
+            case (4):
+                InitScheduleType4(tempSchedule);
+                break;
+        }
+
+        for(int i = 0; i < 16; i++)
+        {
+            GameManager.Inst.player.schedules[i] = tempSchedule;
+            GameManager.Inst.player.schedules[i].scheduleWeek = i;
+        }
     }
 
-    private void InitScheduleType1()
+    private void InitScheduleType1(Schedule schedule)
     {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.First, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Second, Day.Mon);
+        schedule.AddTask(new Club((Period.Third, Day.Mon)));
+        schedule.AddTask(studyResult[2], Period.Fourth, Day.Mon);
 
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
+
+        //Wed
+        schedule.AddTask(studyResult[0], Period.First, Day.Wed);
+        schedule.AddTask(studyResult[1], Period.Second, Day.Wed);
+        schedule.AddTask(studyResult[4], Period.Fourth, Day.Wed);
+        schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
+
+        //Thu
+        schedule.AddTask(new Club((Period.Second, Day.Thu)));
+        schedule.AddTask(studyResult[2], Period.Third, Day.Thu);
+        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+
+        //Fri
+        schedule.AddTask(studyResult[3], Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Third, Day.Fri);
+        schedule.AddTask(new Club((Period.Fourth, Day.Fri)));
+        schedule.AddTask(new Club((Period.Fifth, Day.Fri)));
     }
 
-    private void GetLecture(int lectureNum)
+    private void InitScheduleType4(Schedule schedule)
     {
-        int lectureScore = GameManager.Inst.lectureScore[lectureNum];
-        string lectureGrade = null;
-        Task lecture;
+        //Mon
+        schedule.AddTask(new Club((Period.First, Day.Mon)));
+        schedule.AddTask(new Club((Period.Second, Day.Mon)));
+        schedule.AddTask(studyResult[2], Period.Fifth, Day.Mon);
 
-        if(lectureScore >= 20)
-        {
-            lectureGrade = "S";
-        }
-        else if(lectureScore >= 17 && lectureScore < 20)
-        {
-            lectureGrade = "A";
-        }
-        else if(lectureScore >= 11 && lectureScore < 17)
-        {
-            lectureGrade = "B";
-        }
-        else if(lectureScore < 11)
-        {
-            lectureGrade = "C";
-        }
+        //Tue
+        schedule.AddTask(studyResult[0], Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
 
+        //Wed
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Wed);
+        schedule.AddTask(studyResult[2], Period.Fifth, Day.Wed);
 
-        List<Task> taskList = GameManager.Inst.lectureList.lectureList[lectureGrade];
+        //Thu
+        schedule.AddTask(studyResult[0], Period.Second, Day.Thu);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Thu);
+        schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
 
-        lecture = taskList[Random.Range(0, 6)];
-
-        if(lectureList.Contains(lecture))
-        {
-            GetLecture(lectureNum);
-            return;
-        }
-
-        lectureList.Add(lecture);
+        //Fri
+        schedule.AddTask(new Club((Period.First, Day.Fri)));
+        schedule.AddTask(new Club((Period.Second, Day.Fri)));
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
     }
+
 
     IEnumerator DoTask()
     {
