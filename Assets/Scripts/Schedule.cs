@@ -52,4 +52,10 @@ public class Schedule
         taskType.scheduleLocation = (period, day);
         this.taskArray[(int)period, (int)day] = taskType;
     }
+
+    public void AddTask(Task taskType, Period period, Day day)
+    {
+        taskType.scheduleLocation = (period, day);
+        this.taskArray[(int)period, (int)day] = taskType;
+    }
 }
