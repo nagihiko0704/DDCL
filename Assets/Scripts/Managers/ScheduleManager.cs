@@ -19,10 +19,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public List<Task> lectureList = new List<Task>();
 
-    //for mentoring
-    public Schedule mentorSchedule;
-    public Event firstEvent;
-    public Event secondEvent;
+    public Schedule playerSchedule;
 
     public Schedule CurrentSchedule
     {
@@ -43,7 +40,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             lectureList[i] = null;
         }
 
-        //InitMentorSchedule();
+
+
         StartCoroutine(DoTask());
     }
 
@@ -57,27 +55,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
     }
 
-    //for mentoring
-    //void InitMentorSchedule()
-    //{
-    //    Debug.Log("Init mentor schedule");
-
-    //    mentorSchedule = new Schedule();
-
-    //    //mon
-    //    mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
-    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
-    //    mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
-    //    mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
-
-    //    //tue
-    //    mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
-    //    mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
-    //    mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-    //    mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
-
-    //    GameManager.Inst.player.schedules[0] = mentorSchedule;
-    //}
 
     private void InitSchedule()
     {
@@ -89,42 +66,11 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     }
 
-    private void GetLecture(int lectureNum)
+    private void InitScheduleType2()
     {
-        int lectureScore = GameManager.Inst.lectureScore[lectureNum];
-        string lectureGrade = null;
-        Task lecture;
 
-        if(lectureScore >= 20)
-        {
-            lectureGrade = "S";
-        }
-        else if(lectureScore >= 17 && lectureScore < 20)
-        {
-            lectureGrade = "A";
-        }
-        else if(lectureScore >= 11 && lectureScore < 17)
-        {
-            lectureGrade = "B";
-        }
-        else if(lectureScore < 11)
-        {
-            lectureGrade = "C";
-        }
-
-
-        List<Task> taskList = GameManager.Inst.lectureList.lectureList[lectureGrade];
-
-        lecture = taskList[Random.Range(0, 6)];
-
-        if(lectureList.Contains(lecture))
-        {
-            GetLecture(lectureNum);
-            return;
-        }
-
-        lectureList.Add(lecture);
     }
+
 
     IEnumerator DoTask()
     {
