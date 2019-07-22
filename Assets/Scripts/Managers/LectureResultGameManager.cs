@@ -18,7 +18,6 @@ public class LectureResultGameManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Inst.lectureList.lectureList.Clear();
         SetLecture();
     }
 
