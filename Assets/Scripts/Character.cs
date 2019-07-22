@@ -12,7 +12,8 @@ public class Character
     protected float _maxStamina;
     protected float _curStamina;
 
-    protected float _fassion;
+    protected float _maxFassion;
+    protected float _curFassion;
 
     protected float _maxSociability;
     protected float _curSociability;
@@ -23,7 +24,7 @@ public class Character
     //each stat's max value
     protected const float MAX_INTELLI = 200f;
     protected const float MAX_STAMINA = 200f;
-    protected const float MAX_FASSION = 50f;
+    protected const float MAX_FASSION = 200f;
     protected const float MAX_SOCIAL = 200f;
 
 
@@ -75,18 +76,34 @@ public class Character
         }
     }
 
-    public float Fassion
+    public float MaxFassion
     {
-        get { return _fassion; }
+        get { return _maxFassion; }
 
         set
         {
-            _fassion = value;
+            _maxFassion = value;
 
             //don't let exceed maximum
-            if (_fassion > MAX_FASSION)
+            if (_maxFassion > MAX_FASSION)
             {
-                _fassion = MAX_FASSION;
+                _maxFassion = MAX_FASSION;
+            }
+        }
+    }
+
+    public float CurFassion
+    {
+        get { return _curFassion; }
+
+        set
+        {
+            _curFassion = value;
+
+            //current value can't exceed max value
+            if (_curFassion > _maxFassion)
+            {
+                _curFassion = _maxFassion;
             }
         }
     }
@@ -146,7 +163,7 @@ public class Newbie : Character
         //set character stat
         this._intelligence = Random.Range(125, 151); 
         this._curStamina = Random.Range(115, 191);
-        this._fassion = Random.Range(10, 36);
+        this._maxFassion = Random.Range(10, 36);
         this._curSociability = Random.Range(50, 176);
 
         //set character start semester
