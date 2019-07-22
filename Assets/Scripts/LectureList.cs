@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class LectureList
 {
-	public Dictionary<string, List<Task>> lectureList = new Dictionary<string, List<Task>>();
+	public Dictionary<string, List<Study>> lectureList = new Dictionary<string, List<Study>>();
 
 	public LectureList()
 	{
-		this.lectureList.Add("S", new List<Task>());
-		this.lectureList.Add("A", new List<Task>());
-		this.lectureList.Add("B", new List<Task>());
-		this.lectureList.Add("C", new List<Task>());
+		this.lectureList.Add("S", new List<Study>());
+		this.lectureList.Add("A", new List<Study>());
+		this.lectureList.Add("B", new List<Study>());
+		this.lectureList.Add("C", new List<Study>());
 
 		
 
@@ -46,12 +46,12 @@ public class LectureList
         AddTaskByGrade("C", new Study("피겨 댄스", Type.Sport, "C"));
 	}
 	
-	public void AddTaskByGrade(string grade, Task task)
+	public void AddTaskByGrade(string grade, Study study)
 	{
-		List<Task> tempTaskList = new List<Task>();
+		List<Study> tempTaskList = new List<Study>();
 
         tempTaskList=this.lectureList[grade];
-		tempTaskList.Add(task);
+		tempTaskList.Add(study);
 
 		this.lectureList[grade] = tempTaskList;
 	}

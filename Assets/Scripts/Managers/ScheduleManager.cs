@@ -113,7 +113,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
 
 
-        List<Task> taskList = GameManager.Inst.lectureList.lectureList[lectureGrade];
+        List<Study> taskList = GameManager.Inst.lectureList.lectureList[lectureGrade];
 
         lecture = taskList[Random.Range(0, 6)];
 
