@@ -17,7 +17,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public float TASK_TIME;
 
-    public List<Task> lectureList = new List<Task>();
+    public List<Study> lectureList = new List<Study>();
 
     //for schedule form
     public Schedule[] playerSchedule;

@@ -18,11 +18,8 @@ public class LectureResultGameManager : MonoBehaviour
 
     void Start()
     {
-        SetLecture();
-        //if lectures are determined, then set schedule
-        
         GameManager.Inst.lectureList.lectureList.Clear();
-        ScheduleManager.Inst.InitSchedule();
+        SetLecture();
     }
 
     void SetLecture()
