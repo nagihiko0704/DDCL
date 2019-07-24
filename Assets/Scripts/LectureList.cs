@@ -44,6 +44,7 @@ public class LectureList
         AddTaskByGrade("C", new Study("법학통론", Type.Discuss, "C"));
         AddTaskByGrade("C", new Study("스포츠 댄스", Type.Sport, "C"));
         AddTaskByGrade("C", new Study("피겨 댄스", Type.Sport, "C"));
+        AddTaskByGrade("C", new Study("객체 지향 언어", Type.Major, "C"));
 	}
 	
 	public void AddTaskByGrade(string grade, Study study)

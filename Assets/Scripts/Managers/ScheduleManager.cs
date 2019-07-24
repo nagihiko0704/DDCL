@@ -37,10 +37,10 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         TASK_TIME = GameManager.TASK_TIME;
 
-        for(int i = 0; i < 5; i++)
+        /**for(int i = 0; i < 5; i++)
         {
             lectureList[i] = null;
-        }
+        }**/
 
         playerSchedule = GameManager.Inst.player.schedules;
         studyResult = GameManager.Inst.studyResultArray;
