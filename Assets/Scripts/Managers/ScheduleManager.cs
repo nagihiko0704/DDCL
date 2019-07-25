@@ -67,7 +67,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         int randomNum = Random.Range(1, 5);
 
-        /*****
+
         switch(randomNum)
         {
             case (1):
@@ -81,10 +81,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 InitScheduleType4(tempSchedule);
                 break;
         }
-******/
-        InitScheduleType1(tempSchedule);
 
-        for(int i = 0; i < 16; i++)
+        for (int i = 0; i < 16; i++)
         {
             GameManager.Inst.player.schedules[i] = tempSchedule;
             GameManager.Inst.player.schedules[i].scheduleWeek = i;
@@ -170,7 +168,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         schedule.AddTask(studyResult[0], Period.Third, Day.Wed);
         schedule.AddTask(studyResult[1], Period.Fourth, Day.Wed);
         schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
-        schedule.AddTask(new Club((Period.SIxth, Day.Wed)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Wed)));
 
         //Thu
         schedule.AddTask(studyResult[2], Period.Second, Day.Thu);
