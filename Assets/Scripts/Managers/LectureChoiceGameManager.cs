@@ -7,15 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LectureChoiceGameManager : MonoBehaviour
 {
-    //TODO: change lecture button's background and text
-    //      save scores in _lectureChoiceSocre array
-
-
-    //3. implement time limit with using TIME_LIMIT
-    //3-1. note that if time limit is over, score must be stored as 1
-    //5. then change to lecture apllication scene
-
-    //set each button.
+    
     public GameObject[] buttonLectures = new GameObject[4];
 
     //background image for lecture buttons
@@ -88,7 +80,6 @@ public class LectureChoiceGameManager : MonoBehaviour
         }
 
         Shuffle(_goodLectureOrder);
-        //Debug.Log(_goodLectureOrder[0]+"    "+_goodLectureOrder[1]+"    "+_goodLectureOrder[2]+"    "+_goodLectureOrder[3]);
         for (int i = 0; i < 4; i++)
         {
             int x=_goodLectureOrder[i];
@@ -113,7 +104,7 @@ public class LectureChoiceGameManager : MonoBehaviour
 
     public void OnLecture0ButtonClicked()
     {
-        //sample
+       
         int goodOrder = _goodLectureOrder[0];
         GameManager.lectureChoiceScore[_choiceNum] = SCORE[goodOrder];
         
