@@ -37,13 +37,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         TASK_TIME = GameManager.TASK_TIME;
 
-        /**for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 5; i++)
         {
             lectureList[i] = null;
-        }**/
+        }
 
         playerSchedule = GameManager.Inst.player.schedules;
         studyResult = GameManager.Inst.studyResultArray;
+
+        InitSchedule();
 
         StartCoroutine(DoTask());
     }
@@ -65,6 +67,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         int randomNum = Random.Range(1, 5);
 
+        /*****
         switch(randomNum)
         {
             case (1):
@@ -78,6 +81,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 InitScheduleType4(tempSchedule);
                 break;
         }
+******/
+        InitScheduleType1(tempSchedule);
 
         for(int i = 0; i < 16; i++)
         {
@@ -85,6 +90,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             GameManager.Inst.player.schedules[i].scheduleWeek = i;
         }
     }
+    
+        
 
     private void InitScheduleType1(Schedule schedule)
     {
