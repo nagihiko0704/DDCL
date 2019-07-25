@@ -121,8 +121,66 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         //Fri
         schedule.AddTask(studyResult[3], Period.Second, Day.Fri);
         schedule.AddTask(studyResult[3], Period.Third, Day.Fri);
-        schedule.AddTask(new Club((Period.Fourth, Day.Fri)));
         schedule.AddTask(new Club((Period.Fifth, Day.Fri)));
+    }
+
+    private void InitScheduleType2(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.Second, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Mon);
+        schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Mon)));
+
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Fourth, Day.Tue);
+        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
+
+        //Wed
+        
+
+        //Thu
+        schedule.AddTask(new Club((Period.Second, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Fourth, Day.Thu);
+        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+        schedule.AddTask(new Club((Period.Sixth, Day.Thu)));
+
+        //Fri
+        schedule.AddTask(studyResult[0], Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Fri);
+        schedule.AddTask(new Club((Period.Fourth, Day.Fri)));
+        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Sixth, Day.Fri);
+    }
+
+    private void InitScheduleType3(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.Third, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Fourth, Day.Mon);
+        schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
+
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
+
+        //Wed
+        schedule.AddTask(studyResult[0], Period.Third, Day.Wed);
+        schedule.AddTask(studyResult[1], Period.Fourth, Day.Wed);
+        schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
+        schedule.AddTask(new Club((Period.SIxth, Day.Wed)));
+
+        //Thu
+        schedule.AddTask(studyResult[2], Period.Second, Day.Thu);
+        schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
+
+        //Fri
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
+        schedule.AddTask(new Club((Period.Sixth, Day.Fri)));
     }
 
     private void InitScheduleType4(Schedule schedule)
