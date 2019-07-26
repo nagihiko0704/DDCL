@@ -63,19 +63,23 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public void InitSchedule()
     {
+        Debug.Log("스케쥴 설정됨");
+
         Schedule tempSchedule = new Schedule();
 
+        studyResult = GameManager.Inst.studyResultArray;
+
         int randomNum = Random.Range(1, 5);
-
-
         switch(randomNum)
         {
             case (1):
                 InitScheduleType1(tempSchedule);
                 break;
             case (2):
+                InitScheduleType2(tempSchedule);
                 break;
             case (3):
+                InitScheduleType3(tempSchedule);
                 break;
             case (4):
                 InitScheduleType4(tempSchedule);
