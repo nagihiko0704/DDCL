@@ -1,26 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Day { Mon, Tue, Wed, Thu, Fri };
 public enum Period { First, Second, Third, Fourth, Fifth, Sixth };
 
 public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 {
-    public int currentWeek = 0;
-    public Period currentPeriod = Period.First;
-    public Day currentDay = Day.Mon;
+    public int currentWeek;
+    public Period currentPeriod;
+    public Day currentDay;
 
-    public float curTime = 0;
+    public float curTime;
 
-    public bool doEvent = false;
+    public bool doEvent;
 
     public float TASK_TIME;
 
-    public List<Study> lectureList = new List<Study>();
+    //public List<Study> lectureList = new List<Study>();
 
     //for schedule form
-    public Schedule[] playerSchedule;
+    //public Schedule[] playerSchedule;
     public Study[] studyResult;
 
     public Schedule CurrentSchedule
@@ -37,17 +38,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         TASK_TIME = GameManager.TASK_TIME;
 
-        for(int i = 0; i < 5; i++)
-        {
-            lectureList[i] = null;
-        }
+        currentWeek = 0;
+        currentPeriod = Period.First;
+        currentDay = Day.Mon;
 
-        playerSchedule = GameManager.Inst.player.schedules;
-        studyResult = GameManager.Inst.studyResultArray;
+        curTime = 0;
 
-        InitSchedule();
+        doEvent = false;
 
-        StartCoroutine(DoTask());
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -89,7 +88,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         for (int i = 0; i < 16; i++)
         {
             GameManager.Inst.player.schedules[i] = tempSchedule;
-            GameManager.Inst.player.schedules[i].scheduleWeek = i;
+            GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
         }
     }
     
@@ -215,24 +214,39 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     }
 
 
-    IEnumerator DoTask()
+    public IEnumerator DoTask()
     {
         while (true)
         {
             Period nextTaskPeriod;
             Day nextTaskDay;
+            int nextWeek;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
+            nextWeek = currentWeek;
+
             if (currentPeriod == Period.Sixth)
             {
+                Debug.Log("day 바뀔 예정");
+
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
+            }
+
+            if(currentDay == Day.Fri && currentPeriod == Period.Sixth)
+            {
+                Debug.Log("week 바뀔 예정");
+
+                nextWeek = currentWeek + 1;
             }
 
             Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
             Debug.Log("task: " + CurrentTask);
 
             yield return new WaitForSeconds(TASK_TIME / 2);
+
+            Debug.Log("이벤트 시간");
+
             if (CurrentTask.taskEvent != null)
             {
                 yield return StartCoroutine(DoEvent());
@@ -241,6 +255,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             currentPeriod = nextTaskPeriod;
             currentDay = nextTaskDay;
+            currentWeek = nextWeek;
             Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             Debug.Log("---------");
         }
@@ -248,6 +263,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     IEnumerator DoEvent()
     {
+        Debug.Log("do event");
+
         Event _curEvent = CurrentTask.taskEvent;
 
         doEvent = true;

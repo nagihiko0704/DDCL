@@ -19,7 +19,16 @@ public class LectureResultGameManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("씬 로드 됐냐??");
+
         SetLecture();
+
+        ScheduleManager.Inst.InitSchedule();
+    }
+
+    private void OnEnable()
+    {
+
     }
 
     void SetLecture()
@@ -63,7 +72,7 @@ public class LectureResultGameManager : MonoBehaviour
 
         
 
-        gameLecture[i].GetComponent<Text>().text = tempList[selectedLecture].taskName + "    "+grade+"급";
+        gameLecture[i].GetComponent<Text>().text = tempList[selectedLecture].taskName + "    " + grade + "급";
 
 
 
@@ -74,6 +83,10 @@ public class LectureResultGameManager : MonoBehaviour
     public void CheckButtonOnClick()
     {
         SceneManager.LoadScene(4);
+
+        //StartCoroutine(ScheduleManager.Inst.DoTask());
+
+        GameManager.Inst.flag = true;
     }
 
    
