@@ -12,7 +12,7 @@ public class Player
         this.playerCharacter = new Newbie();
         for(int week = 0; week < 16; week++)
         {
-            schedules[0] = new Schedule();
+            this.schedules[week] = new Schedule();
         }
 
         
