@@ -24,6 +24,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     //event popup
     public GameObject eventPopUp;
 
+    public GameObject[] stackList = new GameObject[4];
+
     public float TASK_TIME;
     public float SCHEDULE_TIME;
 
@@ -43,6 +45,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDoingTaskIndicator();
         SetTimeUI();
         SetDateUI();
+        SetStackUI();
     }
 
     private void SetScheduleUI()
@@ -66,7 +69,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
             if(tempTask.GetType() == typeof(Study))
             {
                 colorTaskBg = new Color(0.25f, 0.25f, 0);
-                /***************HERw**************/ 
+                /***************HERE**************/ 
                 taskName = tempTask.taskName;
             }
             else if(tempTask.GetType() == typeof(Club))
@@ -268,8 +271,6 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
         _instance.GetComponent<EventPopUp>().Init(_curEvent);
     }
-<<<<<<< Updated upstream
-=======
 
     private void SetStackUI()
     {
@@ -280,9 +281,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
          * [3]:social
          */
         stackList[0].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.Intelli.ToString();
-        stackList[1].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurFassion.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxFassion.ToString();
-        stackList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
-        stackList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
+        stackList[1].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurFassion.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxFassion.ToString();
+        stackList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
+        stackList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
     }
->>>>>>> Stashed changes
 }
