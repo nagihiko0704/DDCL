@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class Player:SingletonBehaviour<Player>
 {
     public Character playerCharacter;
     public Schedule[] schedules = new Schedule[16];
