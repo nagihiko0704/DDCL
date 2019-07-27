@@ -258,6 +258,13 @@ MonoBehaviour:
   mainGameCanvas: {fileID: 197875407}
   eventPopUp: {fileID: 7674847964688882103, guid: e764ed74b66dd1148a0b42a6f33d023d,
     type: 3}
+  stackList:
+  - {fileID: 3850529217358092681}
+  - {fileID: 3850529217358092680}
+  - {fileID: 3850529217358092679}
+  - {fileID: 3850529217358092678}
+  TASK_TIME: 0
+  SCHEDULE_TIME: 0
 --- !u!4 &570364727
 Transform:
   m_ObjectHideFlags: 0
@@ -362,8 +369,7 @@ MonoBehaviour:
   currentDay: 0
   curTime: 0
   doEvent: 0
-  firstEvent: {fileID: 11400000, guid: 59ac844395be14e32a9bbd8af75a6963, type: 2}
-  secondEvent: {fileID: 11400000, guid: c649305942c5b4c64b2622121b770d0f, type: 2}
+  TASK_TIME: 0
 --- !u!4 &721476914
 Transform:
   m_ObjectHideFlags: 0
@@ -605,3 +611,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085bc7c687973c9458f3671f6c3d18ba, type: 3}
+--- !u!1 &3850529217358092678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5666876859255463140, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 3850529217358092677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3850529217358092679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9157171085824372188, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 3850529217358092677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3850529217358092680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7845145471287504248, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 3850529217358092677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3850529217358092681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755489373046192366, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 3850529217358092677}
+  m_PrefabAsset: {fileID: 0}
