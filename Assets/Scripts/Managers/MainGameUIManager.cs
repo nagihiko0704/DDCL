@@ -24,6 +24,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     //event popup
     public GameObject eventPopUp;
 
+    public GameObject[] stackList = new GameObject[4];
+
     public float TASK_TIME;
     public float SCHEDULE_TIME;
 
@@ -43,6 +45,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDoingTaskIndicator();
         SetTimeUI();
         SetDateUI();
+        SetStackUI();
     }
 
     private void SetScheduleUI()
@@ -66,7 +69,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
             if(tempTask.GetType() == typeof(Study))
             {
                 colorTaskBg = new Color(0.25f, 0.25f, 0);
-                /***************HERw**************/ 
+                /***************HERE**************/ 
                 taskName = tempTask.taskName;
             }
             else if(tempTask.GetType() == typeof(Club))
@@ -267,5 +270,19 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         GameObject _instance;
         _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
         _instance.GetComponent<EventPopUp>().Init(_curEvent);
+    }
+
+    private void SetStackUI()
+    {
+        /*
+         * [0]:intell
+         * [1]:fassion
+         * [2]:stamina
+         * [3]:social
+         */
+        stackList[0].GetComponent<Text>().text = Player.Inst.playerCharacter.Intelli.ToString();
+        stackList[1].GetComponent<Text>().text = Player.Inst.playerCharacter.CurFassion.ToString() + "/" + Player.Inst.playerCharacter.MaxFassion.ToString();
+        stackList[2].GetComponent<Text>().text = Player.Inst.playerCharacter.CurStamina.ToString() + "/" + Player.Inst.playerCharacter.MaxStamina.ToString();
+        stackList[3].GetComponent<Text>().text = Player.Inst.playerCharacter.CurSocial.ToString() + "/" + Player.Inst.playerCharacter.MaxSocial.ToString();
     }
 }
