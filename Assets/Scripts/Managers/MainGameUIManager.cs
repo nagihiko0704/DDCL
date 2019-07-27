@@ -267,4 +267,21 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
         _instance.GetComponent<EventPopUp>().Init(_curEvent);
     }
+<<<<<<< Updated upstream
+=======
+
+    private void SetStackUI()
+    {
+        /*
+         * [0]:intell
+         * [1]:fassion
+         * [2]:stamina
+         * [3]:social
+         */
+        stackList[0].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.Intelli.ToString();
+        stackList[1].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurFassion.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxFassion.ToString();
+        stackList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
+        stackList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + "/" + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
+    }
+>>>>>>> Stashed changes
 }
