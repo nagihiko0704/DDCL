@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LectureResultScene.unity
     guid: 25989612ab3d980448c3c4075dd1bbc8
+  - enabled: 1
+    path: Assets/Scenes/MainGameScene.unity
+    guid: 58efbee9e63d6104ca68fd0bc514987d
   m_configObjects: {}

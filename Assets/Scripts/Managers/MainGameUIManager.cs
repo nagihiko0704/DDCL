@@ -66,7 +66,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
             if(tempTask.GetType() == typeof(Study))
             {
                 colorTaskBg = new Color(0.25f, 0.25f, 0);
-                taskName = "학\n\n업";
+                /***************HERw**************/ 
+                taskName = tempTask.taskName;
             }
             else if(tempTask.GetType() == typeof(Club))
             {
