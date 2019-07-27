@@ -163,8 +163,12 @@ public class Newbie : Character
         //set character stat
         this._intelligence = Random.Range(125, 151); 
         this._curStamina = Random.Range(115, 191);
-        this._maxFassion = Random.Range(10, 36);
+        this._curFassion = Random.Range(80, 110);
         this._curSociability = Random.Range(50, 176);
+
+        this._maxFassion = 110;
+        this._maxSociability = 176;
+        this._maxStamina = 191;
 
         //set character start semester
         this._startSemester = 1;
