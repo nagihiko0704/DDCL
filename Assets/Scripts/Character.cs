@@ -150,6 +150,7 @@ public class Character:SingletonBehaviour<Character>
         }
     }
 
+    /**
     public void ChangeStack(string whichStack, float changeValue)
     {
         switch (whichStack)
@@ -168,6 +169,7 @@ public class Character:SingletonBehaviour<Character>
                 break;
         }
     }
+    **/
 }
 
 public class Newbie : Character
