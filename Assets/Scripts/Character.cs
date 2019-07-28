@@ -20,7 +20,7 @@ public class Character:SingletonBehaviour<Character>
 
     //character's semester start date
     protected int _startSemester;
-
+    
     //each stat's max value
     protected const float MAX_INTELLI = 200f;
     protected const float MAX_STAMINA = 200f;
