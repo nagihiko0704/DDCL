@@ -149,6 +149,25 @@ public class Character:SingletonBehaviour<Character>
             _startSemester = value;
         }
     }
+
+    public void ChangeStack(int whichStack, float changeValue)
+    {
+        switch (whichStack)
+        {
+            case (0):
+                _intelligence +=changeValue;
+                break;
+            case (1):
+                _curFassion +=changeValue;
+                break;
+            case (2):
+                _curStamina += changeValue;
+                break;
+            case (3):
+                _curSociability += CurSocial;
+                break;
+        }
+    }
 }
 
 public class Newbie : Character
