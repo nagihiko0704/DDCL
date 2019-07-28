@@ -74,8 +74,10 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 InitScheduleType1(tempSchedule);
                 break;
             case (2):
+                InitScheduleType2(tempSchedule);
                 break;
             case (3):
+                InitScheduleType3(tempSchedule);
                 break;
             case (4):
                 InitScheduleType4(tempSchedule);
