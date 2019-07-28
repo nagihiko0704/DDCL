@@ -150,20 +150,20 @@ public class Character:SingletonBehaviour<Character>
         }
     }
 
-    public void ChangeStack(int whichStack, float changeValue)
+    public void ChangeStack(string whichStack, float changeValue)
     {
         switch (whichStack)
         {
-            case (0):
+            case ("intell"):
                 _intelligence +=changeValue;
                 break;
-            case (1):
+            case ("fassion"):
                 _curFassion +=changeValue;
                 break;
-            case (2):
+            case ("stamina"):
                 _curStamina += changeValue;
                 break;
-            case (3):
+            case ("social"):
                 _curSociability += CurSocial;
                 break;
         }
