@@ -51,7 +51,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     private void SetScheduleUI()
     {
         Schedule _curSchedule = ScheduleManager.Inst.CurrentSchedule;
-        Day _curDay = ScheduleManager.Inst.CurrentTask.scheduleLocation.Item2;
+        Day _curDay = ScheduleManager.Inst.currentDay;
 
         Task tempTask;
         Color colorTaskBg;
