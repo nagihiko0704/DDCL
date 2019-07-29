@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character:SingletonBehaviour<Character>
+public class Character
 {
     public string name;
 

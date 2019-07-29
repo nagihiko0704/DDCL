@@ -23,15 +23,27 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public const float TASK_TIME = 4f;
 
+    public bool flag = false;
+
 
     void Awake()
     {
         player = new Player();
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(flag)
+        {
+            Debug.Log("메인 게임 시작");
+
+            StartCoroutine(ScheduleManager.Inst.DoTask());
+            ScheduleManager.Inst.curTime = 0;
+
+            flag = false;
+        }
     }
 }
