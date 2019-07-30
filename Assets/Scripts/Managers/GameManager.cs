@@ -23,7 +23,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public const float TASK_TIME = 4f;
 
-    public bool flag = false;
+    public bool isMainSceneStart = false;
 
 
     void Awake()
@@ -36,14 +36,14 @@ public class GameManager : SingletonBehaviour<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if(flag)
+        if(isMainSceneStart)
         {
             Debug.Log("메인 게임 시작");
 
             StartCoroutine(ScheduleManager.Inst.DoTask());
             ScheduleManager.Inst.curTime = 0;
 
-            flag = false;
+            isMainSceneStart = false;
         }
     }
 }
