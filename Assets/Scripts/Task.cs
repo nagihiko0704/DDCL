@@ -58,6 +58,7 @@ public class Study : Task
     {
         this.studyType = _studyType;
         this.grade = _grade;
+        _favor++;
 
         switch(_studyType)
         {

@@ -20,7 +20,7 @@ public class Character
 
     //character's semester start date
     protected int _startSemester;
-
+    
     //each stat's max value
     protected const float MAX_INTELLI = 200f;
     protected const float MAX_STAMINA = 200f;
@@ -149,6 +149,27 @@ public class Character
             _startSemester = value;
         }
     }
+
+    /**
+    public void ChangeStack(string whichStack, float changeValue)
+    {
+        switch (whichStack)
+        {
+            case ("intell"):
+                _intelligence +=changeValue;
+                break;
+            case ("fassion"):
+                _curFassion +=changeValue;
+                break;
+            case ("stamina"):
+                _curStamina += changeValue;
+                break;
+            case ("social"):
+                _curSociability += CurSocial;
+                break;
+        }
+    }
+    **/
 }
 
 public class Newbie : Character
