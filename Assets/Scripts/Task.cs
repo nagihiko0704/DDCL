@@ -29,15 +29,27 @@ public class Task
     public Task(string _taskName)
     {
         this.taskName = _taskName;
+        this.staminaVal = 0;
+        this.socialVal = 0;
+        this.scheduleLocation = (0, 0);
+        this.taskEvent = null;
     }
 
     public Task((Period, Day) _scheduleLocation)
     {
+        this.taskName = null;
+        this.staminaVal = 0;
+        this.socialVal = 0;
         this.scheduleLocation = _scheduleLocation;
+        this.taskEvent = null;
     }
 
     public Task((Period, Day) _scheduleLocation, Event _taskEvent) : this(_scheduleLocation)
     {
+        this.taskName = null;
+        this.staminaVal = 0;
+        this.socialVal = 0;
+        this.scheduleLocation = (0, 0);
         this.taskEvent = _taskEvent;
     }
 }
