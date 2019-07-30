@@ -221,16 +221,22 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             Period nextTaskPeriod;
             Day nextTaskDay;
             int nextWeek;
+
+            float recoverStamina;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
             nextWeek = currentWeek;
+
+            recoverStamina = 0;
 
             if (currentPeriod == Period.Sixth)
             {
                 Debug.Log("day 바뀔 예정");
 
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
+
+                recoverStamina = 10f;
             }
 
             if(currentDay == Day.Fri && currentPeriod == Period.Sixth)

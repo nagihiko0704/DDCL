@@ -86,7 +86,7 @@ public class LectureResultGameManager : MonoBehaviour
 
         //StartCoroutine(ScheduleManager.Inst.DoTask());
 
-        GameManager.Inst.flag = true;
+        GameManager.Inst.isMainSceneStart = true;
     }
 
    
