@@ -150,10 +150,10 @@ public class Character
         }
     }
 
-    /**
-    public void ChangeStack(string whichStack, float changeValue)
+    
+    public void ChangeStat(string whichStat, float changeValue)
     {
-        switch (whichStack)
+        switch (whichStat)
         {
             case ("intell"):
                 _intelligence +=changeValue;
@@ -169,7 +169,15 @@ public class Character
                 break;
         }
     }
-    **/
+
+    public void ChangeStat(Task task)
+    {
+        //Debug.Log("stamina: " + task.staminaVal + "social: " + task.socialVal);
+
+        this._curStamina += task.staminaVal;
+        this._curSociability += task.socialVal;
+    }
+    
 }
 
 public class Newbie : Character
