@@ -30,6 +30,8 @@ public class Event : ScriptableObject
     public List<float> staminaVal;
     public List<float> socialVal;
 
+    public string methodName;
+
     private int _randomInt = -1;
 
     public string SelectedTitle
