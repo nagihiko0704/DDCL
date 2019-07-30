@@ -246,12 +246,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 nextWeek = currentWeek + 1;
             }
 
-            Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
-            Debug.Log("task: " + CurrentTask);
+            //Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
+            //Debug.Log("task: " + CurrentTask);
+
+            //apply stat change
+            GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
 
             yield return new WaitForSeconds(TASK_TIME / 2);
 
-            Debug.Log("이벤트 시간");
+            //Debug.Log("이벤트 시간");
 
             if (CurrentTask.taskEvent != null)
             {
@@ -262,8 +265,28 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             currentPeriod = nextTaskPeriod;
             currentDay = nextTaskDay;
             currentWeek = nextWeek;
-            Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
-            Debug.Log("---------");
+
+            //if day passed, recover 10 stamina
+            GameManager.Inst.player.playerCharacter.ChangeStat("stamina", recoverStamina);
+
+            //Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
+            //Debug.Log("---------");
+
+            //plus favor
+            if(CurrentTask is Study)
+            {
+                for(int i = 0; i< 5; i++)
+                {
+                    if (GameManager.Inst.studyResultArray[i].Equals(CurrentTask))
+                    {
+                        //Debug.Log("디용");
+
+                        GameManager.Inst.studyResultArray[i].Favor++;
+                        Debug.Log("study favor: " + GameManager.Inst.studyResultArray[i].Favor);
+                        break;
+                    }
+                }
+            }
         }
     }
 
