@@ -29,6 +29,7 @@ public class Event : ScriptableObject
     public List<float> fassionVal;
     public List<float> staminaVal;
     public List<float> socialVal;
+    public List<float> flavorVal;
 
     public string methodName;
 
