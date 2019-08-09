@@ -26,6 +26,7 @@ public class Event : ScriptableObject
 
     public List<Sprite> resultSituation;
 
+    public List<float> intelVal;
     public List<float> fassionVal;
     public List<float> staminaVal;
     public List<float> socialVal;
