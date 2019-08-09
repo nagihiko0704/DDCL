@@ -19,6 +19,8 @@ public class Event : ScriptableObject
     [TextArea]
     public List<string> minigameExplanation;
 
+    public List<Sprite> minigameExplanationImage;
+
     public List<string> choiceMessage;
 
     [TextArea]
