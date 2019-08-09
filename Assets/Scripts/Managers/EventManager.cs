@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EventManager : SingletonBehaviour<EventManager>
 {
-    public GameObject CanvasEventPopUp;
+
+    public GameObject eventPopUpWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class EventManager : SingletonBehaviour<EventManager>
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void InsertEvent()

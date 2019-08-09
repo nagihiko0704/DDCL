@@ -73,6 +73,80 @@ public class Event : ScriptableObject
             return situation[_randomInt];
         }
     }
+
+    public string SelectedMethod
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return methodName[_randomInt];
+        }
+    }
+
+    public float IntelliVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return intelliMaxVal[_randomInt];
+        }
+    }
+
+    public float FassionVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return fassionVal[_randomInt];
+        }
+    }
+
+    public float StaminaVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return staminaVal[_randomInt];
+        }
+    }
+
+    public float SocialVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return socialVal[_randomInt];
+        }
+    }
+
+    public float FavorVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return favorVal[_randomInt];
+        }
+    }
+
+    public int SelectedInt
+    {
+        get
+        {
+            return _randomInt;
+        }
+    }
 }
 
 public class ConditionEvent : Event
