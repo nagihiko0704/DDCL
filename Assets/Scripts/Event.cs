@@ -19,6 +19,8 @@ public class Event : ScriptableObject
     [TextArea]
     public List<string> minigameExplanation;
 
+    public List<Sprite> minigameExplanationImage;
+
     public List<string> choiceMessage;
 
     [TextArea]
@@ -26,11 +28,18 @@ public class Event : ScriptableObject
 
     public List<Sprite> resultSituation;
 
+
     public List<float> fassionVal;
     public List<float> staminaVal;
     public List<float> socialVal;
+    public List<float> favorVal;
 
-    public string methodName;
+    public List<float> intelliMaxVal;
+    public List<float> fassionMaxVal;
+    public List<float> staminMaxVal;
+    public List<float> socialMaxVal;
+
+    public List<string> methodName;
 
     private int _randomInt = -1;
 
@@ -62,6 +71,80 @@ public class Event : ScriptableObject
                 _randomInt = Random.Range(0, title.Count);
 
             return situation[_randomInt];
+        }
+    }
+
+    public string SelectedMethod
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return methodName[_randomInt];
+        }
+    }
+
+    public float IntelliVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return intelliMaxVal[_randomInt];
+        }
+    }
+
+    public float FassionVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return fassionVal[_randomInt];
+        }
+    }
+
+    public float StaminaVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return staminaVal[_randomInt];
+        }
+    }
+
+    public float SocialVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return socialVal[_randomInt];
+        }
+    }
+
+    public float FavorVal
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return favorVal[_randomInt];
+        }
+    }
+
+    public int SelectedInt
+    {
+        get
+        {
+            return _randomInt;
         }
     }
 }

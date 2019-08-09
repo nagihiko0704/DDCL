@@ -36,6 +36,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SCHEDULE_TIME = TASK_TIME * 6;
 
         InitDateTimeUI();
+
+        eventPopUp.SetActive(false);
     }
 
     // Update is called once per frame
@@ -267,9 +269,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     
     public void MakeEventPopUp(Event _curEvent)
     {
-        GameObject _instance;
-        _instance = Instantiate(eventPopUp, mainGameCanvas.transform);
-        _instance.GetComponent<EventPopUp>().Init(_curEvent);
+        eventPopUp.SetActive(true);
+        eventPopUp.GetComponentInChildren<EventPopUp>().InitSituation(_curEvent);
     }
 
     private void SetStatUI()
