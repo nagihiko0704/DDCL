@@ -9,10 +9,10 @@ public class Player
     
     public Player()
     {
-        this.playerCharacter = new Character();
+        this.playerCharacter = new Newbie();
         for(int week = 0; week < 16; week++)
         {
-            schedules[0] = new Schedule();
+            this.schedules[week] = new Schedule();
         }
 
         

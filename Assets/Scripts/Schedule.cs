@@ -52,4 +52,15 @@ public class Schedule
         taskType.scheduleLocation = (period, day);
         this.taskArray[(int)period, (int)day] = taskType;
     }
+
+    public void AddTask(Task taskType, Period period, Day day)
+    {
+        if(taskType == null)
+        {
+            Debug.Log("에러 병시나");
+        }
+
+        taskType.scheduleLocation = (period, day);
+        this.taskArray[(int)period, (int)day] = taskType;
+    }
 }

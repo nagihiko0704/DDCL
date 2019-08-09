@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Character
 {
+    public string name;
+
     //character's stat
-    private float _intelligence;
+    protected float _intelligence;
 
-    private float _maxStamina;
-    private float _curStamina;
+    protected float _maxStamina;
+    protected float _curStamina;
 
-    private float _fassion;
+    protected float _maxFassion;
+    protected float _curFassion;
 
-    private float _maxSociability;
-    private float _curSociability;
+    protected float _maxSociability;
+    protected float _curSociability;
 
+    //character's semester start date
+    protected int _startSemester;
+    
     //each stat's max value
-    private const float MAX_INTELLI = 200f;
-    private const float MAX_STAMINA = 200f;
-    private const float MAX_FASSION = 50f;
-    private const float MAX_SOCIAL = 200f;
+    protected const float MAX_INTELLI = 200f;
+    protected const float MAX_STAMINA = 200f;
+    protected const float MAX_FASSION = 200f;
+    protected const float MAX_SOCIAL = 200f;
 
 
     public float Intelli
@@ -70,18 +76,34 @@ public class Character
         }
     }
 
-    public float Fassion
+    public float MaxFassion
     {
-        get { return _fassion; }
+        get { return _maxFassion; }
 
         set
         {
-            _fassion = value;
+            _maxFassion = value;
 
             //don't let exceed maximum
-            if (_fassion > MAX_FASSION)
+            if (_maxFassion > MAX_FASSION)
             {
-                _fassion = MAX_FASSION;
+                _maxFassion = MAX_FASSION;
+            }
+        }
+    }
+
+    public float CurFassion
+    {
+        get { return _curFassion; }
+
+        set
+        {
+            _curFassion = value;
+
+            //current value can't exceed max value
+            if (_curFassion > _maxFassion)
+            {
+                _curFassion = _maxFassion;
             }
         }
     }
@@ -116,5 +138,68 @@ public class Character
                 _curSociability = _maxSociability;
             }
         }
+    }
+
+    public int StartSemester
+    {
+        get { return _startSemester; }
+
+        set
+        {
+            _startSemester = value;
+        }
+    }
+
+    
+    public void ChangeStat(string whichStat, float changeValue)
+    {
+        switch (whichStat)
+        {
+            case ("intell"):
+                _intelligence +=changeValue;
+                break;
+            case ("fassion"):
+                _curFassion +=changeValue;
+                break;
+            case ("stamina"):
+                _curStamina += changeValue;
+                break;
+            case ("social"):
+                _curSociability += CurSocial;
+                break;
+        }
+    }
+
+    public void ChangeStat(Task task)
+    {
+        //Debug.Log("stamina: " + task.staminaVal + "social: " + task.socialVal);
+
+        this._curStamina += task.staminaVal;
+        this._curSociability += task.socialVal;
+    }
+    
+}
+
+public class Newbie : Character
+{
+    public Newbie()
+    {
+        Character character = new Character();
+
+        //set character name
+        this.name = "뉴비";
+
+        //set character stat
+        this._intelligence = Random.Range(125, 151); 
+        this._curStamina = Random.Range(115, 191);
+        this._curFassion = Random.Range(80, 110);
+        this._curSociability = Random.Range(50, 176);
+
+        this._maxFassion = 110;
+        this._maxSociability = 176;
+        this._maxStamina = 191;
+
+        //set character start semester
+        this._startSemester = 1;
     }
 }

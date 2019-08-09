@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Day { Mon, Tue, Wed, Thu, Fri };
 public enum Period { First, Second, Third, Fourth, Fifth, Sixth };
 
 public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 {
-    public int currentWeek = 0;
-    public Period currentPeriod = Period.First;
-    public Day currentDay = Day.Mon;
+    public int currentWeek;
+    public Period currentPeriod;
+    public Day currentDay;
 
-    public float curTime = 0;
+    public float curTime;
 
-    public bool doEvent = false;
+    public bool doEvent;
 
-    //for mentoring
-    public Schedule mentorSchedule;
-    public Event firstEvent;
-    public Event secondEvent;
+    public float TASK_TIME;
+
+    //public List<Study> lectureList = new List<Study>();
+
+    //for schedule form
+    //public Schedule[] playerSchedule;
+    public Study[] studyResult;
 
     public Schedule CurrentSchedule
     {
@@ -32,8 +36,17 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     // Start is called before the first frame update
     void Start()
     {
-        InitMentorSchedule();
-        StartCoroutine(DoTask());
+        TASK_TIME = GameManager.TASK_TIME;
+
+        currentWeek = 0;
+        currentPeriod = Period.First;
+        currentDay = Day.Mon;
+
+        curTime = 0;
+
+        doEvent = false;
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -46,66 +59,265 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
     }
 
-    //for mentoring
-    void InitMentorSchedule()
+
+    public void InitSchedule()
     {
-        Debug.Log("Init mentor schedule");
+        Debug.Log("스케쥴 설정됨");
 
-        mentorSchedule = new Schedule();
+        Schedule tempSchedule = new Schedule();
 
-        //mon
-        mentorSchedule.AddTask(new Study((Period.First, Day.Mon)));
-        mentorSchedule.AddTask(new Study((Period.Second, Day.Mon)));
-        mentorSchedule.AddTask(new Club((Period.Third, Day.Mon)));
-        mentorSchedule.AddTask(new Study((Period.Fourth, Day.Mon), firstEvent));
+        studyResult = GameManager.Inst.studyResultArray;
 
-        //tue
-        mentorSchedule.AddTask(new Study((Period.Second, Day.Tue)));
-        mentorSchedule.AddTask(new Study((Period.Third, Day.Tue)));
-        mentorSchedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-        mentorSchedule.AddTask(new Club((Period.Sixth, Day.Tue), secondEvent));
+        int randomNum = Random.Range(1, 5);
+        switch(1)
+        {
+            case (1):
+                InitScheduleType1(tempSchedule);
+                break;
+            case (2):
+                InitScheduleType2(tempSchedule);
+                break;
+            case (3):
+                InitScheduleType3(tempSchedule);
+                break;
+            case (4):
+                InitScheduleType4(tempSchedule);
+                break;
+        }
 
-        GameManager.Inst.player.schedules[0] = mentorSchedule;
+        for (int i = 0; i < 16; i++)
+        {
+            GameManager.Inst.player.schedules[i] = tempSchedule;
+            GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+        }
+    }
+    
+        
+
+    private void InitScheduleType1(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.First, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Second, Day.Mon);
+
+        //for test and metoring
+        schedule.taskArray[(int)Period.First, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1152") as Event;
+        schedule.taskArray[(int)Period.Second, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1170") as Event;
+        
+
+        schedule.AddTask(new Club((Period.Third, Day.Mon)));
+
+        schedule.taskArray[(int)Period.Third, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1111") as Event;
+
+        schedule.AddTask(studyResult[2], Period.Fourth, Day.Mon);
+
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
+
+        //Wed
+        schedule.AddTask(studyResult[0], Period.First, Day.Wed);
+        schedule.AddTask(studyResult[1], Period.Second, Day.Wed);
+        schedule.AddTask(studyResult[4], Period.Fourth, Day.Wed);
+        schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
+
+        //Thu
+        schedule.AddTask(new Club((Period.Second, Day.Thu)));
+        schedule.AddTask(studyResult[2], Period.Third, Day.Thu);
+        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+
+        //Fri
+        schedule.AddTask(studyResult[3], Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Third, Day.Fri);
+        schedule.AddTask(new Club((Period.Fifth, Day.Fri)));
     }
 
-    IEnumerator DoTask()
+    private void InitScheduleType2(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.Second, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Mon);
+        schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Mon)));
+
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Fourth, Day.Tue);
+        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
+
+        //Wed
+        
+
+        //Thu
+        schedule.AddTask(new Club((Period.Second, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Fourth, Day.Thu);
+        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+        schedule.AddTask(new Club((Period.Sixth, Day.Thu)));
+
+        //Fri
+        schedule.AddTask(studyResult[0], Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Fri);
+        schedule.AddTask(new Club((Period.Fourth, Day.Fri)));
+        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Sixth, Day.Fri);
+    }
+
+    private void InitScheduleType3(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(studyResult[0], Period.Third, Day.Mon);
+        schedule.AddTask(studyResult[1], Period.Fourth, Day.Mon);
+        schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
+
+        //Tue
+        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
+
+        //Wed
+        schedule.AddTask(studyResult[0], Period.Third, Day.Wed);
+        schedule.AddTask(studyResult[1], Period.Fourth, Day.Wed);
+        schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
+        schedule.AddTask(new Club((Period.Sixth, Day.Wed)));
+
+        //Thu
+        schedule.AddTask(studyResult[2], Period.Second, Day.Thu);
+        schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
+
+        //Fri
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
+        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
+        schedule.AddTask(new Club((Period.Sixth, Day.Fri)));
+    }
+
+    private void InitScheduleType4(Schedule schedule)
+    {
+        //Mon
+        schedule.AddTask(new Club((Period.First, Day.Mon)));
+        schedule.AddTask(new Club((Period.Second, Day.Mon)));
+        schedule.AddTask(studyResult[2], Period.Fifth, Day.Mon);
+
+        //Tue
+        schedule.AddTask(studyResult[0], Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Tue);
+        schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
+
+        //Wed
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Wed);
+        schedule.AddTask(studyResult[2], Period.Fifth, Day.Wed);
+
+        //Thu
+        schedule.AddTask(studyResult[0], Period.Second, Day.Thu);
+        schedule.AddTask(studyResult[1], Period.Third, Day.Thu);
+        schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
+        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
+
+        //Fri
+        schedule.AddTask(new Club((Period.First, Day.Fri)));
+        schedule.AddTask(new Club((Period.Second, Day.Fri)));
+        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
+    }
+
+
+    public IEnumerator DoTask()
     {
         while (true)
         {
             Period nextTaskPeriod;
             Day nextTaskDay;
+            int nextWeek;
+
+            float recoverStamina;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
+            nextWeek = currentWeek;
+
+            recoverStamina = 0;
+
             if (currentPeriod == Period.Sixth)
             {
+                Debug.Log("day 바뀔 예정");
+
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
+
+                recoverStamina = 10f;
             }
 
-            Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
-            Debug.Log("task: " + CurrentTask);
+            if(currentDay == Day.Fri && currentPeriod == Period.Sixth)
+            {
+                Debug.Log("week 바뀔 예정");
 
-            yield return new WaitForSeconds(3.0f);
+                nextWeek = currentWeek + 1;
+            }
+
+            //Debug.Log("Period: " + currentPeriod + " Day: " + currentDay);
+            //Debug.Log("task: " + CurrentTask);
+
+            //apply stat change
+            GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
+
+            yield return new WaitForSeconds(TASK_TIME / 2);
+
+            //Debug.Log("이벤트 시간");
+
             if (CurrentTask.taskEvent != null)
             {
                 yield return StartCoroutine(DoEvent());
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(TASK_TIME / 2);
 
             currentPeriod = nextTaskPeriod;
             currentDay = nextTaskDay;
-            Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
-            Debug.Log("---------");
+            currentWeek = nextWeek;
+
+            //if day passed, recover 10 stamina
+            GameManager.Inst.player.playerCharacter.ChangeStat("stamina", recoverStamina);
+
+            //Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
+            //Debug.Log("---------");
+
+            //plus favor
+            if(CurrentTask is Study)
+            {
+                for(int i = 0; i< 5; i++)
+                {
+                    if (GameManager.Inst.studyResultArray[i].Equals(CurrentTask))
+                    {
+                        //Debug.Log("디용");
+
+                        GameManager.Inst.studyResultArray[i].Favor++;
+                        Debug.Log("study favor: " + GameManager.Inst.studyResultArray[i].Favor);
+                        break;
+                    }
+                }
+            }
         }
     }
 
     IEnumerator DoEvent()
     {
+        Debug.Log("do event");
+
         Event _curEvent = CurrentTask.taskEvent;
+
+        if(_curEvent == null)
+        {
+            Debug.Log("에러 병시나");
+        }
 
         doEvent = true;
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
+
+        //if(_curEvent.methodName != null)
+        //{
+        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
+        //}
 
         while (doEvent)
         {
