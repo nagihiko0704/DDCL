@@ -103,8 +103,12 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         //for test and metoring
         schedule.taskArray[(int)Period.First, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1152") as Event;
         schedule.taskArray[(int)Period.Second, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1170") as Event;
+        
 
         schedule.AddTask(new Club((Period.Third, Day.Mon)));
+
+        schedule.taskArray[(int)Period.Third, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1111") as Event;
+
         schedule.AddTask(studyResult[2], Period.Fourth, Day.Mon);
 
         //Tue
