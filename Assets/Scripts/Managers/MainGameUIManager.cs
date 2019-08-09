@@ -270,7 +270,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public void MakeEventPopUp(Event _curEvent)
     {
         eventPopUp.SetActive(true);
-        eventPopUp.GetComponentInChildren<EventPopUp>().InitSituation(_curEvent);
+        eventPopUp.GetComponent<EventPopUp>().InitSituation(_curEvent);
     }
 
     private void SetStatUI()

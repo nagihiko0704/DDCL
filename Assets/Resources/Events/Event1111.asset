@@ -33,10 +33,14 @@ MonoBehaviour:
     \uBAA8\uC591\uC774 \uC77C\uB82C\uB85C 6\uAC1C\uAC00 \uB098\uC635\uB2C8\uB2E4.
     \uAC01\uAC01 \uBAA8\uC591\uC5D0 \uD574\uB2F9\uD558\uB294 \uBC29\uD5A5\uC758 \uBC84\uD2BC\uC744
     \uD074\uB9AD \uD558\uBA74 \uB429\uB2C8\uB2E4. 6\uBC88 \uBC18\uBCF5\uB429\uB2C8\uB2E4."
-  choiceMessage: []
+  minigameExplanationImage:
+  - {fileID: 0}
+  - {fileID: 0}
+  choiceMessage:
+  - "\uACFC\uC81C\uD558\uB7EC\uAC00\uAE30"
   resultMessage:
-  - 
-  - 
+  - "\uACFC\uC81C\uB97C \uC131\uACF5\uC801\uC73C\uB85C \uB9C8\uCCE4\uC2B5\uB2C8\uB2E4!"
+  - "\uACFC\uC81C\uB97C \uC5B4\uB5BB\uAC8C\uB4E0 \uB05D\uB0C8\uC2B5\uB2C8\uB2E4.."
   - "\uB098\uB294 \uCC29\uD55C \uC5B4\uB978\uC774 \uC544\uB2C8\uC5C8\uC2B5\uB2C8\uB2E4.."
   resultSituation:
   - {fileID: 0}
@@ -48,8 +52,11 @@ MonoBehaviour:
   - -5
   staminaVal: []
   socialVal: []
-  flavorVal:
-  - 1
-  - 0
-  - -1
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName:
+  - MiniGameBulbCatch
+  - MiniGameBulbCatch

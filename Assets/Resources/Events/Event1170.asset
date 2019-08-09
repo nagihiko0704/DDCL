@@ -21,14 +21,16 @@ MonoBehaviour:
   situation:
   - {fileID: 0}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uB124, \uB124?"
   resultMessage:
   - "\uAD50\uC218\uB2D8\uC758 \uAD00\uC2EC\uC5D0 \uC774\uBAA9\uC774 \uC3E0\uB838\uC2B5\uB2C8\uB2E4.
     \uB300\uD559\uC6D0\uC0DD\uC758 \uBBF8\uB798\uAC00 \uC5BC\uD54F.."
   - "\uD734, \uADF8\uB0E5 \uB79C\uB364\uC73C\uB85C \uBD80\uB978\uAC70\uC600\uC2B5\uB2C8\uB2E4."
-  resultSituation: []
-  intelVal: []
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
   fassionVal:
   - 5
   - 2
@@ -36,7 +38,11 @@ MonoBehaviour:
   socialVal:
   - 1
   - 0
-  flavorVal:
-  - 2
+  favorVal:
   - 0
-  methodName: 
+  - 0
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

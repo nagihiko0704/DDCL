@@ -36,7 +36,7 @@ public class Event : ScriptableObject
 
     public List<float> intelliMaxVal;
     public List<float> fassionMaxVal;
-    public List<float> staminMaxVal;
+    public List<float> staminaMaxVal;
     public List<float> socialMaxVal;
 
     public List<string> methodName;
@@ -85,65 +85,13 @@ public class Event : ScriptableObject
         }
     }
 
-    public float IntelliVal
-    {
-        get
-        {
-            if (_randomInt < 0)
-                _randomInt = Random.Range(0, title.Count);
-
-            return intelliMaxVal[_randomInt];
-        }
-    }
-
-    public float FassionVal
-    {
-        get
-        {
-            if (_randomInt < 0)
-                _randomInt = Random.Range(0, title.Count);
-
-            return fassionVal[_randomInt];
-        }
-    }
-
-    public float StaminaVal
-    {
-        get
-        {
-            if (_randomInt < 0)
-                _randomInt = Random.Range(0, title.Count);
-
-            return staminaVal[_randomInt];
-        }
-    }
-
-    public float SocialVal
-    {
-        get
-        {
-            if (_randomInt < 0)
-                _randomInt = Random.Range(0, title.Count);
-
-            return socialVal[_randomInt];
-        }
-    }
-
-    public float FavorVal
-    {
-        get
-        {
-            if (_randomInt < 0)
-                _randomInt = Random.Range(0, title.Count);
-
-            return favorVal[_randomInt];
-        }
-    }
-
     public int SelectedInt
     {
         get
         {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
             return _randomInt;
         }
     }
