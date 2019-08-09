@@ -28,13 +28,18 @@ public class Event : ScriptableObject
 
     public List<Sprite> resultSituation;
 
-    public List<float> intelVal;
+
     public List<float> fassionVal;
     public List<float> staminaVal;
     public List<float> socialVal;
-    public List<float> flavorVal;
+    public List<float> favorVal;
 
-    public string methodName;
+    public List<float> intelliMaxVal;
+    public List<float> fassionMaxVal;
+    public List<float> staminMaxVal;
+    public List<float> socialMaxVal;
+
+    public List<string> methodName;
 
     private int _randomInt = -1;
 
