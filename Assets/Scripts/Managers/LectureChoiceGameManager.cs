@@ -9,9 +9,8 @@ public class LectureChoiceGameManager : MonoBehaviour
 {
     
     public GameObject[] buttonLectures = new GameObject[4];
-
-    //background image for lecture buttons
-    public Sprite[] spriteLectureButtonBackground = new Sprite[4];
+    public Sprite[] manResoure = new Sprite[3];//0 is non, 1 is happy, 2 is angry
+    public GameObject[] happyAndAngry = new GameObject[13];
 
     //array element value is decending order of goodness
     //value range: 0-3
@@ -28,6 +27,9 @@ public class LectureChoiceGameManager : MonoBehaviour
     private float limitTime=TIME_LIMIT;
 
     private readonly int[] SCORE = { 10, 7, 4, 1 };
+
+    private int[] _happyEach = new int[4];
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,13 +79,29 @@ public class LectureChoiceGameManager : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             _goodLectureOrder[i] = i;
+            _happyEach[i] = Random.Range(0, 13);
         }
+
+        for(int i = 0; i < _happyEach.Length - 1; i++)
+        {
+            for(int j = i + 1; j < _happyEach.Length; j++)
+            {
+                int temp;
+                if (_happyEach[i] > _happyEach[j])
+                {
+                    temp = _happyEach[i];
+                    _happyEach[i] = _happyEach[j];
+                    _happyEach[j] = temp;
+                }
+            }
+        }//sort _happyEach
+        
 
         Shuffle(_goodLectureOrder);
         for (int i = 0; i < 4; i++)
         {
             int x=_goodLectureOrder[i];
-            buttonLectures[i].GetComponent<Image>().sprite = spriteLectureButtonBackground[x];
+            setLectureChoiceMan(_happyEach[x],x);
         }
     }
 
@@ -140,5 +158,64 @@ public class LectureChoiceGameManager : MonoBehaviour
 		
         Debug.Log(SCORE[order3]);
         _choiceNum++;
+    }
+
+    void setLectureChoiceMan(int happyMan,int goodLecture) {
+        int totalMan;
+        int angryMan;
+        int noMan;
+        int[] tempList = new int[13];
+        
+
+        //set the amount of people
+        if (happyMan >= 8)
+            totalMan = Random.Range(happyMan, 13);
+        else
+            totalMan = Random.Range(8, 13);
+
+        //set the amout of angry people and non-people place
+        noMan = 13 - totalMan;
+        angryMan = totalMan - happyMan;
+
+        //make a array[13], value is 0, 1, or 2.
+        //non -people=>0, happy=>1, angry=>2
+        for(int i = 0; i < noMan; i++){
+            tempList[i] = 0;
+        }
+        for(int i=noMan; i < noMan + happyMan; i++)
+        {
+            tempList[i] = 1;
+        }
+        for(int i = noMan + happyMan; i < noMan + happyMan + angryMan; i++)
+        {
+            tempList[i] = 2;
+        }
+
+        //mix the array
+        for(int i=0; i < 13; i++)
+        {
+            int temp=tempList[i];
+            int randomOne = Random.Range(0, 13);
+
+            tempList[i] = tempList[randomOne];
+            tempList[randomOne] = temp;
+        }
+
+        //set the sprite
+        for(int i = 0; i < 13; i++)
+        {
+            switch(tempList[i]){
+                case 0:
+                    happyAndAngry[i].GetComponent<Image>().sprite = manResoure[0];
+                    break;
+                case 1:
+                    happyAndAngry[i].GetComponent<Image>().sprite = manResoure[1];
+                    break;
+                case 2:
+                    happyAndAngry[i].GetComponent<Image>().sprite = manResoure[2];
+                    break;
+            }
+        }
+
     }
 }
