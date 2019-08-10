@@ -806,7 +806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1655576477}
         m_MethodName: OnLecture1ButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -3022,7 +3022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1655576477}
         m_MethodName: OnLecture2ButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -4419,7 +4419,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1655576477}
         m_MethodName: OnLecture0ButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -5695,7 +5695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1655576477}
         m_MethodName: OnLecture3ButtonClicked
         m_Mode: 1
         m_Arguments:

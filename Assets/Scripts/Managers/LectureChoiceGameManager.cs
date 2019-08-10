@@ -113,8 +113,8 @@ public class LectureChoiceGameManager : MonoBehaviour
             array1[n] = temp;
 
             temp = array2[i];
-            array1[i] = array1[n];
-            array1[n] = temp;
+            array2[i] = array2[n];
+            array2[n] = temp;
         }
     }
 
