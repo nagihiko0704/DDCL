@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 23825736}
   - component: {fileID: 23825735}
   m_Layer: 0
-  m_Name: Image6
+  m_Name: 3Image6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 24219523}
   - component: {fileID: 24219522}
   m_Layer: 0
-  m_Name: Image4
+  m_Name: 0Image4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 62052427}
   - component: {fileID: 62052426}
   m_Layer: 0
-  m_Name: Image7
+  m_Name: 2Image7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 85632053}
   - component: {fileID: 85632052}
   m_Layer: 0
-  m_Name: Image9
+  m_Name: 1Image9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 128924805}
   - component: {fileID: 128924804}
   m_Layer: 0
-  m_Name: Image3
+  m_Name: 0Image3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18431373, g: 0.2627451, b: 0.5764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 151089170}
   - component: {fileID: 151089169}
   m_Layer: 0
-  m_Name: Image10
+  m_Name: 1Image10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 207139856}
   - component: {fileID: 207139855}
   m_Layer: 0
-  m_Name: Image2
+  m_Name: 1Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 255964554}
   - component: {fileID: 255964553}
   m_Layer: 0
-  m_Name: Image1
+  m_Name: 3Image1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34509805, g: 0.39607847, b: 0.63529414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 261473533}
   - component: {fileID: 261473532}
   m_Layer: 0
-  m_Name: Image8
+  m_Name: 3Image8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 339136730}
   - component: {fileID: 339136729}
   m_Layer: 0
-  m_Name: Image10
+  m_Name: 2Image10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1460,7 +1460,7 @@ GameObject:
   - component: {fileID: 342188891}
   - component: {fileID: 342188890}
   m_Layer: 0
-  m_Name: Image12
+  m_Name: 3Image12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,7 +1534,7 @@ GameObject:
   - component: {fileID: 383236188}
   - component: {fileID: 383236187}
   m_Layer: 0
-  m_Name: Image13
+  m_Name: 3Image13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1608,7 +1608,7 @@ GameObject:
   - component: {fileID: 419914869}
   - component: {fileID: 419914868}
   m_Layer: 0
-  m_Name: Image10
+  m_Name: 0Image10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,7 +1682,7 @@ GameObject:
   - component: {fileID: 470468695}
   - component: {fileID: 470468694}
   m_Layer: 0
-  m_Name: Image11
+  m_Name: 3Image11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,7 +1756,7 @@ GameObject:
   - component: {fileID: 494772579}
   - component: {fileID: 494772578}
   m_Layer: 0
-  m_Name: Image8
+  m_Name: 1Image8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 532602249}
   - component: {fileID: 532602248}
   m_Layer: 0
-  m_Name: Image4
+  m_Name: 3Image4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 533041895}
   - component: {fileID: 533041894}
   m_Layer: 0
-  m_Name: Image1
+  m_Name: 2Image1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34509805, g: 0.39607847, b: 0.63529414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1978,7 +1978,7 @@ GameObject:
   - component: {fileID: 587657188}
   - component: {fileID: 587657187}
   m_Layer: 0
-  m_Name: Image5
+  m_Name: 3Image5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 597522228}
   - component: {fileID: 597522227}
   m_Layer: 0
-  m_Name: Image9
+  m_Name: 0Image9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2200,7 +2200,7 @@ GameObject:
   - component: {fileID: 624831311}
   - component: {fileID: 624831310}
   m_Layer: 0
-  m_Name: Image8
+  m_Name: 0Image8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2274,7 +2274,7 @@ GameObject:
   - component: {fileID: 638000423}
   - component: {fileID: 638000422}
   m_Layer: 0
-  m_Name: Image12
+  m_Name: 1Image12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 798940736}
   - component: {fileID: 798940735}
   m_Layer: 0
-  m_Name: Image2
+  m_Name: 0Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 0.9858491, b: 0.9858491, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2496,7 +2496,7 @@ GameObject:
   - component: {fileID: 802832414}
   - component: {fileID: 802832413}
   m_Layer: 0
-  m_Name: Image9
+  m_Name: 2Image9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2570,7 +2570,7 @@ GameObject:
   - component: {fileID: 872453104}
   - component: {fileID: 872453103}
   m_Layer: 0
-  m_Name: Image11
+  m_Name: 0Image11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2718,7 +2718,7 @@ GameObject:
   - component: {fileID: 902541315}
   - component: {fileID: 902541314}
   m_Layer: 0
-  m_Name: Image11
+  m_Name: 1Image11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 920310879}
   - component: {fileID: 920310878}
   m_Layer: 0
-  m_Name: Image9
+  m_Name: 3Image9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 924590117}
   - component: {fileID: 924590116}
   m_Layer: 0
-  m_Name: Image6
+  m_Name: 2Image6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3084,7 +3084,7 @@ GameObject:
   - component: {fileID: 982006146}
   - component: {fileID: 982006145}
   m_Layer: 0
-  m_Name: Image4
+  m_Name: 1Image4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3315,7 +3315,6 @@ RectTransform:
   - {fileID: 117766081}
   - {fileID: 928632512}
   - {fileID: 2019351552}
-  - {fileID: 1705373134}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3336,7 +3335,7 @@ GameObject:
   - component: {fileID: 992692272}
   - component: {fileID: 992692271}
   m_Layer: 0
-  m_Name: Image13
+  m_Name: 2Image13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3410,7 +3409,7 @@ GameObject:
   - component: {fileID: 1042169657}
   - component: {fileID: 1042169656}
   m_Layer: 0
-  m_Name: Image13
+  m_Name: 1Image13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3558,7 +3557,7 @@ GameObject:
   - component: {fileID: 1220736076}
   - component: {fileID: 1220736075}
   m_Layer: 0
-  m_Name: Image4
+  m_Name: 2Image4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3632,7 +3631,7 @@ GameObject:
   - component: {fileID: 1333699026}
   - component: {fileID: 1333699025}
   m_Layer: 0
-  m_Name: Image3
+  m_Name: 3Image3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3670,7 +3669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18431373, g: 0.2627451, b: 0.5764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3780,7 +3779,7 @@ GameObject:
   - component: {fileID: 1380626695}
   - component: {fileID: 1380626694}
   m_Layer: 0
-  m_Name: Image1
+  m_Name: 1Image1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3818,7 +3817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34509805, g: 0.39607847, b: 0.63529414, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3854,7 +3853,7 @@ GameObject:
   - component: {fileID: 1416848830}
   - component: {fileID: 1416848829}
   m_Layer: 0
-  m_Name: Image12
+  m_Name: 2Image12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3928,7 +3927,7 @@ GameObject:
   - component: {fileID: 1420933952}
   - component: {fileID: 1420933951}
   m_Layer: 0
-  m_Name: Image7
+  m_Name: 3Image7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4002,7 +4001,7 @@ GameObject:
   - component: {fileID: 1422016257}
   - component: {fileID: 1422016256}
   m_Layer: 0
-  m_Name: Image5
+  m_Name: 0Image5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4270,6 +4269,62 @@ MonoBehaviour:
   - {fileID: 298876890}
   - {fileID: 649940195}
   - {fileID: 1575668136}
+  haa0:
+  - {fileID: 1840744830}
+  - {fileID: 798940733}
+  - {fileID: 128924802}
+  - {fileID: 24219520}
+  - {fileID: 24219520}
+  - {fileID: 1422016254}
+  - {fileID: 2063107216}
+  - {fileID: 1852424621}
+  - {fileID: 624831308}
+  - {fileID: 597522225}
+  - {fileID: 419914866}
+  - {fileID: 872453101}
+  - {fileID: 1962084959}
+  haa1:
+  - {fileID: 1380626692}
+  - {fileID: 207139853}
+  - {fileID: 1757598223}
+  - {fileID: 982006143}
+  - {fileID: 2087853848}
+  - {fileID: 1951656739}
+  - {fileID: 1788438744}
+  - {fileID: 494772576}
+  - {fileID: 85632050}
+  - {fileID: 151089167}
+  - {fileID: 902541312}
+  - {fileID: 638000420}
+  - {fileID: 1042169654}
+  haa2:
+  - {fileID: 533041892}
+  - {fileID: 2106341424}
+  - {fileID: 1916713300}
+  - {fileID: 1220736073}
+  - {fileID: 1888924395}
+  - {fileID: 924590114}
+  - {fileID: 62052424}
+  - {fileID: 1867048529}
+  - {fileID: 802832411}
+  - {fileID: 339136727}
+  - {fileID: 1836473846}
+  - {fileID: 1416848827}
+  - {fileID: 383236185}
+  haa3:
+  - {fileID: 255964551}
+  - {fileID: 2013257240}
+  - {fileID: 1333699023}
+  - {fileID: 532602246}
+  - {fileID: 587657185}
+  - {fileID: 23825733}
+  - {fileID: 1420933949}
+  - {fileID: 261473530}
+  - {fileID: 920310876}
+  - {fileID: 1847786967}
+  - {fileID: 470468692}
+  - {fileID: 342188888}
+  - {fileID: 383236185}
 --- !u!1 &1678526277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,12 +4548,12 @@ RectTransform:
   - {fileID: 298876891}
   - {fileID: 649940196}
   - {fileID: 1575668137}
-  m_Father: {fileID: 988057510}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1000}
+  m_AnchoredPosition: {x: 720, y: 2280}
   m_SizeDelta: {x: 0, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1757598223
@@ -4513,7 +4568,7 @@ GameObject:
   - component: {fileID: 1757598226}
   - component: {fileID: 1757598225}
   m_Layer: 0
-  m_Name: Image3
+  m_Name: 1Image3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4551,7 +4606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18431373, g: 0.2627451, b: 0.5764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4587,7 +4642,7 @@ GameObject:
   - component: {fileID: 1788438747}
   - component: {fileID: 1788438746}
   m_Layer: 0
-  m_Name: Image7
+  m_Name: 1Image7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4744,7 +4799,7 @@ GameObject:
   - component: {fileID: 1836473849}
   - component: {fileID: 1836473848}
   m_Layer: 0
-  m_Name: Image11
+  m_Name: 2Image11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4818,7 +4873,7 @@ GameObject:
   - component: {fileID: 1840249107}
   - component: {fileID: 1840249106}
   m_Layer: 0
-  m_Name: Image13
+  m_Name: 0Image13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4892,7 +4947,7 @@ GameObject:
   - component: {fileID: 1840744833}
   - component: {fileID: 1840744832}
   m_Layer: 0
-  m_Name: Image1
+  m_Name: 0Image1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4966,7 +5021,7 @@ GameObject:
   - component: {fileID: 1847786970}
   - component: {fileID: 1847786969}
   m_Layer: 0
-  m_Name: Image10
+  m_Name: 3Image10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5040,7 +5095,7 @@ GameObject:
   - component: {fileID: 1852424624}
   - component: {fileID: 1852424623}
   m_Layer: 0
-  m_Name: Image7
+  m_Name: 0Image7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,7 +5169,7 @@ GameObject:
   - component: {fileID: 1867048532}
   - component: {fileID: 1867048531}
   m_Layer: 0
-  m_Name: Image8
+  m_Name: 2Image8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5188,7 +5243,7 @@ GameObject:
   - component: {fileID: 1888924398}
   - component: {fileID: 1888924397}
   m_Layer: 0
-  m_Name: Image5
+  m_Name: 2Image5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5262,7 +5317,7 @@ GameObject:
   - component: {fileID: 1916713303}
   - component: {fileID: 1916713302}
   m_Layer: 0
-  m_Name: Image3
+  m_Name: 2Image3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5300,7 +5355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18431373, g: 0.2627451, b: 0.5764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5336,7 +5391,7 @@ GameObject:
   - component: {fileID: 1951656742}
   - component: {fileID: 1951656741}
   m_Layer: 0
-  m_Name: Image6
+  m_Name: 1Image6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5410,7 +5465,7 @@ GameObject:
   - component: {fileID: 1962084962}
   - component: {fileID: 1962084961}
   m_Layer: 0
-  m_Name: Image12
+  m_Name: 0Image12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5484,7 +5539,7 @@ GameObject:
   - component: {fileID: 2013257243}
   - component: {fileID: 2013257242}
   m_Layer: 0
-  m_Name: Image2
+  m_Name: 3Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5522,7 +5577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5702,7 +5757,7 @@ GameObject:
   - component: {fileID: 2063107219}
   - component: {fileID: 2063107218}
   m_Layer: 0
-  m_Name: Image6
+  m_Name: 0Image6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5776,7 +5831,7 @@ GameObject:
   - component: {fileID: 2087853851}
   - component: {fileID: 2087853850}
   m_Layer: 0
-  m_Name: Image5
+  m_Name: 1Image5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5850,7 +5905,7 @@ GameObject:
   - component: {fileID: 2106341427}
   - component: {fileID: 2106341426}
   m_Layer: 0
-  m_Name: Image2
+  m_Name: 2Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5888,7 +5943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
