@@ -19,6 +19,8 @@ public class Event : ScriptableObject
     [TextArea]
     public List<string> minigameExplanation;
 
+    public List<Sprite> minigameExplanationImage;
+
     public List<string> choiceMessage;
 
     [TextArea]
@@ -26,11 +28,18 @@ public class Event : ScriptableObject
 
     public List<Sprite> resultSituation;
 
+
     public List<float> fassionVal;
     public List<float> staminaVal;
     public List<float> socialVal;
+    public List<float> favorVal;
 
-    public string methodName;
+    public List<float> intelliMaxVal;
+    public List<float> fassionMaxVal;
+    public List<float> staminaMaxVal;
+    public List<float> socialMaxVal;
+
+    public List<string> methodName;
 
     private int _randomInt = -1;
 
@@ -62,6 +71,28 @@ public class Event : ScriptableObject
                 _randomInt = Random.Range(0, title.Count);
 
             return situation[_randomInt];
+        }
+    }
+
+    public string SelectedMethod
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return methodName[_randomInt];
+        }
+    }
+
+    public int SelectedInt
+    {
+        get
+        {
+            if (_randomInt < 0)
+                _randomInt = Random.Range(0, title.Count);
+
+            return _randomInt;
         }
     }
 }

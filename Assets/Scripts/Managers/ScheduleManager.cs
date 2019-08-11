@@ -69,7 +69,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         studyResult = GameManager.Inst.studyResultArray;
 
         int randomNum = Random.Range(1, 5);
-        switch(randomNum)
+        switch(1)
         {
             case (1):
                 InitScheduleType1(tempSchedule);
@@ -99,7 +99,16 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         //Mon
         schedule.AddTask(studyResult[0], Period.First, Day.Mon);
         schedule.AddTask(studyResult[1], Period.Second, Day.Mon);
+
+        //for test and metoring
+        schedule.taskArray[(int)Period.First, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1152") as Event;
+        schedule.taskArray[(int)Period.Second, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1170") as Event;
+        
+
         schedule.AddTask(new Club((Period.Third, Day.Mon)));
+
+        schedule.taskArray[(int)Period.Third, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1111") as Event;
+
         schedule.AddTask(studyResult[2], Period.Fourth, Day.Mon);
 
         //Tue
@@ -296,14 +305,19 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         Event _curEvent = CurrentTask.taskEvent;
 
+        if(_curEvent == null)
+        {
+            Debug.Log("에러 병시나");
+        }
+
         doEvent = true;
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
-        if(_curEvent.methodName != null)
-        {
-            EventManager.Inst.ApplyEventEffect(_curEvent.methodName);
-        }
+        //if(_curEvent.methodName != null)
+        //{
+        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
+        //}
 
         while (doEvent)
         {
