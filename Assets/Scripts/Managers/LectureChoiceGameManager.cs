@@ -158,10 +158,10 @@ public class LectureChoiceGameManager : MonoBehaviour
         _choiceNum++;
     }
 
+    //set the happy and angry man for the input lecture order.
     void SetLectureChoiceMan(int happyMan, int goodLecture)
     {
         int totalMan;
-        //int angryMan;
         int noMan;
         int[] tempList = new int[13];
 
@@ -214,6 +214,7 @@ public class LectureChoiceGameManager : MonoBehaviour
             }
         }
 
+        //apply to each button
         switch (goodLecture)
         {
             case 0:
@@ -236,6 +237,7 @@ public class LectureChoiceGameManager : MonoBehaviour
 
     }
 
+    //swap two element.
     void Swap(int one, int two, int[] arr)
     {
         int temp = arr[one];
@@ -243,9 +245,11 @@ public class LectureChoiceGameManager : MonoBehaviour
         arr[two] = temp;
     }
 
+    //set number of happyman for each order.
+    //choice 4 number, and sort them to descending order.	
     void SetHappy(int[] arr)
     {
-        //make happy
+        //choic 4 number.
         for (int i = 0; i < arr.Length; i++)
         {
             int num = Random.Range(0, 13);
@@ -256,7 +260,7 @@ public class LectureChoiceGameManager : MonoBehaviour
             arr[i] = num;
         }
 
-        //sort happy
+        //sort
         for(int i = 0; i < arr.Length - 1; i++)
         {
             for(int j=i+1; j < arr.Length; j++)
