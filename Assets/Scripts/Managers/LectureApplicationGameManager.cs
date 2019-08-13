@@ -16,14 +16,14 @@ public class LectureApplicationGameManager : MonoBehaviour
 
     private int _clickCount;
     private int applicationScore;
-    private int _amountOfClick;
+    private int _fireLevel;
+    private int _presentLecture;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        fire.GetComponent<Image>().sprite = fireSprite[0];
         buttonApplication.onClick.AddListener(AddApplicationCount);
-
     }
 
     // Update is called once per frame
@@ -42,14 +42,13 @@ public class LectureApplicationGameManager : MonoBehaviour
             SceneManager.LoadScene(3);
         }
 
-        ChangeSpriteFire(_amountOfClick);
+        ChangeSpriteFire(_clickCount,lectureCount);
             
     }
 
     private void AddApplicationCount()
     {
         _clickCount++;
-        _amountOfClick++;
     }
     
 
@@ -77,24 +76,16 @@ public class LectureApplicationGameManager : MonoBehaviour
         _clickCount = 0;
     }
 
-    private void ChangeSpriteFire(int count)
+    private void ChangeSpriteFire(int countClick,int countLecture)
     {
-        int num = count / 19;
-
-        switch (num)
+        if (countLecture != _presentLecture)
         {
-            case 0:
-                fire.GetComponent<Image>().sprite = fireSprite[0];
-                break;
-            case 1:
-                fire.GetComponent<Image>().sprite = fireSprite[1];
-                break;
-            case 2:
-                fire.GetComponent<Image>().sprite = fireSprite[2];
-                break;
-            default:
-                fire.GetComponent<Image>().sprite = fireSprite[3];
-                break;
+            if (countClick >= 19)
+            {
+                _fireLevel++;
+                fire.GetComponent<Image>().sprite = fireSprite[_fireLevel];
+                _presentLecture = countLecture;
+            }
         }
     }
 }
