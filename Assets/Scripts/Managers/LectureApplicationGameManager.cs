@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class LectureApplicationGameManager : MonoBehaviour
 {
     public Button buttonApplication;
+    public Image fire;
+    public Sprite[] fireSprite = new Sprite[4];
 
     public const int GAME_TIME = 2;
     public float countTime = GAME_TIME;
@@ -14,6 +16,7 @@ public class LectureApplicationGameManager : MonoBehaviour
 
     private int _clickCount;
     private int applicationScore;
+    private int _amountOfClick;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +41,15 @@ public class LectureApplicationGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(3);
         }
+
+        ChangeSpriteFire(_amountOfClick);
             
     }
 
     private void AddApplicationCount()
     {
         _clickCount++;
+        _amountOfClick++;
     }
     
 
@@ -69,6 +75,27 @@ public class LectureApplicationGameManager : MonoBehaviour
         lectureCount++;
         countTime = 2;
         _clickCount = 0;
+    }
+
+    private void ChangeSpriteFire(int count)
+    {
+        int num = count / 19;
+
+        switch (num)
+        {
+            case 0:
+                fire.GetComponent<Image>().sprite = fireSprite[0];
+                break;
+            case 1:
+                fire.GetComponent<Image>().sprite = fireSprite[1];
+                break;
+            case 2:
+                fire.GetComponent<Image>().sprite = fireSprite[2];
+                break;
+            default:
+                fire.GetComponent<Image>().sprite = fireSprite[3];
+                break;
+        }
     }
 }
  
