@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LectureApplicationGameManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class LectureApplicationGameManager : MonoBehaviour
     private int _clickCount;
     private int applicationScore;
     private int _fireLevel;
-    private int _presentLecture;
+    private int _pastLecture;
 
     // Start is called before the first frame update
     void Start()
@@ -94,13 +95,13 @@ public class LectureApplicationGameManager : MonoBehaviour
 
     private void ChangeSpriteFire(int countClick,int countLecture)
     {
-        if (countLecture != _presentLecture)
+        if (countLecture != _pastLecture)
         {
             if (countClick >= 19)
             {
                 _fireLevel++;
                 fire.GetComponent<Image>().sprite = fireSprite[_fireLevel];
-                _presentLecture = countLecture;
+                _pastLecture = countLecture;
             }
         }
     }
