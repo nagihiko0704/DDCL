@@ -12,10 +12,7 @@ public class LectureApplicationGameManager : MonoBehaviour
 
     public const int GAME_TIME = 2;
     public float countTime = GAME_TIME;
-    public float beforeGameTime = 3;
     public int lectureCount;
-
-    public bool start=false;
 
     private int _clickCount;
     private int applicationScore;
@@ -26,40 +23,27 @@ public class LectureApplicationGameManager : MonoBehaviour
     void Start()
     {
         fire.GetComponent<Image>().sprite = fireSprite[0];
+        buttonApplication.onClick.AddListener(AddApplicationCount);
     }
 
     // Update is called once per frame
     void Update()
     {
         float time = Time.deltaTime;
+        countTime -= time;
 
-        if (start == false)
+        if (countTime <= 0)
         {
-            beforeGameTime -= time;
-            if(beforeGameTime <= 0)
-            {
-                start = true;
-                Debug.Log("start!");
-
-                buttonApplication.onClick.AddListener(AddApplicationCount);
-            }
-
+            ApplicationEnd(lectureCount);
         }
-
-        else if (start == true)
-        {
-            countTime -= time;
-            if (countTime <= 0)
-                ApplicationEnd(lectureCount);
-
-            ChangeSpriteFire(_clickCount, lectureCount);
-        }
-
 
         if (lectureCount == 5)
         {
             SceneManager.LoadScene(3);
         }
+
+        ChangeSpriteFire(_clickCount,lectureCount);
+            
     }
 
     private void AddApplicationCount()
