@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class HomeManager : MonoBehaviour
@@ -25,23 +26,23 @@ public class HomeManager : MonoBehaviour
         
     }
 
-    void OnclickBuccon0()
+    public void OnclickBuccon0()
     {
         //??????
     }
 
-    void OnclickButton1()
+    public void OnclickButton1()
     {
         //scence load "new character" scene.
         //SceneManager.LoadScene();
     }
 
-    void OnClickButton2()
+    public void OnClickButton2()
     {
         //scence load main scene???
     }
 
-    void OnClickButton3()
+    public void OnClickButton3()
     {
         //scence load "achievement" scene.
         //SceneManager.LoadSecne();
