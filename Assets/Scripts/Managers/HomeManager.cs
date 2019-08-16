@@ -33,8 +33,7 @@ public class HomeManager : MonoBehaviour
 
     public void OnclickButton1()
     {
-        //scence load "new character" scene.
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(5);
     }
 
     public void OnClickButton2()
@@ -44,7 +43,6 @@ public class HomeManager : MonoBehaviour
 
     public void OnClickButton3()
     {
-        //scence load "achievement" scene.
-        //SceneManager.LoadSecne();
+        SceneManager.LoadScene(6);
     }
 }
