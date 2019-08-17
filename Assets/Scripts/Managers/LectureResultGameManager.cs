@@ -77,6 +77,7 @@ public class LectureResultGameManager : MonoBehaviour
 
 
         GameManager.Inst.studyResultArray[i] = tempList[selectedLecture];
+
         list.lectureList[grade].RemoveAt(selectedLecture);
     }
 
