@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event1010
+  m_EditorClassIdentifier: 
+  eventCode: 1010
+  eventProbability: 0
+  title:
+  - "\uC911\uAC04 \uACE0\uC0AC"
+  message:
+  - "\uB300\uD559 \uC785\uD559 \uD6C4 \uCCAB \uC2DC\uD5D8\uC785\uB2C8\uB2E4. \uD560
+    \uC218 \uC788\uB530 \uD560 \uC218 \uC788\uB530"
+  situation:
+  - {fileID: 0}
+  minigameExplanation: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - "\uC544\uC790 \uC544\uC790!"
+  resultMessage:
+  - "\uD06C, \uC7A5\uD559\uAE08 \uAC01\uC774\uB2E4 \uC774\uAC74."
+  - "\uB098\uC058\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4! \uB180\uB7EC\uAC00\uC790\u314F"
+  - "\uAE30\uB9D0..\uAE30\uB9D0\uC774 \uB0A8\uC544\uC788\uC73C\uB2C8\uAE4C.."
+  resultSituation: []
+  fassionVal:
+  - 15
+  - 0
+  - 5
+  staminaVal: []
+  socialVal: []
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

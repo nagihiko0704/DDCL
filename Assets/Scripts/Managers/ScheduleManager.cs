@@ -54,8 +54,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {   
         if(!doEvent)
         {
-            float tempTime = Time.deltaTime;
-            curTime += tempTime;
+            curTime += Time.deltaTime;
         }
     }
 
@@ -252,6 +251,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             //apply stat change
             GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
 
+            //insert event
+            EventManager.Inst.InsertEvent();
+
             yield return new WaitForSeconds(TASK_TIME / 2);
 
             //Debug.Log("이벤트 시간");
@@ -287,6 +289,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                     }
                 }
             }
+
+            //for time correction
+            curTime = Mathf.Floor(curTime);
         }
     }
 
@@ -296,14 +301,19 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         Event _curEvent = CurrentTask.taskEvent;
 
+        if(_curEvent == null)
+        {
+            Debug.Log("에러 병시나");
+        }
+
         doEvent = true;
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
-        if(_curEvent.methodName != null)
-        {
-            EventManager.Inst.ApplyEventEffect(_curEvent.methodName);
-        }
+        //if(_curEvent.methodName != null)
+        //{
+        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
+        //}
 
         while (doEvent)
         {
