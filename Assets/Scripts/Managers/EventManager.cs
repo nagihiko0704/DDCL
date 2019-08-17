@@ -101,13 +101,12 @@ public class EventManager : SingletonBehaviour<EventManager>
                 bulbMiniGameScore[bulbGameNum] = 0f;
             }
 
-            bulbGameNum++;
-
             if(bulbGameNum < 2)
             {
                 MiniGameBulbCatch();
             }
-            
+
+            bulbGameNum++;
         }
         else
         {
