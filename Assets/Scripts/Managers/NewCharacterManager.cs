@@ -76,7 +76,6 @@ public class NewCharacterManager : MonoBehaviour
     /********** H   E   L   P   ***********/
     public void OnClickYes()
     {
-        //HELP ME!!!!!!!
     }
 
     /*********  H   E   L   P   **********/
