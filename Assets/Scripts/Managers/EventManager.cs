@@ -34,7 +34,12 @@ public class EventManager : SingletonBehaviour<EventManager>
     // Start is called before the first frame update
     void Start()
     {
-
+        //force event
+        //exam
+        for (int i = 0; i < 5; i++)
+        {
+            SetExam(i);
+        }
     }
 
     // Update is called once per frame
@@ -56,10 +61,20 @@ public class EventManager : SingletonBehaviour<EventManager>
     {
         Task curTask = ScheduleManager.Inst.CurrentTask;
 
-        if(curTask.taskEvent != null)
+        if (curTask.taskEvent != null)
         {
             Debug.Log("this task already have event");
 
+            //hundreds digit of event code
+            int eventCode100 = ((curTask.taskEvent.eventCode / 10) / 10) % 10;
+
+            if (eventCode100 != 0)
+            {
+                Debug.Log("but it was wrong event");
+
+                curTask.taskEvent = null;
+            }
+            
             return;
         }
 
@@ -181,6 +196,43 @@ public class EventManager : SingletonBehaviour<EventManager>
         }
     }
 
+    private void SetExam(int i)
+    {
+        bool isMidStudyFinded = false;
+        bool isFinalStudyFinded = false;
+
+        for (int day = 0; day < 5; day++)
+        {
+            for (int period = 0; period < 5; period++)
+            {
+                //mid
+                if (GameManager.Inst.studyResultArray[i].taskName
+                .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
+                {
+                    isMidStudyFinded = true;
+                       
+                    if(isMidStudyFinded)
+                    {
+                        GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
+                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1010.asset") as Event;
+                    }
+                }
+
+                //final
+                if (GameManager.Inst.studyResultArray[i].taskName
+               .Equals(GameManager.Inst.player.schedules[15].taskArray[period, day].taskName))
+                {
+                    isFinalStudyFinded = true;
+
+                    if (isFinalStudyFinded)
+                    {
+                        GameManager.Inst.player.schedules[15].taskArray[period, day].taskEvent
+                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1020.asset") as Event;
+                    }
+                }
+            }
+        }
+    }
 
     public void ApplyEventEffect(string methodName)
     {
