@@ -70,22 +70,18 @@ public class NewCharacterManager : MonoBehaviour
     //explainChoiceButton+choiceCharacterButton
     public void OnClickECB()
     {
-        explainImage.SetActive(false);
         panel.SetActive(true);
-        panelYes.SetActive(true);
-        panelNo.SetActive(true);
     }
 
+    /********** H   E   L   P   ***********/
     public void OnClickYes()
     {
         //HELP ME!!!!!!!
     }
 
+    /*********  H   E   L   P   **********/
     public void OnClickNo()
     {
         panel.SetActive(false);
-        panelYes.SetActive(false);
-        panelNo.SetActive(false);
-        explainImage.SetActive(true);
     }
 }
