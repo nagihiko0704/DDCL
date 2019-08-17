@@ -152,7 +152,7 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     //Event method
 
-    public void MiniGameBulbCatch()
+    private void MiniGameBulbCatch()
     {
         miniGameList[0].SetActive(true);
 
@@ -170,7 +170,7 @@ public class EventManager : SingletonBehaviour<EventManager>
         buttonBulbCatch.onClick.AddListener(() => OnBulbCatchGameButtonClick());
     }
 
-    public void OnBulbCatchGameButtonClick()
+    private void OnBulbCatchGameButtonClick()
     {
         Debug.Log("bulbGameNum: " + bulbGameNum);
 
