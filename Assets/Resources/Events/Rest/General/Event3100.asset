@@ -22,7 +22,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9618c995be17e4648ad405bea5a3cf8d, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
-  choiceMessage: []
+  choiceMessage:
+  - asd
   resultMessage:
   - "\uD734\uC2DD \uACB0\uACFC \uD14C\uC2A4\uD2B8\n\uC544\u314F\uC774\uC544\u3153\u3163"
   resultSituation:
