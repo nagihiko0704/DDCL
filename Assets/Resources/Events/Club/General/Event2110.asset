@@ -18,6 +18,7 @@ MonoBehaviour:
   message: []
   situation: []
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uD655\uC778"
   resultMessage:
@@ -30,3 +31,9 @@ MonoBehaviour:
   - 0
   socialVal:
   - 3
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []
