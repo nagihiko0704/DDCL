@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -141,6 +142,42 @@ public class EventManager : SingletonBehaviour<EventManager>
 
             Debug.Log("eventPath: " + eventPath[i]);
 
+            //get event by probability
+            Event tempEvent = (Event)AssetDatabase.LoadAssetAtPath(eventPath[i], typeof(Event));
+            float randomVal = Random.value;
+
+            if(randomVal <= tempEvent.eventProbability / 100)
+            {
+                selectedEvent.Add(tempEvent);
+            }
+        }
+
+        int curWeek = ScheduleManager.Inst.currentWeek;
+        int curPeriod = (int)ScheduleManager.Inst.currentPeriod;
+        int curDay = (int)ScheduleManager.Inst.currentDay;
+
+        //if no event selected
+        if (selectedEvent.Count == 0)
+        {
+            Debug.Log("no event selected");
+
+            return;
+        }
+        //if only one event selected
+        else if(selectedEvent.Count == 1)
+        {
+            Debug.Log("one event selected");
+
+            GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent = selectedEvent[0];
+        }
+        //if more than one event selected
+        else if(selectedEvent.Count > 1)
+        {
+            Debug.Log("several event selected");
+
+            GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent = selectedEvent[Random.Range(0, selectedEvent.Count)];
+
+            Debug.Log("selected event: " + GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent.eventCode);
         }
     }
 

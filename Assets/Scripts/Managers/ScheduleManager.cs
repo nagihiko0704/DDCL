@@ -252,6 +252,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             //apply stat change
             GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
 
+            //insert event
+            EventManager.Inst.InsertEvent();
+
             yield return new WaitForSeconds(TASK_TIME / 2);
 
             //Debug.Log("이벤트 시간");
