@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +34,12 @@ public class EventManager : SingletonBehaviour<EventManager>
     // Start is called before the first frame update
     void Start()
     {
-
+        //force event
+        //exam
+        for (int i = 0; i < 5; i++)
+        {
+            SetExam(i);
+        }
     }
 
     // Update is called once per frame
@@ -53,9 +59,180 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     public void InsertEvent()
     {
+        Task curTask = ScheduleManager.Inst.CurrentTask;
 
+        if (curTask.taskEvent != null)
+        {
+            Debug.Log("this task already have event");
+
+            //hundreds digit of event code
+            int eventCode100 = ((curTask.taskEvent.eventCode / 10) / 10) % 10;
+
+            if (eventCode100 != 0)
+            {
+                Debug.Log("but it was wrong event");
+
+                curTask.taskEvent = null;
+            }
+            
+            return;
+        }
+
+        GetEvent(curTask);
     }
 
+    private void GetEvent(Task curTask)
+    {
+        string[] events = null;
+
+        List<Event> selectedEvent = new List<Event>(); 
+
+        //get events in each folder
+        if (curTask is Study)
+        {
+            Debug.Log("this task is study");
+
+            Study curStudy = curTask as Study;
+
+            if (curStudy.studyType == Type.Major)
+            {
+                Debug.Log("this study is major");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Major/General" });
+            }
+            else if (curStudy.studyType == Type.Discuss)
+            {
+                Debug.Log("this study is discuss");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Discuss/General" });
+
+            }
+            else if (curStudy.studyType == Type.Sport)
+            {
+                Debug.Log("this study is sport");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Sport/General" });
+
+            }
+            else
+            {
+                Debug.Log("error study type");
+            }
+        }
+        else if (curTask is Club)
+        {
+            Debug.Log("this task is club");
+
+            events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Club/General" });
+
+        }
+        else if (curTask is Rest)
+        {
+            Debug.Log("this task is rest");
+
+            events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Rest/General" });
+
+        }
+        else
+        {
+            Debug.Log("error type");
+        }
+
+
+        if(events == null)
+        {
+            Debug.Log("events is null");
+
+            return;
+        }
+
+        Debug.Log("length: " + events.Length);
+
+        string[] eventPath = new string[events.Length];
+
+        for (int i = 0; i < events.Length; i++)
+        {
+            //convert to path string
+            eventPath[i] = AssetDatabase.GUIDToAssetPath(events[i]);
+
+            Debug.Log("eventPath: " + eventPath[i]);
+
+            //get event by probability
+            Event tempEvent = (Event)AssetDatabase.LoadAssetAtPath(eventPath[i], typeof(Event));
+            float randomVal = Random.value;
+
+            if(randomVal <= tempEvent.eventProbability / 100)
+            {
+                selectedEvent.Add(tempEvent);
+            }
+        }
+
+        int curWeek = ScheduleManager.Inst.currentWeek;
+        int curPeriod = (int)ScheduleManager.Inst.currentPeriod;
+        int curDay = (int)ScheduleManager.Inst.currentDay;
+
+        //if no event selected
+        if (selectedEvent.Count == 0)
+        {
+            Debug.Log("no event selected");
+
+            return;
+        }
+        //if only one event selected
+        else if(selectedEvent.Count == 1)
+        {
+            Debug.Log("one event selected");
+
+            GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent = selectedEvent[0];
+        }
+        //if more than one event selected
+        else if(selectedEvent.Count > 1)
+        {
+            Debug.Log("several event selected");
+
+            GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent = selectedEvent[Random.Range(0, selectedEvent.Count)];
+
+            Debug.Log("selected event: " + GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent.eventCode);
+        }
+    }
+
+    private void SetExam(int i)
+    {
+        bool isMidStudyFinded = false;
+        bool isFinalStudyFinded = false;
+
+        for (int day = 0; day < 5; day++)
+        {
+            for (int period = 0; period < 5; period++)
+            {
+                //mid
+                if (GameManager.Inst.studyResultArray[i].taskName
+                .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
+                {
+                    isMidStudyFinded = true;
+                       
+                    if(isMidStudyFinded)
+                    {
+                        GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
+                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1010.asset") as Event;
+                    }
+                }
+
+                //final
+                if (GameManager.Inst.studyResultArray[i].taskName
+               .Equals(GameManager.Inst.player.schedules[15].taskArray[period, day].taskName))
+                {
+                    isFinalStudyFinded = true;
+
+                    if (isFinalStudyFinded)
+                    {
+                        GameManager.Inst.player.schedules[15].taskArray[period, day].taskEvent
+                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1020.asset") as Event;
+                    }
+                }
+            }
+        }
+    }
 
     public void ApplyEventEffect(string methodName)
     {
@@ -64,7 +241,7 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     //Event method
 
-    public void MiniGameBulbCatch()
+    private void MiniGameBulbCatch()
     {
         miniGameList[0].SetActive(true);
 
@@ -82,7 +259,7 @@ public class EventManager : SingletonBehaviour<EventManager>
         buttonBulbCatch.onClick.AddListener(() => OnBulbCatchGameButtonClick());
     }
 
-    public void OnBulbCatchGameButtonClick()
+    private void OnBulbCatchGameButtonClick()
     {
         Debug.Log("bulbGameNum: " + bulbGameNum);
 
@@ -101,13 +278,12 @@ public class EventManager : SingletonBehaviour<EventManager>
                 bulbMiniGameScore[bulbGameNum] = 0f;
             }
 
-            bulbGameNum++;
-
             if(bulbGameNum < 2)
             {
                 MiniGameBulbCatch();
             }
-            
+
+            bulbGameNum++;
         }
         else
         {
