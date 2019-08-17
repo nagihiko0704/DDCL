@@ -54,8 +54,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {   
         if(!doEvent)
         {
-            float tempTime = Time.deltaTime;
-            curTime += tempTime;
+            curTime += Time.deltaTime;
         }
     }
 
@@ -290,6 +289,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                     }
                 }
             }
+
+            //for time correction
+            curTime = Mathf.Floor(curTime);
         }
     }
 
