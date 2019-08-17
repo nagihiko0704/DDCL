@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event1131
+  m_EditorClassIdentifier: 
+  eventCode: 1131
+  eventProbability: 1
+  title:
+  - "\uD604\uC7A5\uB2F5\uC0AC"
+  message:
+  - "\uC624\uB298\uC740 \uB2F5\uC0AC\uB0A0\uC785\uB2C8\uB2E4! \uB2E4\uD589\uD788 \uB0A0\uC528\uAC00
+    \uD654\uCC3D\uD558\uB124."
+  situation:
+  - {fileID: 0}
+  minigameExplanation:
+  - "\uB2F5\uC0AC \uD604\uC7A5\uC744 \uCC3E\uC544\uAC00\uB294 \uB3C4\uC911 \uAC08\uB9BC\uAE38\uC774
+    \uB098\uD0C0\uB0A9\uB2C8\uB2E4. \uAC01 \uAC08\uB9BC\uAE38\uC5D0\uB294 \uD45C\uC9C0\uD310\uC774
+    \uC138\uC6CC\uC838 \uC788\uACE0, \uAC01\uAC01\uC758 \uD45C\uC9C0\uD310\uC5D0\uB294
+    \uBB38\uC7A5\uC774 \uC368\uC788\uC2B5\uB2C8\uB2E4. \uC774 \uC911 \uB9DE\uB294
+    \uBB38\uC7A5\uC774 \uC4F0\uC5EC\uC788\uB294 \uD45C\uC9C0\uD310\uB9CC\uC744 \uACE8\uB77C
+    \uBB34\uC0AC\uD788 \uB2F5\uC0AC \uC7A5\uC18C\uC5D0 \uB3C4\uCC29\uD574\uC57C\uD569\uB2C8\uB2E4."
+  choiceMessage: []
+  resultMessage:
+  - 
+  - "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0..?"
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
+  fassionVal: []
+  staminaVal:
+  - 0
+  - -5
+  socialVal:
+  - 0
+  - 0
+  flavorVal:
+  - 1
+  - -1
+  methodName: 

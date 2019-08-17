@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event1190
+  m_EditorClassIdentifier: 
+  eventCode: 1190
+  eventProbability: 4
+  title:
+  - "\uAC11 \uBD84 \uCD9C"
+  message:
+  - "\uAC11\uC790\uAE30 \uAD50\uC218\uB2D8\uC774 \uCD9C\uC11D\uC744 \uBD80\uB974\uAE30
+    \uC2DC\uC791\uD569\uB2C8\uB2E4. \uC878\uB2E4\uAC00 \uAE5C\uC9DD \uB180\uB77C\uBA70
+    \uC77C\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4."
+  situation:
+  - {fileID: 0}
+  minigameExplanation: []
+  choiceMessage:
+  - "\uD734, \uB2E4\uD589\uC774\uB2E4."
+  resultMessage:
+  - 
+  resultSituation: []
+  intelVal: []
+  fassionVal: []
+  staminaVal: []
+  socialVal: []
+  flavorVal: []
+  methodName: 
