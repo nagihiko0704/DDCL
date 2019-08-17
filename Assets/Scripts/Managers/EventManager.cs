@@ -53,7 +53,95 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     public void InsertEvent()
     {
+        Task curTask = ScheduleManager.Inst.CurrentTask;
 
+        if(curTask.taskEvent != null)
+        {
+            Debug.Log("this task already have event");
+
+            return;
+        }
+
+        GetEvent(curTask);
+    }
+
+    private void GetEvent(Task curTask)
+    {
+        string[] events = null;
+
+        List<Event> selectedEvent = new List<Event>(); 
+
+        //get events in each folder
+        if (curTask is Study)
+        {
+            Debug.Log("this task is study");
+
+            Study curStudy = curTask as Study;
+
+            if (curStudy.studyType == Type.Major)
+            {
+                Debug.Log("this study is major");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Major/General" });
+            }
+            else if (curStudy.studyType == Type.Discuss)
+            {
+                Debug.Log("this study is discuss");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Discuss/General" });
+
+            }
+            else if (curStudy.studyType == Type.Sport)
+            {
+                Debug.Log("this study is sport");
+
+                events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Study/Sport/General" });
+
+            }
+            else
+            {
+                Debug.Log("error study type");
+            }
+        }
+        else if (curTask is Club)
+        {
+            Debug.Log("this task is club");
+
+            events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Club/General" });
+
+        }
+        else if (curTask is Rest)
+        {
+            Debug.Log("this task is rest");
+
+            events = AssetDatabase.FindAssets("Event t:Event", new[] { "Assets/Resources/Events/Rest/General" });
+
+        }
+        else
+        {
+            Debug.Log("error type");
+        }
+
+
+        if(events == null)
+        {
+            Debug.Log("events is null");
+
+            return;
+        }
+
+        Debug.Log("length: " + events.Length);
+
+        string[] eventPath = new string[events.Length];
+
+        for (int i = 0; i < events.Length; i++)
+        {
+            //convert to path string
+            eventPath[i] = AssetDatabase.GUIDToAssetPath(events[i]);
+
+            Debug.Log("eventPath: " + eventPath[i]);
+
+        }
     }
 
 
