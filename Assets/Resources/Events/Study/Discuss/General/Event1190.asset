@@ -23,14 +23,18 @@ MonoBehaviour:
   situation:
   - {fileID: 0}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uD734, \uB2E4\uD589\uC774\uB2E4."
   resultMessage:
   - 
   resultSituation: []
-  intelVal: []
   fassionVal: []
   staminaVal: []
   socialVal: []
-  flavorVal: []
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

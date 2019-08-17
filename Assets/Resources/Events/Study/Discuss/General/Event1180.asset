@@ -21,6 +21,7 @@ MonoBehaviour:
   situation:
   - {fileID: 0}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uB9C8\uC9C0\uB9C9\uC73C\uB85C \uACE0\uBBFC \uD574\uBCF4\uC790.."
   resultMessage:
@@ -29,13 +30,14 @@ MonoBehaviour:
   - "\uC5ED\uC2DC \uBABB\uD574\uBA39\uACA0\uC2B5\uB2C8\uB2E4. \uAD50\uC218\uB2D8 \uC8C4\uC1A1\uD574\uC694
     \u314E"
   resultSituation: []
-  intelVal:
-  - 0
-  - 1
   fassionVal:
   - -10
   - 0
   staminaVal: []
   socialVal: []
-  flavorVal: []
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

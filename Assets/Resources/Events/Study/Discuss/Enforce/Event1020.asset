@@ -22,6 +22,7 @@ MonoBehaviour:
   situation:
   - {fileID: 0}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uD30C\uC774\uD305!"
   resultMessage:
@@ -38,8 +39,9 @@ MonoBehaviour:
   - -5
   staminaVal: []
   socialVal: []
-  flavorVal:
-  - 24
-  - 14
-  - 6
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

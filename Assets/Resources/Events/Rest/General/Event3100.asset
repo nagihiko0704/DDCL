@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
-  m_Name: Event1161
+  m_Name: Event3100
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 3100
+  eventProbability: 50
+  title:
+  - "\uD734\uC2DD \uD14C\uC2A4\uD2B8"
+  message:
+  - "\uD734\uC2DD \uB0B4\uC6A9 \uD14C\uC2A4\uD2B8\n\uC544\uC544\uC544\uC544\uC544"
+  situation:
+  - {fileID: 21300000, guid: 9618c995be17e4648ad405bea5a3cf8d, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage: []
-  resultMessage: []
-  resultSituation: []
+  resultMessage:
+  - "\uD734\uC2DD \uACB0\uACFC \uD14C\uC2A4\uD2B8\n\uC544\u314F\uC774\uC544\u3153\u3163"
+  resultSituation:
+  - {fileID: 21300000, guid: 7a09a970378cd50448101f739e8e944a, type: 3}
   fassionVal: []
   staminaVal: []
   socialVal: []

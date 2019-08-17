@@ -28,6 +28,7 @@ MonoBehaviour:
     \uBB38\uC7A5\uC774 \uC368\uC788\uC2B5\uB2C8\uB2E4. \uC774 \uC911 \uB9DE\uB294
     \uBB38\uC7A5\uC774 \uC4F0\uC5EC\uC788\uB294 \uD45C\uC9C0\uD310\uB9CC\uC744 \uACE8\uB77C
     \uBB34\uC0AC\uD788 \uB2F5\uC0AC \uC7A5\uC18C\uC5D0 \uB3C4\uCC29\uD574\uC57C\uD569\uB2C8\uB2E4."
+  minigameExplanationImage: []
   choiceMessage: []
   resultMessage:
   - 
@@ -42,7 +43,9 @@ MonoBehaviour:
   socialVal:
   - 0
   - 0
-  flavorVal:
-  - 1
-  - -1
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []
