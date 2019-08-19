@@ -8,6 +8,7 @@ public class NewCharacterManager : MonoBehaviour
 {
     public GameObject[] clickArea = new GameObject[2];//0:left 1:right
     public GameObject choiceCharacter;
+    public GameObject popUpCharacter;
     /**
      * 0:none
      * 1:freshmen
@@ -19,18 +20,17 @@ public class NewCharacterManager : MonoBehaviour
     public GameObject explainChoiceButton;
     public GameObject explainImage;
 
-    public GameObject panel;
-    public GameObject panelYes;
-    public GameObject panelNo;
+    public GameObject[] canvas = new GameObject[2];
 
     private int _nowChracter;
-    private int _maxCharacter = 1;//now is 2, when we have more character...add the num.
+    private int _maxCharacter =1;//now is 1, when we have more character...add the num.
 
 
     // Start is called before the first frame update
     void Start()
     {
-        panel.SetActive(false);
+        canvas[0].SetActive(true);
+        canvas[1].SetActive(false);
 
         choiceCharacter.GetComponent<Image>().sprite=characterSprite[0];
         explainChoiceButton.GetComponent<Image>().sprite = characterExplain[0];
@@ -40,7 +40,7 @@ public class NewCharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        popUpCharacter.GetComponent<Image>().sprite = characterSprite[_nowChracter];
     }
 
     //leftArea
@@ -70,17 +70,34 @@ public class NewCharacterManager : MonoBehaviour
     //explainChoiceButton+choiceCharacterButton
     public void OnClickECB()
     {
-        panel.SetActive(true);
+        canvas[0].SetActive(false);
+        canvas[1].SetActive(true);
+        Debug.Log("넘어간다ㅏㅏ");
     }
 
     /********** H   E   L   P   ***********/
     public void OnClickYes()
     {
+        switch (_nowChracter)
+        {
+            case 0:
+                Debug.Log("ㅈㅅ 이거 임시라 걍 봐줘요^^");
+                break;
+            case 1:
+                Debug.Log("새내기");
+                GameManager.Inst.player.playerCharacter =new Newbie();
+                break;
+        }
+        SceneManager.LoadScene(1);
     }
 
     /*********  H   E   L   P   **********/
     public void OnClickNo()
     {
-        panel.SetActive(false);
+        canvas[0].SetActive(true);
+        canvas[1].SetActive(false);
+        Debug.Log("돌아간다 ㅂㅅ아");
     }
 }
+
+
