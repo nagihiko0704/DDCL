@@ -12,18 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
   m_Name: Event2150
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 2150
+  eventProbability: 2
+  title:
+  - "\uB300\uCCAD\uC18C \uB0A0"
+  message:
+  - "\uC624\uB298\uC740 \uB300\uCCAD\uC18C \uB0A0\uC785\uB2C8\uB2E4! \uB05D\uB098\uACE0\uB294
+    \uD68C\uC2DD\uC774!"
+  situation:
+  - {fileID: 0}
   minigameExplanation: []
   minigameExplanationImage: []
-  choiceMessage: []
-  resultMessage: []
-  resultSituation: []
+  choiceMessage:
+  - "\uACE0\uAE30\uACE0\uAE30!"
+  resultMessage:
+  - "\uACE0\uAE30\uB294 \uC5ED\uC2DC \uCD5C\uACE0 \uC785\uB2C8\uB2E4."
+  resultSituation:
+  - {fileID: 0}
   fassionVal: []
-  staminaVal: []
+  staminaVal:
+  - 10
   socialVal: []
   favorVal: []
   intelliMaxVal: []

@@ -12,18 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
   m_Name: Event2110
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 2110
+  eventProbability: 11
+  title:
+  - "\uC2A4\uD130\uB514"
+  message:
+  - "\uB3D9\uC544\uB9AC\uC758 \uAF43! \uC2A4\uD130\uB514\uB9CC \uC5F4\uC2EC\uD788
+    \uD558\uBA74 \uB098\uB3C4 \uBA38\uCC10 \uC0AC\uB78C\uC774!"
+  situation:
+  - {fileID: 0}
   minigameExplanation: []
   minigameExplanationImage: []
-  choiceMessage: []
-  resultMessage: []
+  choiceMessage:
+  - "\uD30C\uC774\uD305!"
+  resultMessage:
+  - "\uB108\uBB34 \uD53C\uACE4\uD588\uC73C\uB2C8\uAE4C.. \uB2E4\uC74C\uBD80\uD130
+    \uC5F4\uC2EC\uD788 \uD558\uC790 \u314E\u314E"
+  - "\uAE30\uB300\uD558\uACE0 \uAC14\uB354\uB2C8, \uB2E4 \uC544\uB294 \uB0B4\uC6A9\uC774\uC5C8\uC2B5\uB2C8\uB2E4.."
+  - "\uC544\uBB34\uD2BC \uB611\uB611\uD574\uC9C4 \uB290\uB08C\uC774\uB2E4. \uC544\uBB34\uD2BC
+    \uADF8\uB7FC."
   resultSituation: []
-  fassionVal: []
-  staminaVal: []
+  fassionVal:
+  - 2
+  - -2
+  - 0
+  staminaVal:
+  - 3
+  - 0
+  - 0
   socialVal: []
   favorVal: []
   intelliMaxVal: []

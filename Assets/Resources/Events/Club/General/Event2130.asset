@@ -12,19 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
   m_Name: Event2130
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 2130
+  eventProbability: 0.05
+  title:
+  - "\uBD84\uC7C1 \uBC1C\uC0DD"
+  message:
+  - "\uC758\uACAC \uCC28\uC774\uB85C \uC778\uD574 \uBC8C\uC5B4\uC9C4 \uC0AC\uC18C\uD55C
+    \uC5B8\uC7C1\uC774 \uC2F8\uC6C0\uAE4C\uC9C0 \uBC88\uC84C\uC2B5\uB2C8\uB2E4.."
+  situation:
+  - {fileID: 0}
   minigameExplanation: []
   minigameExplanationImage: []
-  choiceMessage: []
-  resultMessage: []
+  choiceMessage:
+  - "\uC598\uB4E4\uC544, \uB9D0\uB85C-"
+  resultMessage:
+  - "\uC5B4\uCC0C\uC800\uCC0C \uC798 \uD574\uACB0 \uB418\uC5C8\uC2B5\uB2C8\uB2E4.
+    \uB2E4\uD589\uC774\uC57C..\t"
+  - "\uD55C\uBA85\uC774 \uB6F0\uCCD0 \uB098\uAC10\uC73C\uB85C\uC368 \uC77C\uB2E8\uB77D
+    \uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uD558\uC544.."
   resultSituation: []
   fassionVal: []
   staminaVal: []
-  socialVal: []
+  socialVal:
+  - 5
+  - -5
   favorVal: []
   intelliMaxVal: []
   fassionMaxVal: []

@@ -12,19 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
   m_Name: Event2170
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 2170
+  eventProbability: 2
+  title:
+  - M! T!
+  message:
+  - "\uAE30\uB300\uD558\uB358 \uC5E0\uD2F0\uB0A0\uC785\uB2C8\uB2E4!!!"
+  situation:
+  - {fileID: 0}
   minigameExplanation: []
   minigameExplanationImage: []
-  choiceMessage: []
-  resultMessage: []
-  resultSituation: []
+  choiceMessage:
+  - "\uC7AC\uBC0C\uACA0\uB2E4!!"
+  resultMessage:
+  - "\uD3C9-\uC0DD \uC78A\uC9C0 \uBABB\uD560 \uCD94\uC5B5\uC774 \uB418\uC5C8\uC2B5\uB2C8\uB2E4."
+  - "\uB3D9\uC544\uB9AC\uC6D0\uB4E4\uC774\uB791\uB3C4 \uCE5C\uD574\uC9C0\uACE0, \uC7AC\uBC0C\uC5C8\uC2B5\uB2C8\uB2E4!"
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
   fassionVal: []
-  staminaVal: []
-  socialVal: []
+  staminaVal:
+  - -1
+  - 0
+  socialVal:
+  - 3
+  - 1
   favorVal: []
   intelliMaxVal: []
   fassionMaxVal: []
