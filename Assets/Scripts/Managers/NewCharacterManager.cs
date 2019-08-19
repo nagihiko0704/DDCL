@@ -82,13 +82,15 @@ public class NewCharacterManager : MonoBehaviour
         {
             case 0:
                 Debug.Log("ㅈㅅ 이거 임시라 걍 봐줘요^^");
+                canvas[0].SetActive(true);
+                canvas[1].SetActive(false);
                 break;
             case 1:
                 Debug.Log("새내기");
                 GameManager.Inst.player.playerCharacter =new Newbie();
+                SceneManager.LoadScene(1);
                 break;
         }
-        SceneManager.LoadScene(1);
     }
 
     /*********  H   E   L   P   **********/
