@@ -10,6 +10,7 @@ public class LectureApplicationGameManager : MonoBehaviour
     public Button buttonApplication;
     public Image fire;
     public Sprite[] fireSprite = new Sprite[4];
+    public Text countText;
 
     public const int GAME_TIME = 2;
     public float countTime = GAME_TIME;
@@ -37,10 +38,15 @@ public class LectureApplicationGameManager : MonoBehaviour
         if (start == false)
         {
             beforeGameTime -= time;
+            if (beforeGameTime <= 2&&beforeGameTime>1)
+                countText.GetComponent<Text>().text = "2";
+            if (beforeGameTime <= 1 && beforeGameTime > 0)
+                countText.GetComponent<Text>().text = "1";
+
             if(beforeGameTime <= 0)
             {
                 start = true;
-                Debug.Log("start!");
+                countText.GetComponent<Text>().text = "START!!!";
 
                 buttonApplication.onClick.AddListener(AddApplicationCount);
             }
