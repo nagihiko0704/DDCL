@@ -209,26 +209,26 @@ public class EventManager : SingletonBehaviour<EventManager>
                 if (GameManager.Inst.studyResultArray[i].taskName
                 .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
                 {
-                    isMidStudyFinded = true;
-                       
                     if(isMidStudyFinded)
                     {
                         GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
                         = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1010.asset") as Event;
                     }
+
+                    isMidStudyFinded = true;
                 }
 
                 //final
                 if (GameManager.Inst.studyResultArray[i].taskName
                .Equals(GameManager.Inst.player.schedules[15].taskArray[period, day].taskName))
                 {
-                    isFinalStudyFinded = true;
-
                     if (isFinalStudyFinded)
                     {
                         GameManager.Inst.player.schedules[15].taskArray[period, day].taskEvent
                         = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1020.asset") as Event;
                     }
+
+                    isFinalStudyFinded = true;
                 }
             }
         }
