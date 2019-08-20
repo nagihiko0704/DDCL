@@ -66,6 +66,14 @@ public class Study : Task
 
     private const int MAX_FAVOR = 100;
 
+    public Study() : base()
+    {
+        this.studyType = Type.Major;
+        this.grade = null;
+        this._favor = 0;
+        this._score = 0;
+    }
+
     public Study(string _taskName, Type _studyType, string _grade) : base(_taskName)
     {
         this.studyType = _studyType;
@@ -146,9 +154,33 @@ public class Study : Task
             _score = value;
         }
     }
+
+    public Study Clone()
+    {
+        Study study = new Study();
+
+        study.taskName = this.taskName;
+        study.staminaVal = this.staminaVal;
+        study.socialVal = this.socialVal;
+        study.scheduleLocation = this.scheduleLocation;
+        study.taskEvent = this.taskEvent;
+
+        study.studyType = this.studyType;
+        study.grade = this.grade;
+        study._favor = this._favor;
+        study._score = this._score;
+
+        return study;
+    }
 }
 public class Club : Task
 {
+    public Club() : base()
+    {
+        this.staminaVal = -8f;
+        this.socialVal = 0;
+    }
+
     public Club((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
         this.staminaVal = -8f;
@@ -164,6 +196,11 @@ public class Club : Task
 
 public class Rest : Task
 {
+    public Rest() : base()
+    {
+        
+    }
+
     public Rest((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
 
@@ -173,4 +210,5 @@ public class Rest : Task
     {
 
     }
+
 }
