@@ -201,34 +201,45 @@ public class EventManager : SingletonBehaviour<EventManager>
         bool isMidStudyFinded = false;
         bool isFinalStudyFinded = false;
 
+        bool isMidExamSet = false;
+        bool isFinalExamSet = false;
+
         for (int day = 0; day < 5; day++)
         {
-            for (int period = 0; period < 5; period++)
+            for (int period = 0; period < 6; period++)
             {
                 //mid
                 if (GameManager.Inst.studyResultArray[i].taskName
                 .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
                 {
-                    isMidStudyFinded = true;
-                       
-                    if(isMidStudyFinded)
+                    if(isMidStudyFinded && !isMidExamSet)
                     {
+                        isMidExamSet = true;
+
+                        Debug.Log("중간고사 설정됨 교시, 날짜 " + period + " " + day + " ");
+
                         GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
-                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1010.asset") as Event;
+                        = Resources.Load("Events/Study/Major/Enforce/Event1010") as Event;
                     }
+
+                    isMidStudyFinded = true;
+
+                    //Debug.Log("중간고사");
                 }
 
                 //final
                 if (GameManager.Inst.studyResultArray[i].taskName
                .Equals(GameManager.Inst.player.schedules[15].taskArray[period, day].taskName))
                 {
-                    isFinalStudyFinded = true;
-
-                    if (isFinalStudyFinded)
+                    if (isFinalStudyFinded && !isFinalExamSet)
                     {
+                        isFinalExamSet = true;
+
                         GameManager.Inst.player.schedules[15].taskArray[period, day].taskEvent
-                        = Resources.Load("Assets/Resources/Events/Study/Major/Enforce/Event1020.asset") as Event;
+                        = Resources.Load("Events/Study/Major/Enforce/Event1020") as Event;
                     }
+
+                    isFinalStudyFinded = true;
                 }
             }
         }
