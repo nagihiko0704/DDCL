@@ -20,8 +20,9 @@ MonoBehaviour:
   - "\uB300\uD559 \uC785\uD559 \uD6C4 \uCCAB \uC2DC\uD5D8\uC785\uB2C8\uB2E4. \uD560
     \uC218 \uC788\uB530 \uD560 \uC218 \uC788\uB530"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 049ab2c055a70de4c8f4830566cb4f1a, type: 3}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uC544\uC790 \uC544\uC790!"
   resultMessage:
@@ -35,8 +36,9 @@ MonoBehaviour:
   - 5
   staminaVal: []
   socialVal: []
-  flavorVal:
-  - 24
-  - 14
-  - 6
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

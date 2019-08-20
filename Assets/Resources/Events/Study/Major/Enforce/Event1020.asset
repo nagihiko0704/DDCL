@@ -20,7 +20,7 @@ MonoBehaviour:
   - "\uACB0\uC804\uC758 \uB0A0\uC785\uB2C8\uB2E4. \uC2DC\uD5D8\uC744 \uC870\uC9C0\uACE0
     \uC635\uC2DC\uB2E4."
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c5a939a2e3cc67c4dae8544d8282d7ee, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
