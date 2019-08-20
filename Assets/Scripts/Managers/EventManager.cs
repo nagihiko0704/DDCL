@@ -55,6 +55,10 @@ public class EventManager : SingletonBehaviour<EventManager>
         {
             bulb.transform.Translate(Vector3.right * direction * bulbSpeed * Time.deltaTime);
         }
+        else
+        {
+            bulbGameNum = 0;
+        }
     }
 
     public void InsertEvent()
@@ -272,53 +276,58 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     private void OnBulbCatchGameButtonClick()
     {
+        bulbGameNum++;
+
         Debug.Log("bulbGameNum: " + bulbGameNum);
 
-        if(bulbGameNum < 3)
+        if (bulbGameNum <= 3)
         {
             if (bulb.transform.localPosition.x >= -60 && bulb.transform.localPosition.x <= 60)
             {
-                bulbMiniGameScore[bulbGameNum] = 4f;
+                bulbMiniGameScore[bulbGameNum - 1] = 4f;
             }
             else if (bulb.transform.localPosition.x >= -160 && bulb.transform.localPosition.x <= 160)
             {
-                bulbMiniGameScore[bulbGameNum] = 2f;
+                bulbMiniGameScore[bulbGameNum - 1] = 2f;
             }
             else
             {
-                bulbMiniGameScore[bulbGameNum] = 0f;
+                bulbMiniGameScore[bulbGameNum - 1] = 0f;
             }
 
-            if(bulbGameNum < 2)
+            if (bulbGameNum == 3)
             {
-                MiniGameBulbCatch();
-            }
+                isBulbGamePlaying = false;
+                bulbGameNum = 0;
 
-            bulbGameNum++;
+                float result = 0;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    result += bulbMiniGameScore[i];
+                }
+
+                if (result >= 10)
+                {
+                    miniGameResult = 0;
+                }
+                else if (result >= 8)
+                {
+                    miniGameResult = 1;
+                }
+                else
+                {
+                    miniGameResult = 2;
+                }
+
+                eventPopUpWindow.GetComponent<EventPopUp>().InitResult();
+            
+            }
         }
-        else
+
+        if (bulbGameNum <= 2)
         {
-            float result = 0;
-
-            for(int i = 0; i < 3; i++)
-            {
-                result += bulbMiniGameScore[i];
-            }
-
-            if(result >= 10)
-            {
-                miniGameResult = 0;
-            }
-            else if(result >= 8)
-            {
-                miniGameResult = 1;
-            }
-            else
-            {
-                miniGameResult = 2;
-            }
-
-            eventPopUpWindow.GetComponent<EventPopUp>().InitResult();
+            MiniGameBulbCatch();
         }
     }
 }
