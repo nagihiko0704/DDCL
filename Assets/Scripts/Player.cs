@@ -13,6 +13,7 @@ public class Player
         for(int week = 0; week < 16; week++)
         {
             this.schedules[week] = new Schedule();
+            this.schedules[week].scheduleWeek = week + 1;
         }
 
         
