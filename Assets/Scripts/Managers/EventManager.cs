@@ -413,12 +413,89 @@ public class EventManager : SingletonBehaviour<EventManager>
         }
         
         this.eventResultIndex = result;
-
-
     }
 
     private void CheckEvent1170Result()
     {
+        int result = -1;
+
+        Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+        int favor = curStudy.Favor;
+
+        if(favor >= 25)
+        {
+            result = 0;
+        }
+        else
+        {
+            result = 1;
+        }
+    }
+
+    private void CheckEvent1180Result()
+    {
+        int result = -1;
+
+        Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+        int favor = curStudy.Favor;
+
+        if (favor >= 10)
+        {
+            result = 0;
+        }
+        else
+        {
+            result = 1;
+        }
+
+        if(result == 1)
+        {
+            for(int i = 0; i < 16; i++)
+            {
+                for(int j = 0; j < 6; j++)
+                {
+                    for(int k = 0; k < 5; k++)
+                    {
+                        if(GameManager.Inst.player.schedules[i].taskArray[j, k].taskName.Equals(curStudy.taskName))
+                        {
+                            GameManager.Inst.player.schedules[i].taskArray[j, k] = new Rest(((Period)j, (Day)k));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void CheckEvent1160Result()
+    {
+        int result = -1;
+
+        float intelli = GameManager.Inst.player.playerCharacter.Intelli;
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        if (intelli >= 190 && 
+            (social >= 130 && social <= 160))
+        {
+            result = 0;
+        }
+        else if (social > 160)
+        {
+            result = 1;
+        }
+        else if (social < 130)
+        {
+            result = 2;
+        }
+        else
+        {
+            result = 3;
+        }
 
     }
+
+    private void CheckEvent2012Result()
+    {
+
+    }
+
 }
