@@ -21,14 +21,15 @@ MonoBehaviour:
     \uC2DC\uC791\uD569\uB2C8\uB2E4. \uC878\uB2E4\uAC00 \uAE5C\uC9DD \uB180\uB77C\uBA70
     \uC77C\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4."
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 96511a5e4008c6742aa0050a97c57ae7, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
   - "\uB124-"
   resultMessage:
   - "\uD734, \uB2E4\uD589\uC774\uB2E4."
-  resultSituation: []
+  resultSituation:
+  - {fileID: 0}
   fassionVal:
   - 1
   staminaVal: []

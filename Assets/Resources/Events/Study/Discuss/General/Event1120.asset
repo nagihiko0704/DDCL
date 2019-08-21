@@ -26,7 +26,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   minigameExplanation: []
-  minigameExplanationImage: []
   choiceMessage:
   - "\uC608?!!??!"
   - 
@@ -41,9 +40,3 @@ MonoBehaviour:
   - 3
   socialVal:
   - 0
-  favorVal: []
-  intelliMaxVal: []
-  fassionMaxVal: []
-  staminaMaxVal: []
-  socialMaxVal: []
-  methodName: []

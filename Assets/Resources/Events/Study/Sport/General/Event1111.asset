@@ -43,9 +43,9 @@ MonoBehaviour:
   - "\uACFC\uC81C\uB97C \uC5B4\uB5BB\uAC8C\uB4E0 \uB05D\uB0C8\uC2B5\uB2C8\uB2E4.."
   - "\uB098\uB294 \uCC29\uD55C \uC5B4\uB978\uC774 \uC544\uB2C8\uC5C8\uC2B5\uB2C8\uB2E4.."
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: be50d581b5d53a34d82f11daba2fdb84, type: 3}
+  - {fileID: 21300000, guid: 151e33325f4bb1d438f27b81d89ba4e8, type: 3}
+  - {fileID: 21300000, guid: df61402c18eec5841a732efcdbb7a325, type: 3}
   fassionVal:
   - 5
   - 0

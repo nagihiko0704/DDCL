@@ -32,7 +32,11 @@ MonoBehaviour:
     \uC5F4\uC2EC\uD788 \uD588\uC2B5\uB2C8\uB2E4!"
   - "\uC0AC\uB78C\uB4E4\uB3C4 \uBCC4\uB85C\uACE0 \uD558\uAE30 \uC2EB\uC5B4\uC11C \uD3EC\uAE30\uD588\uC2B5\uB2C8\uB2E4."
   - "\uC5B4\uCC0C\uC800\uCC0C \uBC84\uC2A4 \uD0D4\uC2B5\uB2C8\uB2E4!.."
-  resultSituation: []
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fassionVal:
   - -1
   - 2
