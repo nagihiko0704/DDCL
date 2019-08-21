@@ -44,4 +44,5 @@ MonoBehaviour:
   fassionMaxVal: []
   staminaMaxVal: []
   socialMaxVal: []
-  methodName: []
+  methodName:
+  - CheckEvent1020Result

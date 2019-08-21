@@ -23,6 +23,7 @@ public class EventPopUp : MonoBehaviour
     public GameObject eventPopUpWindow;
 
     private int _choiceIndexNum;
+    private int _resultIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,8 @@ public class EventPopUp : MonoBehaviour
         Debug.Log("랜덤 인트:" + taskEvent.SelectedInt);
 
         MakeChoiceButtons(taskEvent.choiceMessage);
+
+        
     }
 
     public void MakeChoiceButtons(List<string> _choiceMessage)
@@ -103,20 +106,28 @@ public class EventPopUp : MonoBehaviour
     public void OnChoiceButtonClick(int _choiceIndex)
     {
         this._choiceIndexNum = _choiceIndex;
+        EventManager.Inst.choiceNum = _choiceIndex;
         Debug.Log("choice index num: " + _choiceIndexNum);
 
-        //which choice player selected? = _choiceIndex
-        //change character stat
-        //GameManager.Inst.player.playerCharacter.CurFassion += taskEvent.fassionVal[_choiceIndex];
-        //GameManager.Inst.player.playerCharacter.CurStamina += taskEvent.staminaVal[_choiceIndex];
-        //GameManager.Inst.player.playerCharacter.CurSocial += taskEvent.socialVal[_choiceIndex];
+        //pre-determine result
+        float eventResultNum = ScheduleManager.Inst.CurrentTask.taskEvent.resultMessage.Count;
+        float eventChoiceNum = ScheduleManager.Inst.CurrentTask.taskEvent.choiceMessage.Count;
 
+        if (eventResultNum / eventChoiceNum > 1
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName.Count != 0
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
+        {
+            //if event is not minigame type, method num must be one
+            EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
+            Debug.Log("결과 받아옴");
+        }
 
         //if this event is notice or select form
-        if(this.taskEvent.eventCode % 10 == 0 
+        if (this.taskEvent.eventCode % 10 == 0 
             || this.taskEvent.eventCode % 10 == 2)
         {
-            InitResult();
+            Invoke("InitResult", 0f);
+            //InitResult();
         }
         //if this event is minigame
         else if(this.taskEvent.eventCode % 10 == 1)
@@ -155,8 +166,6 @@ public class EventPopUp : MonoBehaviour
         _instance.GetComponent<Button>().onClick.AddListener(() => InitMiniGame());
     }
 
-
-
     public void InitMiniGame()
     {
         Debug.Log("event popup InitMiniGame called");
@@ -173,33 +182,44 @@ public class EventPopUp : MonoBehaviour
     }
 
     public void InitResult()
-    {
-        Debug.Log("Init Result");
+    {       
+        string resultString = "";
 
-        string resultText = "";
+        Debug.Log("Init Result");
 
         situationWindow.SetActive(true);
         miniGameWindow.SetActive(false);
         resultWindow.SetActive(true);
         choiceArea.SetActive(true);
 
+        if(EventManager.Inst.eventResultIndex != -1)
+        {
+            _resultIndex = EventManager.Inst.eventResultIndex;
+        }
+        else
+        {
+            _resultIndex = _choiceIndexNum;
+        }
+
+        Debug.Log("result index" + _resultIndex);
 
         //make result text about each value
-        MakeStatString(ref resultText);
-
-        Debug.Log(resultText);
-
-        textResultMessage.text = resultText;
+        MakeStatString(ref resultString);
+        textResultMessage.GetComponent<Text>().text = resultString;
+        Debug.Log(resultString);
 
         if(this.taskEvent.eventCode % 10 == 0
             || this.taskEvent.eventCode % 10 == 2)
         {
-            textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_choiceIndexNum];
+            textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_resultIndex];
         }
         else if(this.taskEvent.eventCode % 10 == 1)
         {
             textMessage.GetComponent<Text>().text = taskEvent.resultMessage[EventManager.Inst.miniGameResult];
         }
+
+        //apply stat change
+        ApplyStat();
         
         //make okay button
         foreach (Transform child in choiceArea.transform)
@@ -220,6 +240,54 @@ public class EventPopUp : MonoBehaviour
         _instance.GetComponent<Button>().onClick.AddListener(() => this.OnOkayButtonClick());
     }
 
+    private void ApplyStat()
+    {
+        Event curEvent = taskEvent;
+
+        if (curEvent.fassionVal.Count != 0 && curEvent.fassionVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.CurFassion += curEvent.fassionVal[_resultIndex];
+        }
+        if (curEvent.staminaVal.Count != 0 && curEvent.staminaVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.CurStamina += curEvent.staminaVal[_resultIndex];
+        }
+        if (curEvent.socialVal.Count != 0 && curEvent.socialVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.CurSocial += curEvent.socialVal[_resultIndex];
+        }
+        if (curEvent.favorVal.Count != 0 && curEvent.favorVal.Count >= _resultIndex)
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                if (ScheduleManager.Inst.CurrentTask.taskName.Equals(GameManager.Inst.studyResultArray[i].taskName))
+                {
+                    GameManager.Inst.studyResultArray[i].Favor += (int) curEvent.fassionVal[_resultIndex];
+                }               
+            }
+        }
+        if (curEvent.intelliMaxVal.Count != 0 && curEvent.intelliMaxVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.Intelli += curEvent.intelliMaxVal[_resultIndex];
+        }
+        if (curEvent.fassionMaxVal.Count != 0 && curEvent.fassionMaxVal.Count >= _resultIndex)
+        {
+            //현재 수치랑 최대수치 둘다 증가
+            GameManager.Inst.player.playerCharacter.CurFassion += curEvent.fassionMaxVal[_resultIndex];
+            GameManager.Inst.player.playerCharacter.MaxFassion += curEvent.fassionMaxVal[_resultIndex];
+        }
+        if (curEvent.staminaMaxVal.Count != 0 && curEvent.staminaMaxVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.CurStamina += curEvent.staminaMaxVal[_resultIndex];
+            GameManager.Inst.player.playerCharacter.MaxStamina += curEvent.staminaMaxVal[_resultIndex];
+        }
+        if (curEvent.socialMaxVal.Count != 0 && curEvent.socialMaxVal.Count >= _resultIndex)
+        {
+            GameManager.Inst.player.playerCharacter.CurSocial += curEvent.socialMaxVal[_resultIndex];
+            GameManager.Inst.player.playerCharacter.MaxSocial += curEvent.socialMaxVal[_resultIndex];
+        }
+    }
+
     public void MakeStatString(ref string _str)
     {
         Debug.Log("했냐?");
@@ -229,12 +297,14 @@ public class EventPopUp : MonoBehaviour
         if (this.taskEvent.eventCode % 10 == 0
             || this.taskEvent.eventCode % 10 == 2)
         {
-            index = _choiceIndexNum;
+            index = _resultIndex;
         }
         else if (this.taskEvent.eventCode % 10 == 1)
         {
             index = EventManager.Inst.miniGameResult;
         }
+
+        Debug.Log("stat index:" + index);
 
         //value
         if (taskEvent.fassionVal.Count > 0 && taskEvent.fassionVal[index] != 0)

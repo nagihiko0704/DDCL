@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event1010
   m_EditorClassIdentifier: 
   eventCode: 1010
-  eventProbability: 0
+  eventProbability: 100
   title:
   - "\uC911\uAC04 \uACE0\uC0AC"
   message:
@@ -41,4 +41,5 @@ MonoBehaviour:
   fassionMaxVal: []
   staminaMaxVal: []
   socialMaxVal: []
-  methodName: []
+  methodName:
+  - CheckEvent1010Result
