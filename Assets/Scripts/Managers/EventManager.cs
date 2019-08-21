@@ -222,7 +222,7 @@ public class EventManager : SingletonBehaviour<EventManager>
             {
                 //mid
                 if (GameManager.Inst.studyResultArray[i].taskName
-                .Equals(GameManager.Inst.player.schedules[0].taskArray[period, day].taskName))
+                .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
                 {
                     if (isMidStudyFinded && !isMidExamSet)
                     {
@@ -230,7 +230,7 @@ public class EventManager : SingletonBehaviour<EventManager>
 
                         Debug.Log("중간고사 설정됨 교시, 날짜 " + period + " " + day + " ");
 
-                        GameManager.Inst.player.schedules[0].taskArray[period, day].taskEvent
+                        GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
                         = Resources.Load("Events/Study/Major/Enforce/Event1010") as Event;
                     }
 
