@@ -59,17 +59,7 @@ public class EventPopUp : MonoBehaviour
 
         MakeChoiceButtons(taskEvent.choiceMessage);
 
-        //pre-determine result
-        float eventResultNum = ScheduleManager.Inst.CurrentTask.taskEvent.resultMessage.Count;
-        float eventChoiceNum = ScheduleManager.Inst.CurrentTask.taskEvent.choiceMessage.Count;
-
-        if (eventResultNum / eventChoiceNum > 1
-            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
-        {
-            //if event is not minigame type, method num must be one
-            EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
-            Debug.Log("결과 받아옴");
-        }
+        
     }
 
     public void MakeChoiceButtons(List<string> _choiceMessage)
@@ -116,14 +106,28 @@ public class EventPopUp : MonoBehaviour
     public void OnChoiceButtonClick(int _choiceIndex)
     {
         this._choiceIndexNum = _choiceIndex;
+        EventManager.Inst.choiceNum = _choiceIndex;
         Debug.Log("choice index num: " + _choiceIndexNum);
 
+        //pre-determine result
+        float eventResultNum = ScheduleManager.Inst.CurrentTask.taskEvent.resultMessage.Count;
+        float eventChoiceNum = ScheduleManager.Inst.CurrentTask.taskEvent.choiceMessage.Count;
+
+        if (eventResultNum / eventChoiceNum > 1
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName.Count != 0
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
+        {
+            //if event is not minigame type, method num must be one
+            EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
+            Debug.Log("결과 받아옴");
+        }
 
         //if this event is notice or select form
         if (this.taskEvent.eventCode % 10 == 0 
             || this.taskEvent.eventCode % 10 == 2)
         {
-            InitResult();
+            Invoke("InitResult", 0f);
+            //InitResult();
         }
         //if this event is minigame
         else if(this.taskEvent.eventCode % 10 == 1)
@@ -162,8 +166,6 @@ public class EventPopUp : MonoBehaviour
         _instance.GetComponent<Button>().onClick.AddListener(() => InitMiniGame());
     }
 
-
-
     public void InitMiniGame()
     {
         Debug.Log("event popup InitMiniGame called");
@@ -199,14 +201,12 @@ public class EventPopUp : MonoBehaviour
             _resultIndex = _choiceIndexNum;
         }
 
+        Debug.Log("result index" + _resultIndex);
 
         //make result text about each value
         MakeStatString(ref resultString);
         textResultMessage.GetComponent<Text>().text = resultString;
         Debug.Log(resultString);
-
-        Debug.Log("_result index: " + _resultIndex);
-
 
         if(this.taskEvent.eventCode % 10 == 0
             || this.taskEvent.eventCode % 10 == 2)
@@ -242,7 +242,7 @@ public class EventPopUp : MonoBehaviour
 
     private void ApplyStat()
     {
-        Event curEvent = ScheduleManager.Inst.CurrentTask.taskEvent;
+        Event curEvent = taskEvent;
 
         if (curEvent.fassionVal.Count != 0 && curEvent.fassionVal.Count >= _resultIndex)
         {

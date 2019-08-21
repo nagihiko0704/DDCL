@@ -335,6 +335,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 102208241}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &102208258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 773061116553763613, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 102208241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &102208259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6415549845431223425, guid: 085bc7c687973c9458f3671f6c3d18ba,
@@ -482,6 +488,7 @@ MonoBehaviour:
   textMonth: {fileID: 102208248}
   textDay: {fileID: 102208247}
   textTime: {fileID: 102208246}
+  textPeriod: {fileID: 102208258}
   mainGameCanvas: {fileID: 102208256}
   eventPopUp: {fileID: 102208257}
   statList:
@@ -608,6 +615,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   miniGameResult: 0
+  eventResultIndex: 0
   bulb: {fileID: 102208261}
   buttonBulbCatch: {fileID: 102208260}
   bulbSpeed: 500

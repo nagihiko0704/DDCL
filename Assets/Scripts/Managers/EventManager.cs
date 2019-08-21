@@ -19,6 +19,8 @@ public class EventManager : SingletonBehaviour<EventManager>
     public int miniGameResult;
     public int eventResultIndex;
 
+    public int choiceNum;
+
     //bulb catch
     public GameObject bulb;
     public Button buttonBulbCatch;
@@ -430,14 +432,20 @@ public class EventManager : SingletonBehaviour<EventManager>
         {
             result = 1;
         }
+
+        this.eventResultIndex = result;
     }
 
     private void CheckEvent1180Result()
     {
+        Debug.Log("CheckEvent1180Result");
+
         int result = -1;
 
         Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
         int favor = curStudy.Favor;
+
+        Debug.Log(curStudy.taskName);
 
         if (favor >= 10)
         {
@@ -456,7 +464,7 @@ public class EventManager : SingletonBehaviour<EventManager>
                 {
                     for(int k = 0; k < 5; k++)
                     {
-                        if(GameManager.Inst.player.schedules[i].taskArray[j, k].taskName.Equals(curStudy.taskName))
+                        if(GameManager.Inst.player.schedules[i].taskArray[j, k].taskName == curStudy.taskName)
                         {
                             GameManager.Inst.player.schedules[i].taskArray[j, k] = new Rest(((Period)j, (Day)k));
                         }
@@ -464,6 +472,8 @@ public class EventManager : SingletonBehaviour<EventManager>
                 }
             }
         }
+
+        this.eventResultIndex = result;
     }
 
     private void CheckEvent1160Result()
@@ -491,11 +501,81 @@ public class EventManager : SingletonBehaviour<EventManager>
             result = 3;
         }
 
+        this.eventResultIndex = result;
     }
 
     private void CheckEvent2012Result()
     {
+        int result = -1;
 
+        float stamina = GameManager.Inst.player.playerCharacter.CurStamina;
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        if (choiceNum == 0)
+        {
+            result = 0;
+
+            if (stamina <= 150)
+            {
+                result = 1;
+            }
+        }
+        else if (choiceNum == 1)
+        {
+            result = 2;
+
+            if (social <= 130)
+            {
+                result = 3;
+            }
+        }
+
+        this.eventResultIndex = result;
     }
 
+    private void CheckEvent2020Result()
+    {
+        int result = -1;
+
+        float intelli = GameManager.Inst.player.playerCharacter.Intelli;
+
+        result = 1;
+
+        if (intelli <= 110)
+        {
+            result = 0;
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent2032Result()
+    {
+        int result = -1;
+
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        if (choiceNum == 0)
+        {
+            result = 1;
+
+            if (social >= 120)
+            {
+                result = 0;
+            }
+            else if (social <= 90)
+            {
+                result = 2;
+            }
+        }
+        else if (choiceNum == 1)
+        {
+            result = 4;
+
+            if (social >= 150)
+            {
+                result = 3;
+            }
+        }
+    }
 }

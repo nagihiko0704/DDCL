@@ -326,12 +326,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         doEvent = true;
 
-        MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
+        GameManager.Inst.eventLog.Add(_curEvent.eventCode);
 
-        //if(_curEvent.methodName != null)
-        //{
-        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
-        //}
+        MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
         while (doEvent)
         {
