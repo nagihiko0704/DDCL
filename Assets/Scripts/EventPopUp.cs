@@ -197,18 +197,22 @@ public class EventPopUp : MonoBehaviour
         textResultMessage.text = resultText;
 
         //determine result
-        if(eventResultNum / eventChoiceNum > 1 
-            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName != null)
+        if(eventResultNum / eventChoiceNum > 1
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
         {
             //if event is not minigame type, method num must be one
             EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
             resultIndex = EventManager.Inst.eventResultIndex;
+
+            Debug.Log("결과 받아옴");
         }
         //if special result condition is not exist
         else
         {
             resultIndex = _choiceIndexNum;
         }
+
+        Debug.Log("resultIndex: " + resultIndex);
 
         if(this.taskEvent.eventCode % 10 == 0
             || this.taskEvent.eventCode % 10 == 2)

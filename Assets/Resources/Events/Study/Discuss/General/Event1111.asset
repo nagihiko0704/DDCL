@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event1111
   m_EditorClassIdentifier: 
   eventCode: 1111
-  eventProbability: 10
+  eventProbability: 100
   title:
   - "\uACFC \uC81C \uB4F1 "
   message:
