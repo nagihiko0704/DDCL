@@ -577,5 +577,7 @@ public class EventManager : SingletonBehaviour<EventManager>
                 result = 3;
             }
         }
+
+        this.eventResultIndex = result;
     }
 }
