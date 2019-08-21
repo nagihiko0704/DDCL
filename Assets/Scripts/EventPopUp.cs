@@ -178,6 +178,11 @@ public class EventPopUp : MonoBehaviour
 
         string resultText = "";
 
+        int resultIndex = -1;
+
+        float eventResultNum = ScheduleManager.Inst.CurrentTask.taskEvent.resultMessage.Count;
+        float eventChoiceNum = ScheduleManager.Inst.CurrentTask.taskEvent.choiceMessage.Count;
+
         situationWindow.SetActive(true);
         miniGameWindow.SetActive(false);
         resultWindow.SetActive(true);
@@ -191,10 +196,24 @@ public class EventPopUp : MonoBehaviour
 
         textResultMessage.text = resultText;
 
+        //determine result
+        if(eventResultNum / eventChoiceNum > 1 
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName != null)
+        {
+            //if event is not minigame type, method num must be one
+            EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
+            resultIndex = EventManager.Inst.eventResultIndex;
+        }
+        //if special result condition is not exist
+        else
+        {
+            resultIndex = _choiceIndexNum;
+        }
+
         if(this.taskEvent.eventCode % 10 == 0
             || this.taskEvent.eventCode % 10 == 2)
         {
-            textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_choiceIndexNum];
+            textMessage.GetComponent<Text>().text = taskEvent.resultMessage[resultIndex];
         }
         else if(this.taskEvent.eventCode % 10 == 1)
         {

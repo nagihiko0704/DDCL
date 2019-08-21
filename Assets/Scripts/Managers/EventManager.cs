@@ -17,6 +17,7 @@ public class EventManager : SingletonBehaviour<EventManager>
     public List<GameObject> miniGameList = new List<GameObject>();
 
     public int miniGameResult;
+    public int eventResultIndex;
 
     //bulb catch
     public GameObject bulb;
@@ -34,6 +35,8 @@ public class EventManager : SingletonBehaviour<EventManager>
     // Start is called before the first frame update
     void Start()
     {
+        eventResultIndex = -1;
+
         //force event
         //exam
         for (int i = 0; i < 5; i++)
@@ -51,9 +54,18 @@ public class EventManager : SingletonBehaviour<EventManager>
             direction *= -1;
         }
 
-        if(isBulbGamePlaying)
+        if (isBulbGamePlaying)
         {
             bulb.transform.Translate(Vector3.right * direction * bulbSpeed * Time.deltaTime);
+        }
+        else
+        {
+            bulbGameNum = 0;
+        }
+
+        if (!(ScheduleManager.Inst.doEvent))
+        {
+            eventResultIndex = -1;
         }
     }
 
@@ -74,7 +86,7 @@ public class EventManager : SingletonBehaviour<EventManager>
 
                 curTask.taskEvent = null;
             }
-            
+
             return;
         }
 
@@ -85,7 +97,7 @@ public class EventManager : SingletonBehaviour<EventManager>
     {
         string[] events = null;
 
-        List<Event> selectedEvent = new List<Event>(); 
+        List<Event> selectedEvent = new List<Event>();
 
         //get events in each folder
         if (curTask is Study)
@@ -139,7 +151,7 @@ public class EventManager : SingletonBehaviour<EventManager>
         }
 
 
-        if(events == null)
+        if (events == null)
         {
             Debug.Log("events is null");
 
@@ -161,7 +173,7 @@ public class EventManager : SingletonBehaviour<EventManager>
             Event tempEvent = (Event)AssetDatabase.LoadAssetAtPath(eventPath[i], typeof(Event));
             float randomVal = Random.value;
 
-            if(randomVal <= tempEvent.eventProbability / 100)
+            if (randomVal <= tempEvent.eventProbability / 100)
             {
                 selectedEvent.Add(tempEvent);
             }
@@ -179,14 +191,14 @@ public class EventManager : SingletonBehaviour<EventManager>
             return;
         }
         //if only one event selected
-        else if(selectedEvent.Count == 1)
+        else if (selectedEvent.Count == 1)
         {
             Debug.Log("one event selected");
 
             GameManager.Inst.player.schedules[curWeek].taskArray[curPeriod, curDay].taskEvent = selectedEvent[0];
         }
         //if more than one event selected
-        else if(selectedEvent.Count > 1)
+        else if (selectedEvent.Count > 1)
         {
             Debug.Log("several event selected");
 
@@ -210,15 +222,15 @@ public class EventManager : SingletonBehaviour<EventManager>
             {
                 //mid
                 if (GameManager.Inst.studyResultArray[i].taskName
-                .Equals(GameManager.Inst.player.schedules[7].taskArray[period, day].taskName))
+                .Equals(GameManager.Inst.player.schedules[0].taskArray[period, day].taskName))
                 {
-                    if(isMidStudyFinded && !isMidExamSet)
+                    if (isMidStudyFinded && !isMidExamSet)
                     {
                         isMidExamSet = true;
 
                         Debug.Log("중간고사 설정됨 교시, 날짜 " + period + " " + day + " ");
 
-                        GameManager.Inst.player.schedules[7].taskArray[period, day].taskEvent
+                        GameManager.Inst.player.schedules[0].taskArray[period, day].taskEvent
                         = Resources.Load("Events/Study/Major/Enforce/Event1010") as Event;
                     }
 
@@ -262,7 +274,7 @@ public class EventManager : SingletonBehaviour<EventManager>
 
         isBulbGamePlaying = true;
 
-        if(bulbGameNum > 0)
+        if (bulbGameNum > 0)
         {
             return;
         }
@@ -272,53 +284,135 @@ public class EventManager : SingletonBehaviour<EventManager>
 
     private void OnBulbCatchGameButtonClick()
     {
+        bulbGameNum++;
+
         Debug.Log("bulbGameNum: " + bulbGameNum);
 
-        if(bulbGameNum < 3)
+        if (bulbGameNum <= 3)
         {
             if (bulb.transform.localPosition.x >= -60 && bulb.transform.localPosition.x <= 60)
             {
-                bulbMiniGameScore[bulbGameNum] = 4f;
+                bulbMiniGameScore[bulbGameNum - 1] = 4f;
             }
             else if (bulb.transform.localPosition.x >= -160 && bulb.transform.localPosition.x <= 160)
             {
-                bulbMiniGameScore[bulbGameNum] = 2f;
+                bulbMiniGameScore[bulbGameNum - 1] = 2f;
             }
             else
             {
-                bulbMiniGameScore[bulbGameNum] = 0f;
+                bulbMiniGameScore[bulbGameNum - 1] = 0f;
             }
 
-            if(bulbGameNum < 2)
+            if (bulbGameNum == 3)
             {
-                MiniGameBulbCatch();
-            }
+                isBulbGamePlaying = false;
+                bulbGameNum = 0;
 
-            bulbGameNum++;
+                float result = 0;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    result += bulbMiniGameScore[i];
+                }
+
+                if (result >= 10)
+                {
+                    miniGameResult = 0;
+                }
+                else if (result >= 8)
+                {
+                    miniGameResult = 1;
+                }
+                else
+                {
+                    miniGameResult = 2;
+                }
+
+                eventPopUpWindow.GetComponent<EventPopUp>().InitResult();
+
+            }
+        }
+
+        if (bulbGameNum <= 2)
+        {
+            MiniGameBulbCatch();
+        }
+    }
+
+    private void CheckEvent1010Result()
+    {
+        int result = -1;
+        int favor = -1;
+
+        float intelli = GameManager.Inst.player.playerCharacter.Intelli;
+
+        Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (curStudy.taskName.Equals(GameManager.Inst.studyResultArray[i].taskName))
+            {
+                favor = GameManager.Inst.studyResultArray[i].Favor;
+            }
+        }
+
+        if ((favor >= 15 && intelli >= 130)
+                || intelli >= 175)
+
+        {
+            result = 0;
+        }
+        else if ((favor >= 12 && intelli >= 115)
+                        || intelli >= 155)
+        {
+            result = 1;
         }
         else
         {
-            float result = 0;
-
-            for(int i = 0; i < 3; i++)
-            {
-                result += bulbMiniGameScore[i];
-            }
-
-            if(result >= 10)
-            {
-                miniGameResult = 0;
-            }
-            else if(result >= 8)
-            {
-                miniGameResult = 1;
-            }
-            else
-            {
-                miniGameResult = 2;
-            }
-
-            eventPopUpWindow.GetComponent<EventPopUp>().InitResult();
+            result = 2;
         }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent1020Result()
+    {
+        int result = -1;
+        int favor = -1;
+
+        float intelli = GameManager.Inst.player.playerCharacter.Intelli;
+
+        Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (curStudy.taskName.Equals(GameManager.Inst.studyResultArray[i].taskName))
+            {
+                favor = GameManager.Inst.studyResultArray[i].Favor;
+            }
+        }
+
+        if ((favor >= 50 && intelli >= 130)
+                || intelli >= 175)
+
+        {
+            result = 0;
+        }
+        else if ((favor >= 42 && intelli >= 115)
+                        || intelli >= 155)
+        {
+            result = 1;
+        }
+        else
+        {
+            result = 2;
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent1170Result()
+    {
+
     }
 }
