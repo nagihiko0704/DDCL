@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event3162
+  m_EditorClassIdentifier: 
+  eventCode: 3162
+  eventProbability: 14
+  title:
+  - "\uBC25\uC57D!"
+  message:
+  - "\uAE30\uB300\uD558\uB358 \uBC25\uC57D \uB0A0\uC785\uB2C8\uB2E4! \uADFC\uB370
+    \uC5EC\uAE34 \uC5B4\uB514.. \uC120\uBC30\uB294 \uB610 \uC5B4\uB514.."
+  situation:
+  - {fileID: 0}
+  minigameExplanation: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - "\uC557 \uBCF4\uC778\uB2E4!"
+  resultMessage:
+  - "\uAF41\uBC25\uACFC \uC720\uC775\uD55C \uC815\uBCF4\uB4E4, \uCE5C\uC808\uD55C
+    \uC120\uBC30\uAE4C\uC9C0 \uCD5C\uACE0\uC758 \uC2DC\uAC04!"
+  resultSituation:
+  - {fileID: 0}
+  fassionVal:
+  - 5
+  staminaVal: []
+  socialVal: []
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []
