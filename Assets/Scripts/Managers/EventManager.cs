@@ -307,7 +307,6 @@ public class EventManager : SingletonBehaviour<EventManager>
             {
                 isBulbGamePlaying = false;
                 bulbGameNum = 0;
-<<<<<<< HEAD
 
                 float result = 0;
 
@@ -414,6 +413,8 @@ public class EventManager : SingletonBehaviour<EventManager>
         }
         
         this.eventResultIndex = result;
+
+
     }
 
     private void CheckEvent1170Result()
