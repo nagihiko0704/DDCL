@@ -307,6 +307,7 @@ public class EventManager : SingletonBehaviour<EventManager>
             {
                 isBulbGamePlaying = false;
                 bulbGameNum = 0;
+<<<<<<< HEAD
 
                 float result = 0;
 
@@ -403,7 +404,7 @@ public class EventManager : SingletonBehaviour<EventManager>
             result = 0;
         }
         else if ((favor >= 42 && intelli >= 115)
-                        || intelli >= 155)
+                    || intelli >= 155)
         {
             result = 1;
         }
@@ -411,7 +412,7 @@ public class EventManager : SingletonBehaviour<EventManager>
         {
             result = 2;
         }
-
+        
         this.eventResultIndex = result;
     }
 
