@@ -17,6 +17,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public GameObject textMonth;
     public GameObject textDay;
     public GameObject textTime;
+    public GameObject textPeriod;
 
     //main game canvas
     public GameObject mainGameCanvas;
@@ -47,6 +48,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDoingTaskIndicator();
         SetTimeUI();
         SetDateUI();
+        SetPeriodUI();
         SetStatUI();
     }
 
@@ -225,6 +227,13 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         }
 
         return (month, day);
+    }
+
+    private void SetPeriodUI()
+    {
+        int curPeriod = (int)ScheduleManager.Inst.currentPeriod + 1;
+
+        textPeriod.GetComponent<Text>().text = curPeriod.ToString();
     }
 
     private void InitDateTimeUI()
