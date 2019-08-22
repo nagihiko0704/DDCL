@@ -48,4 +48,5 @@ MonoBehaviour:
   fassionMaxVal: []
   staminaMaxVal: []
   socialMaxVal: []
-  methodName: []
+  methodName:
+  - CheckEvent3170Result
