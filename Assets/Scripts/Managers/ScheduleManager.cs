@@ -350,6 +350,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             GameManager.Inst.isEndingSix = true;
             Debug.Log("넘어가요ㅛ");
             SceneManager.LoadScene(9);
+            Destroy(this);
         }
             
 

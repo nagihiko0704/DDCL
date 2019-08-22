@@ -13,8 +13,8 @@ public class EndingSceneManager : MonoBehaviour
 	public GameObject endingScriptText;
 	public GameObject endingButton;
 
-	public Sprite[] endingImageSprite = new Sprite[8];
-	public Sprite[] endingScriptSprite = new Sprite[8];
+	//public Sprite[] endingImageSprite = new Sprite[8];
+	//public Sprite[] endingScriptSprite = new Sprite[8];
 
     public float[] score=new float[5];
     private int totalP;
@@ -38,7 +38,7 @@ public class EndingSceneManager : MonoBehaviour
 
     void GoEnding(int endingNum)
 	{
-		SetSprite(endingNum);
+		//SetSprite(endingNum);
 		switch (endingNum)
 		{
 			case 0:
@@ -75,13 +75,13 @@ public class EndingSceneManager : MonoBehaviour
 
 		}
 	}
-
+/**
     void SetSprite(int num)
     {
         endingImage.GetComponent<Image>().sprite = endingImageSprite[num];
         endingScriptImage.GetComponent<Image>().sprite = endingScriptSprite[num];
     }
-
+    **/
     void EndCheck()
     {
        if (GameManager.Inst.isEndingSix == true)
@@ -104,7 +104,7 @@ public class EndingSceneManager : MonoBehaviour
     }
 
     
-    public void SetGradeCredit(Study study, int num, int _favor)
+    void SetGradeCredit(Study study, int num, int _favor)
     {
         if (study.studyType == Type.Major)
             switch (study.grade)
