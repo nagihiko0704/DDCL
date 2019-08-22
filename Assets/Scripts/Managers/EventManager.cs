@@ -666,4 +666,20 @@ public class EventManager : SingletonBehaviour<EventManager>
 
         this.eventResultIndex = result;
     }
+
+    private void CheckEvent2170Result()
+    {
+        int result = -1;
+
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        result = 1;
+
+        if (social <= 85)
+        {
+            result = 0;
+        }
+
+        this.eventResultIndex = result;
+    }
 }
