@@ -16,7 +16,6 @@ public class NewCharacterManager : MonoBehaviour
     
     public Sprite[] characterSprite = new Sprite[2];
 
-    public GameObject explainChoiceButton;
     public GameObject explainImage;
     public GameObject explainName;
     public GameObject explainText;
