@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
-  m_Name: Event3162
+  m_Name: Event3160
   m_EditorClassIdentifier: 
-  eventCode: 3162
+  eventCode: 3160
   eventProbability: 14
   title:
   - "\uBC25\uC57D!"
@@ -29,7 +29,7 @@ MonoBehaviour:
   - "\uAF41\uBC25\uACFC \uC720\uC775\uD55C \uC815\uBCF4\uB4E4, \uCE5C\uC808\uD55C
     \uC120\uBC30\uAE4C\uC9C0 \uCD5C\uACE0\uC758 \uC2DC\uAC04!"
   resultSituation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c286be3ee6d970541b86743ed63bc819, type: 3}
   fassionVal:
   - 5
   staminaVal: []

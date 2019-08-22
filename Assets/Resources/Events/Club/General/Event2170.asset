@@ -19,7 +19,7 @@ MonoBehaviour:
   message:
   - "\uAE30\uB300\uD558\uB358 \uC5E0\uD2F0\uB0A0\uC785\uB2C8\uB2E4!!!"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 193d9203f3f97c343ae24ea70fa454cc, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
