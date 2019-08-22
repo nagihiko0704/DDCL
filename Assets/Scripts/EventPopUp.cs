@@ -115,7 +115,8 @@ public class EventPopUp : MonoBehaviour
 
         if (eventResultNum / eventChoiceNum > 1
             && ScheduleManager.Inst.CurrentTask.taskEvent.methodName.Count != 0
-            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != ""
+            && !ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0].Contains("MiniGame"))
         {
             //if event is not minigame type, method num must be one
             EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
