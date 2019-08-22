@@ -56,6 +56,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         {
             isAcheivementActivated[i] = false;
         }
+        SetFieldUI();
     }
 
     // Update is called once per frame
@@ -255,7 +256,11 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     private void SetPeriodUI()
     {
         int curPeriod = (int)ScheduleManager.Inst.currentPeriod + 1;
-
+        /*if (!Equals(textPeriod.GetComponent<Text>().text, curPeriod.ToString()))
+        {
+            SetFieldUI();
+            Debug.Log("필드 바꼈냐 ?");
+        }*/
         textPeriod.GetComponent<Text>().text = curPeriod.ToString();
     }
 
