@@ -156,16 +156,16 @@ public class Character
         switch (whichStat)
         {
             case ("intell"):
-                this.Intelli += changeValue;
+                _intelligence +=changeValue;
                 break;
             case ("fassion"):
-                this.CurFassion += changeValue;
+                _curFassion +=changeValue;
                 break;
             case ("stamina"):
-                this.CurStamina += changeValue;
+                _curStamina += changeValue;
                 break;
             case ("social"):
-                _curSociability += changeValue;
+                _curSociability += CurSocial;
                 break;
         }
     }
@@ -174,9 +174,8 @@ public class Character
     {
         //Debug.Log("stamina: " + task.staminaVal + "social: " + task.socialVal);
 
-        this.CurStamina += task.staminaVal;
-        this.CurSocial += task.socialVal;
-        this.CurFassion += task.fassionVal;
+        this._curStamina += task.staminaVal;
+        this._curSociability += task.socialVal;
     }
     
 }

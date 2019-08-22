@@ -16,16 +16,18 @@ public class EndingSceneManager : MonoBehaviour
 	public Sprite[] endingImageSprite = new Sprite[8];
 	public Sprite[] endingScriptSprite = new Sprite[8];
 
+    private int endingNum=PlayerPrefs.GetInt("ending");
+
     // Start is called before the first frame update
     void Start()
     {
-		runEnding(6);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        runEnding(endingNum);
     }
 
     public void OnclickGoHome()

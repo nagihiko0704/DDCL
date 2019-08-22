@@ -297,11 +297,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6415549845431223425, guid: 085bc7c687973c9458f3671f6c3d18ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085bc7c687973c9458f3671f6c3d18ba, type: 3}
 --- !u!1 &102208242 stripped
@@ -406,9 +401,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 102208241}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &102208259 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8905100557415583652, guid: 085bc7c687973c9458f3671f6c3d18ba,
+--- !u!1 &102208259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6415549845431223425, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 102208241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &102208260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1213361329196082713, guid: 085bc7c687973c9458f3671f6c3d18ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 102208241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &102208261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330339536129413229, guid: 085bc7c687973c9458f3671f6c3d18ba,
     type: 3}
   m_PrefabInstance: {fileID: 102208241}
   m_PrefabAsset: {fileID: 0}
@@ -752,11 +765,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPopUpWindow: {fileID: 102208257}
   miniGameList:
-  - {fileID: 3137340236099825098, guid: 331d1afab4f62c349b19e9442187b30a, type: 3}
-  miniGamePanel: {fileID: 102208259}
+  - {fileID: 102208259}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   miniGameResult: 0
   eventResultIndex: 0
   choiceNum: 0
+  bulb: {fileID: 102208261}
+  buttonBulbCatch: {fileID: 102208260}
+  bulbSpeed: 500
+  direction: 1
+  bulbMiniGameScore:
+  - 0
+  - 0
+  - 0
+  bulbGameNum: 0
+  isBulbGamePlaying: 0
 --- !u!4 &1996249587
 Transform:
   m_ObjectHideFlags: 0

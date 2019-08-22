@@ -20,6 +20,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     //for lecture supplement scene, schedule manager
     public Study[] studyResultArray = new Study[5];
 
+    public int[] lectureCredit = new int[5];
     //public LectureList lectureList = new LectureList();
 
     public const float TASK_TIME = 4f;
@@ -27,7 +28,6 @@ public class GameManager : SingletonBehaviour<GameManager>
     public bool isMainSceneStart = false;
 
     public bool isSemesterEnd = false;
-
 
     void Awake()
     {

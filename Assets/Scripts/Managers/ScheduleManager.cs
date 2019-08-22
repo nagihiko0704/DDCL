@@ -18,6 +18,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public float TASK_TIME;
 
+    public Ending end;
+
     //public List<Study> lectureList = new List<Study>();
 
     //for schedule form
@@ -240,14 +242,12 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             int nextWeek;
 
             float recoverStamina;
-            float recoverFassion;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
             nextWeek = currentWeek;
 
             recoverStamina = 0;
-            recoverFassion = 0;
 
             if (currentPeriod == Period.Sixth)
             {
@@ -256,7 +256,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
 
                 recoverStamina = 10f;
-                recoverFassion = 5f;
             }
 
             if(currentDay == Day.Fri && currentPeriod == Period.Sixth)
@@ -271,7 +270,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //apply stat change
             GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
-            Debug.Log("fassionVal" + CurrentTask.fassionVal);
 
             //insert event
             EventManager.Inst.InsertEvent();
@@ -292,7 +290,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //if day passed, recover 10 stamina
             GameManager.Inst.player.playerCharacter.ChangeStat("stamina", recoverStamina);
-            GameManager.Inst.player.playerCharacter.ChangeStat("fassion", recoverFassion);
 
             //Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             //Debug.Log("---------");
@@ -343,5 +340,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         {
             yield return null;
         }
+    }
+
+    void EndCheck()
+    {
+        if (GameManager.Inst.player.playerCharacter.CurStamina <= 10)
+        {
+            PlayerPrefs.SetInt("ending",6);
+            SceneManager.LoadScene(9);
+        }
+
     }
 }
