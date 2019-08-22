@@ -28,7 +28,7 @@ public class HomeManager : MonoBehaviour
 
     public void OnclickBuccon0()
     {
-        //??????
+        SceneManager.LoadScene(8);
     }
 
     public void OnclickButton1()
