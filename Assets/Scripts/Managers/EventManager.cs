@@ -241,7 +241,7 @@ public class EventManager : SingletonBehaviour<EventManager>
     {
         MiniGame(0);
     }
-    private void MiniGameCorrectButton()
+    private void MiniGameCorrectButtonClick()
     {
         MiniGame(1);
     }
