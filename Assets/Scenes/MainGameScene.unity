@@ -267,11 +267,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6415549845431223425, guid: 085bc7c687973c9458f3671f6c3d18ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2117917344756121734, guid: 085bc7c687973c9458f3671f6c3d18ba,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -302,6 +297,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6415549845431223425, guid: 085bc7c687973c9458f3671f6c3d18ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478781170095516568, guid: 085bc7c687973c9458f3671f6c3d18ba,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66ad24ca5cf92b84594a6e8b99e169c6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085bc7c687973c9458f3671f6c3d18ba, type: 3}
 --- !u!1 &102208242 stripped
@@ -641,11 +647,25 @@ MonoBehaviour:
   - {fileID: 102208250}
   taskIndicator: {fileID: 102208249}
   ImageField: {fileID: 102208260}
-  ImageMajorFieldList: []
-  ImageDiscussFieldList: []
-  ImageSportFieldList: []
-  ImageClubFieldList: []
-  ImageRestFieldList: []
+  ImageMajorFieldList:
+  - {fileID: 21300000, guid: 469c1564cd3588947805fded99c1abde, type: 3}
+  - {fileID: 21300000, guid: fb25f1babdfa59847a8b470b6c7bd0a2, type: 3}
+  - {fileID: 21300000, guid: ce91d0aef710993469d9dfd02687104b, type: 3}
+  - {fileID: 21300000, guid: ce91d0aef710993469d9dfd02687104b, type: 3}
+  ImageDiscussFieldList:
+  - {fileID: 21300000, guid: a66b4af3de3c46545a5698261cd1e27c, type: 3}
+  - {fileID: 21300000, guid: 4b8f7af561e6b9c49b5cb71c5131c08c, type: 3}
+  - {fileID: 21300000, guid: 67dd1d3445c57014d8948928fd054e1b, type: 3}
+  ImageSportFieldList:
+  - {fileID: 21300000, guid: 81d4c4f1fe767ec4183c17841147514a, type: 3}
+  - {fileID: 21300000, guid: 67dd1d3445c57014d8948928fd054e1b, type: 3}
+  ImageClubFieldList:
+  - {fileID: 21300000, guid: c2f41708299b71d4c94df6922a31566e, type: 3}
+  - {fileID: 21300000, guid: 67dd1d3445c57014d8948928fd054e1b, type: 3}
+  ImageRestFieldList:
+  - {fileID: 21300000, guid: c2f41708299b71d4c94df6922a31566e, type: 3}
+  - {fileID: 21300000, guid: fb25f1babdfa59847a8b470b6c7bd0a2, type: 3}
+  - {fileID: 21300000, guid: d50382937a0bf8e4f82d9ff96d83d50f, type: 3}
   textMonth: {fileID: 102208248}
   textDay: {fileID: 102208247}
   textTime: {fileID: 102208246}
