@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 {
@@ -272,5 +273,10 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         statList[1].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurFassion.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxFassion.ToString();
         statList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
         statList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
+    }
+
+    public void OnClickChallenge()
+    {
+        SceneManager.LoadScene(6);
     }
 }
