@@ -94,7 +94,7 @@ public class LectureChoiceGameManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             int x = _goodLectureOrder[i];
-            SetLectureChoiceMan(_happyEach[i],i);
+            SetLectureChoiceMan(_happyEach[i], i);
         }
     }
 
@@ -178,7 +178,7 @@ public class LectureChoiceGameManager : MonoBehaviour
         //make a array[13], value is 0, 1, or 2.
         //non -people=>0, happy=>1, angry=>2
         int count = 0;
-        for (;count<noMan;count++)
+        for (; count < noMan; count++)
         {
             tempList[count] = 0;
         }
@@ -194,7 +194,7 @@ public class LectureChoiceGameManager : MonoBehaviour
         //mix the array
         for (int i = 0; i < 13; i++)
         {
-            Swap(i, Random.Range(0,13), tempList);
+            Swap(i, Random.Range(0, 13), tempList);
         }
 
         //set the sprite
@@ -261,9 +261,9 @@ public class LectureChoiceGameManager : MonoBehaviour
         }
 
         //sort
-        for(int i = 0; i < arr.Length - 1; i++)
+        for (int i = 0; i < arr.Length - 1; i++)
         {
-            for(int j=i+1; j < arr.Length; j++)
+            for (int j = i + 1; j < arr.Length; j++)
             {
                 if (i < j)
                 {
@@ -275,4 +275,3 @@ public class LectureChoiceGameManager : MonoBehaviour
         }
     }
 }
-    

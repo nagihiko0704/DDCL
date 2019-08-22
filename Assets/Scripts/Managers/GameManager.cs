@@ -29,6 +29,8 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public bool isSemesterEnd = false;
 
+    public bool isEndingSix = false;
+
     void Awake()
     {
         player = new Player();
