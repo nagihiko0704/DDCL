@@ -7,8 +7,9 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player player;
 
     //for acheivement
-    public List<int> eventLog = new List<int>();
+    public List<(int, int)> eventLog = new List<(int, int)>();
     public List<Task> taskLog = new List<Task>();
+    public bool[] acheivemnet = new bool[10];
 
     //for lecture choice score
     public static int[] lectureChoiceScore = new int[5];
@@ -24,6 +25,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     public const float TASK_TIME = 4f;
 
     public bool isMainSceneStart = false;
+
+    public bool isSemesterEnd = false;
 
 
     void Awake()
