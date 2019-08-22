@@ -35,6 +35,10 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     public GameObject[] statList = new GameObject[4];
 
+    //acheivement
+    public GameObject ImageAcheivement;
+    public bool[] isAcheivementActivated = new bool[10];
+
     public float TASK_TIME;
     public float SCHEDULE_TIME;
 
@@ -47,6 +51,11 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         InitDateTimeUI();
 
         eventPopUp.SetActive(false);
+
+        for(int i = 0; i < 10; i++)
+        {
+            isAcheivementActivated[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -58,7 +67,19 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDateUI();
         SetPeriodUI();
         SetStatUI();
-        SetFieldUI();
+        //SetFieldUI();
+
+        //acheivement
+        for (int i = 0; i < 10; i++)
+        {
+            if (GameManager.Inst.acheivemnet[i] == true)
+            {
+                if (isAcheivementActivated[i] == false)
+                {
+                    AlarmAcheivement(i);
+                }
+            }
+        }
     }
 
     private void SetScheduleUI()
@@ -316,4 +337,12 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
             ImageField.GetComponent<Image>().sprite = ImageRestFieldList[UnityEngine.Random.Range(0, ImageRestFieldList.Count)];
         }
     }
+
+    private void AlarmAcheivement(int index)
+    {
+        isAcheivementActivated[index] = true;
+
+        ImageAcheivement.GetComponent<Animator>().Play("Acheivement Animation");
+    }
+
 }
