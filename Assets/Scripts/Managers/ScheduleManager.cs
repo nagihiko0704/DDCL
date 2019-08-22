@@ -18,8 +18,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public float TASK_TIME;
 
-    public Ending end;
-
     //public List<Study> lectureList = new List<Study>();
 
     //for schedule form
@@ -53,13 +51,16 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     // Update is called once per frame
     void Update()
-    {   
-        if(!doEvent)
+    {
+        EndCheck();
+        if (!doEvent)
         {
             curTime += Time.deltaTime;
         }
-    }
 
+        if (GameManager.Inst.isSemesterEnd == true)
+            SceneManager.LoadScene(9);
+    }
 
     public void InitSchedule()
     {
@@ -346,9 +347,11 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         if (GameManager.Inst.player.playerCharacter.CurStamina <= 10)
         {
-            PlayerPrefs.SetInt("ending",6);
+            GameManager.Inst.isEndingSix = true;
             SceneManager.LoadScene(9);
+            Destroy(this.gameObject);
         }
+            
 
     }
 }
