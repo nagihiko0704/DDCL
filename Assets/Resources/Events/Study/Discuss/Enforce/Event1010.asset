@@ -29,7 +29,10 @@ MonoBehaviour:
   - "\uD06C, \uC7A5\uD559\uAE08 \uAC01\uC774\uB2E4 \uC774\uAC74."
   - "\uB098\uC058\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4! \uB180\uB7EC\uAC00\uC790\u314F"
   - "\uAE30\uB9D0..\uAE30\uB9D0\uC774 \uB0A8\uC544\uC788\uC73C\uB2C8\uAE4C.."
-  resultSituation: []
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: df61402c18eec5841a732efcdbb7a325, type: 3}
   fassionVal:
   - 15
   - 0

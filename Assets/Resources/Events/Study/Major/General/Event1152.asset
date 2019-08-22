@@ -23,7 +23,7 @@ MonoBehaviour:
   - "\uB208\uB728\uB2C8 8\uC2DC 50\uBD84, \uC218\uC5C5\uC740 9\uC2DC\uC785\uB2C8\uB2E4.
     \uB2F9\uC2E0\uC758 \uC120\uD0DD\uC740?"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: af24d681d6a0b8f448920b4b66ddf812, type: 3}
   - {fileID: 0}
   minigameExplanation: []
   minigameExplanationImage: []
@@ -43,10 +43,10 @@ MonoBehaviour:
     \uC88B\uC544\uD558\uC2DC\uACE0, \uBAB8\uB3C4 \uCF8C\uC801\uD55C\uB370. \uC65C..
     \uB208\uBB3C\uC774.."
   resultSituation:
+  - {fileID: 21300000, guid: f569bfa1756888746a74ed390272d60b, type: 3}
+  - {fileID: 21300000, guid: 9b64c0fb45c01de4daa358ece9602c3e, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 9b64c0fb45c01de4daa358ece9602c3e, type: 3}
   fassionVal:
   - 0
   - 15

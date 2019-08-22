@@ -30,10 +30,12 @@ MonoBehaviour:
   - "\uD734, \uB2E4\uD589\uC774\uB2E4."
   resultSituation:
   - {fileID: 0}
-  fassionVal: []
+  fassionVal:
+  - 1
   staminaVal: []
   socialVal: []
-  favorVal: []
+  favorVal:
+  - 1
   intelliMaxVal: []
   fassionMaxVal: []
   staminaMaxVal: []

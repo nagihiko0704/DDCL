@@ -16,27 +16,34 @@ MonoBehaviour:
   eventProbability: 0
   title:
   - "\uC73C\uC545 \uC885\uAC15\uC774\uC57C!"
-  - "\uCD9C\uC7A5\uC740 \uC990\uAC70"
+  - "\uCD9C\uC7A5\uC740 \uC990\uAC70\uC6CC!"
   message:
   - "\uAD50\uC218\uB2D8\uC774 \uBC1C\uC744 \uD5DB\uB514\uB514\uC154\uC11C \uC624\uB298
-    \uAC15\uC758\uB294 \uC885\u3131, \uC544\uB2C8 \uD734\uAC15\uD569\uB2C8\uB2E4."
+    \uAC15\uC758\uB294 \uC815\uAC00, \uC544\uB2C8 \uD734\uAC15\uD569\uB2C8\uB2E4."
   - "\uAD50\uC218\uB2D8\uC774 \uCD9C\uC7A5\uC744 \uB098\uAC00\uC2E0 \uD0D3\uC5D0 \uC624\uB298
     \uAC15\uC758\uB294 \uD734\uAC15\uD569\uB2C8\uB2E4."
   situation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: bee78ab915e4f7e4299dbd992413fdca, type: 3}
+  - {fileID: 21300000, guid: 7a09a970378cd50448101f739e8e944a, type: 3}
   minigameExplanation: []
+  minigameExplanationImage: []
   choiceMessage:
   - "\uC608?!!??!"
-  - 
+  - "\uC544\uC2F8!!"
   resultMessage:
   - "\uC870\uAE08\uC758 \uAC71\uC815\uD558\uB294 \uB9C8\uC74C\uC744 \uAC00\uC9C0\uACE0
     \uADC0\uD55C \uD734\uC2DD\uC744 \uC990\uAC81\uAC8C \uC990\uACBC\uC2B5\uB2C8\uB2E4.\n\n\uCCB4\uB825
     +3"
   resultSituation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f569bfa1756888746a74ed390272d60b, type: 3}
   fassionVal: []
   staminaVal:
   - 3
   socialVal:
   - 0
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

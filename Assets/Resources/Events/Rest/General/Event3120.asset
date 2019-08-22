@@ -16,53 +16,44 @@ MonoBehaviour:
   eventProbability: 24
   title:
   - "\uB9C8\uC74C\uC758 \uACE0\uD5A5"
-  - 
-  - "\uB9C8\uC74C\uC758 \uC591\uC2DD"
+  - "\uBCFC\uB9C1\uC7A5"
   message:
   - "\uB0A8\uB294 \uC2DC\uAC04\uC5D4 \uB2F9\uC5F0\uD788 PC\uBC29\uC774\uC9C0!"
   - "\uC624\uB298\uB530\uB77C \uACF5\uC774 \uAC00\uBCCD\uB2E4!"
-  - "\uCC45\uC740 \uB9C8\uC74C\uC758 \uC591\uC2DD\uC774\uB2C8\uAE4C-"
   situation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 54cb52d2c958dfd42a5be3bde88d5da6, type: 3}
+  - {fileID: 21300000, guid: 745ed681ad6aa764d9f02db89c000b42, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
   - "\uB2EC\uB824\u3153\u3153"
   - "\uB0B4\uAE30 \uAC01!?"
-  - "\uC74C\uC2DD\uC740 \uB364!"
   resultMessage:
   - "\uC5ED\uC2DC \uAC8C\uC784\uC740 \uC194\uB85C\uD050\uC9C0!"
   - "\uBC25\uB3C4 \uB4E0\uB4E0\uD558\uAC8C \uBA39\uC5C8\uC2B5\uB2C8\uB2E4! \uBC25\uAC12\uC774
     \uB354 \uB098\uC628\uAC74 \uBE44\uBC00.."
   - "\uACF5\uC9DC \uBCFC\uB9C1 \uAC1C\uAFC0!!"
   - "\uB0B4 \uB3C8..."
-  - "\uB9CC\uD654\uCC45 \uC77D\uAE30\uB3C4 \uACF5\uBD80\uC784. \uC554\uD2BC \uADF8\uB7FC."
   resultSituation:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
   fassionVal:
   - 2
   - 0
   - 3
   - -1
-  - 0
   staminaVal:
   - 0
   - 0
   - -1
-  - 0
   - 0
   socialVal:
   - 0
   - 1
   - 2
   - 2
-  - 0
   favorVal: []
   intelliMaxVal:
   - 0

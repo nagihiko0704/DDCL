@@ -20,7 +20,7 @@ MonoBehaviour:
   - "\uB9D0\uB85C\uB9CC \uB4E3\uB358 \uD300\uD50C\uC785\uB2C8\uB2E4.. \uC798 \uB418\uAE38
     \uAE30\uC6D0\uD569\uC2DC\uB2E4!"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f7788d6d210c2614aa1ad55fc815ef42, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
@@ -32,7 +32,11 @@ MonoBehaviour:
     \uC5F4\uC2EC\uD788 \uD588\uC2B5\uB2C8\uB2E4!"
   - "\uC0AC\uB78C\uB4E4\uB3C4 \uBCC4\uB85C\uACE0 \uD558\uAE30 \uC2EB\uC5B4\uC11C \uD3EC\uAE30\uD588\uC2B5\uB2C8\uB2E4."
   - "\uC5B4\uCC0C\uC800\uCC0C \uBC84\uC2A4 \uD0D4\uC2B5\uB2C8\uB2E4!.."
-  resultSituation: []
+  resultSituation:
+  - {fileID: 21300000, guid: 150d3b423f0a1284897175b1f3d2b2c2, type: 3}
+  - {fileID: 21300000, guid: aa394982346d93d49bfc9db7636ea29e, type: 3}
+  - {fileID: 21300000, guid: 69a2a8e5cd56c004fa4b240bf817e7ac, type: 3}
+  - {fileID: 0}
   fassionVal:
   - -1
   - 2
