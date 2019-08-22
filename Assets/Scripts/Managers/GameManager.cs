@@ -26,8 +26,6 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public bool isMainSceneStart = false;
 
-    public int totalP;
-
     void Awake()
     {
         player = new Player();
