@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Event1141
   m_EditorClassIdentifier: 
   eventCode: 1141
-  eventProbability: 6
+  eventProbability: 0
   title:
   - "\uCABD\uC9C0\uC2DC\uD5D8"
   message:
@@ -27,7 +27,9 @@ MonoBehaviour:
     \uB4A4\uC9D1\uD799\uB2C8\uB2E4. \uADF8 \uD6C4, \uAD50\uC218\uB2D8\uC774 \uC598\uAE30\uD558\uB294
     \uBAA8\uC591\uACFC \uAC19\uC740 \uAC83\uB4E4\uC744 \uC120\uD0DD\uD574 \uB9DE\uCD94\uC5B4\uC57C
     \uD569\uB2C8\uB2E4."
-  choiceMessage: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - 
   resultMessage:
   - "\uD06C- \uC5ED\uC2DC \uB09C \uB300\uB2E4\uB0B4"
   - "\uD734, \uB2E4\uD589\uC774\uB2E4."
@@ -36,12 +38,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  intelVal: []
   fassionVal: []
   staminaVal: []
   socialVal: []
-  flavorVal:
-  - 2
-  - 1
-  - 0
-  methodName: 
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

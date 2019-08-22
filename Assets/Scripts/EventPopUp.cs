@@ -66,6 +66,13 @@ public class EventPopUp : MonoBehaviour
     {
         int choiceNum = taskEvent.choiceMessage.Count / taskEvent.title.Count;
 
+        int multiNum = 1;
+
+        if (choiceNum > 1)
+        {
+            multiNum = 2;
+        }
+
         //delete all buttons in choiceArea
         foreach (Transform child in choiceArea.transform)
         {
@@ -76,14 +83,14 @@ public class EventPopUp : MonoBehaviour
         //if 1 button -> then instantiate in (0,0)
         //if 2 buttons -> then instantiate in (-200, 0) and (200, 0)
         //change their inner text
-        for (int i = 0; i < choiceNum; i++)
+        for (int i = 0; i < multiNum; i++)
         {
             Debug.Log("taskEvent.SelectedInt * 2 + i    " + (taskEvent.SelectedInt * 2 + i));
 
             GameObject _instance;
             GameObject _textChoiceButton;
 
-            int choiceButtonNum = taskEvent.SelectedInt * 2 + i;
+            int choiceButtonNum = taskEvent.SelectedInt * multiNum + i;
 
             _instance = Instantiate(buttonChoice, choiceArea.transform);
             _textChoiceButton = _instance.transform.GetChild(0).gameObject;
