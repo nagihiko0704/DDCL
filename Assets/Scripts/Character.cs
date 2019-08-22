@@ -176,6 +176,7 @@ public class Character
 
         this._curStamina += task.staminaVal;
         this._curSociability += task.socialVal;
+        this._curFassion += task.fassionVal;
     }
     
 }
