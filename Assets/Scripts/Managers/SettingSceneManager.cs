@@ -33,7 +33,8 @@ public class SettingSceneManager : MonoBehaviour
 
     public void OnClickBackButton()
     {
-        //????!!!!
+        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnClickCreatorBackButton()
