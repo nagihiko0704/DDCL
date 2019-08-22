@@ -31,7 +31,7 @@ MonoBehaviour:
   - "\uD558\uC9C0\uB9CC \uC5B8\uC81C\uB098 \uC870\uC838\uC9C0\uB294 \uAC83\uC740 \uB098\uC600\uB2E4."
   resultSituation:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: af24d681d6a0b8f448920b4b66ddf812, type: 3}
   - {fileID: 21300000, guid: df61402c18eec5841a732efcdbb7a325, type: 3}
   fassionVal:
   - 25

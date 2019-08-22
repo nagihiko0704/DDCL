@@ -19,7 +19,7 @@ MonoBehaviour:
   message:
   - "\uC624\uB298 \uB530\uB77C \uB3D9\uC544\uB9AC\uBC29\uC774 \uACFC\uD558\uAC8C \uC2DC\uB044\uB7FD\uC2B5\uB2C8\uB2E4."
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: aa394982346d93d49bfc9db7636ea29e, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:

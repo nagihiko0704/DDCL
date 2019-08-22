@@ -32,7 +32,7 @@ MonoBehaviour:
   - "\uC7AC\uBC0C\uC5C8\uC2B5\uB2C8\uB2E4! \uB610 \uAC00\uACE0 \uC2F6\uB2E4!"
   resultSituation:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 89c78cc059e2c1c4fba2bd9c93a9c170, type: 3}
   - {fileID: 0}
   fassionVal: []
   staminaVal:

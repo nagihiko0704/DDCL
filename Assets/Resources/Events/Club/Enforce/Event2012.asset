@@ -37,9 +37,9 @@ MonoBehaviour:
     ..\uAC8C\uC784 \uC81C\uC791 \uB3D9\uC544\uB9AC\uB098 \uB4E4\uC5B4\uAC00\uC790.."
   resultSituation:
   - {fileID: 0}
+  - {fileID: 21300000, guid: af24d681d6a0b8f448920b4b66ddf812, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: af24d681d6a0b8f448920b4b66ddf812, type: 3}
   fassionVal: []
   staminaVal: []
   socialVal: []
