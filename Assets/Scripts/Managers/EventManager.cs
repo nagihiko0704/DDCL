@@ -682,4 +682,116 @@ public class EventManager : SingletonBehaviour<EventManager>
 
         this.eventResultIndex = result;
     }
+
+    private void CheckEvent3120Result()
+    {
+        int result = -1;
+
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+        float stamina = GameManager.Inst.player.playerCharacter.CurStamina;
+
+        if (choiceNum == 0)
+        {
+            result = 0;
+
+            if (social <= 65)
+            {
+                result = 1;
+            }
+        }
+        else if (choiceNum == 1)
+        {
+            result = 3;
+            
+            if (stamina >= 155)
+            {
+                result = 2;
+            }
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent3130Result()
+    {
+        int result = -1;
+
+        result = Random.Range(0, 4);
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent3150Result()
+    {
+        int result = -1;
+
+        float stamina = GameManager.Inst.player.playerCharacter.CurStamina;
+
+        result = 1;
+
+        if (stamina <= 95)
+        {
+            result = 1;
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent3170Result()
+    {
+        int result = -1;
+
+        float stamina = GameManager.Inst.player.playerCharacter.CurStamina;
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        result = 2;
+
+        if (stamina <= 150 && social >= 110)
+        {
+            result = 0;
+        }
+        else if (social <= 95)
+        {
+            result = 1;
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent3180Result()
+    {
+        int result = -1;
+
+        float stamina = GameManager.Inst.player.playerCharacter.CurStamina;
+        float social = GameManager.Inst.player.playerCharacter.CurSocial;
+
+        result = 1;
+
+        if (stamina <= 110 || social <= 80)
+        {
+            result = 0;
+        }
+
+        this.eventResultIndex = result;
+    }
+
+    private void CheckEvent3190Result()
+    {
+        int result = -1;
+
+        Period curPeriod = ScheduleManager.Inst.currentPeriod;
+
+        result = 1;
+
+        if (curPeriod == Period.First)
+        {
+            result = 0;
+        }
+        else if (curPeriod == Period.Sixth)
+        {
+            result = 2;
+        }
+
+        this.eventResultIndex = result;
+    }
 }
