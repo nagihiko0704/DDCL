@@ -82,15 +82,15 @@ public class Study : Task
         switch(_studyType)
         {
             case (Type.Major):
-                this.staminaVal = -2;
+                this.staminaVal = -200;
                 this.socialVal = 0;
                 break;
             case (Type.Discuss):
-                this.staminaVal = -3;
+                this.staminaVal = -300;
                 this.socialVal = 0;
                 break;
             case (Type.Sport):
-                this.staminaVal = -5;
+                this.staminaVal = -500;
                 this.socialVal = 0;
                 break;
         }
