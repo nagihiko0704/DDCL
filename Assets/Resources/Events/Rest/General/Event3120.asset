@@ -35,9 +35,9 @@ MonoBehaviour:
   - "\uACF5\uC9DC \uBCFC\uB9C1 \uAC1C\uAFC0!!"
   - "\uB0B4 \uB3C8..."
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: dbcbdabef2979a14780188231c62cee2, type: 3}
+  - {fileID: 21300000, guid: afbba51736fb5d1438cbc358259904bb, type: 3}
+  - {fileID: 21300000, guid: 193d9203f3f97c343ae24ea70fa454cc, type: 3}
   - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
   fassionVal:
   - 2

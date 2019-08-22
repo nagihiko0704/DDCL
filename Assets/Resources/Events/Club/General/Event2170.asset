@@ -19,7 +19,7 @@ MonoBehaviour:
   message:
   - "\uAE30\uB300\uD558\uB358 \uC5E0\uD2F0\uB0A0\uC785\uB2C8\uB2E4!!!"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 193d9203f3f97c343ae24ea70fa454cc, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
@@ -28,8 +28,8 @@ MonoBehaviour:
   - "\uD3C9-\uC0DD \uC78A\uC9C0 \uBABB\uD560 \uCD94\uC5B5\uC774 \uB418\uC5C8\uC2B5\uB2C8\uB2E4."
   - "\uB3D9\uC544\uB9AC\uC6D0\uB4E4\uC774\uB791\uB3C4 \uCE5C\uD574\uC9C0\uACE0, \uC7AC\uBC0C\uC5C8\uC2B5\uB2C8\uB2E4!"
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 3ce6e19ec52a4be4e845c219a460cd0f, type: 3}
+  - {fileID: 21300000, guid: 1acd631dccd826c47be5ddd60620f1a6, type: 3}
   fassionVal: []
   staminaVal:
   - -1

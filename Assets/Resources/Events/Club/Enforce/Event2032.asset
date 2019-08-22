@@ -32,13 +32,14 @@ MonoBehaviour:
     \uB2F9\uC120 \uB418\uC5C8\uC2B5\uB2C8\uB2E4!"
   - "\uC65C \uB5A8\uC5B4\uC84C\uC9C0... "
   - "\uC65C. \uC544\uB2C8, \uADF8- \uD558.. \uC5F4\uC2EC\uD788 \uD558\uACA0\uC2B5\uB2C8\uB2E4.."
-  - "\uC7AC\uBC0C\uB294 \uC2DC\uAC04\uC774\uC5C8\uC2B5\uB2C8\uB2E4!"
+  - "\uC7AC\uBC0C\uB294 \uC2DC\uAC04\uC774\uC5C8\uC2B5\uB2C8\uB2E4! \uACE0\uAE30\uB098
+    \uBA39\uC7A5."
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 83c76a1381f60364bbaa37ae769cd8da, type: 3}
+  - {fileID: 21300000, guid: 83c76a1381f60364bbaa37ae769cd8da, type: 3}
   - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
+  - {fileID: 21300000, guid: c286be3ee6d970541b86743ed63bc819, type: 3}
   fassionVal:
   - 10
   - 3
