@@ -15,10 +15,10 @@ public class NewCharacterManager : MonoBehaviour
      **/
     
     public Sprite[] characterSprite = new Sprite[2];
-    public Sprite[] characterExplain = new Sprite[2];
 
     public GameObject explainChoiceButton;
     public GameObject explainImage;
+    public GameObject explainName;
     public GameObject explainText;
 
     public GameObject[] canvas = new GameObject[2];
@@ -102,15 +102,16 @@ public class NewCharacterManager : MonoBehaviour
     private void SetCharacterExplain(int characterNum)
     {
         choiceCharacter.GetComponent<Image>().sprite = characterSprite[characterNum];
-        explainImage.GetComponent<Image>().sprite = characterExplain[characterNum];
 
         switch (characterNum)
         {
             case 0:
                 explainText.GetComponent<Text>().text = "죄송합니다, 캐릭터 준비중입니다.";
+                explainName.GetComponent<Text>().text = "범인은 바로!!";
                 break;
             case 1:
                 explainText.GetComponent<Text>().text = "이제 막 대학에 입학한 컴퓨터학과 새내기이다.";
+                explainName.GetComponent<Text>().text = "새내기";
                 break;
         }
     }
