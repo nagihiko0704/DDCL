@@ -20,7 +20,7 @@ MonoBehaviour:
   - "\uADF8\uB3D9\uC548 \uB3D9\uC544\uB9AC \uC548\uC5D0\uC11C \uD55C \uD65C\uB3D9\uC744
     \uBC1C\uD45C\uD558\uB294 \uB0A0\uC785\uB2C8\uB2E4! \uC798 \uD560 \uC218 \uC788\uACA0\uC9C0.."
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f48c5f8c40b79dd45bf79b583b3e43ae, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:

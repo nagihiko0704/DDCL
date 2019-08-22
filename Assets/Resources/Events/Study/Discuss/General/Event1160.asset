@@ -31,12 +31,13 @@ MonoBehaviour:
   - "\uC801\uC808\uD788 \uBD84\uC704\uAE30\uBA54\uC774\uCEE4\uB97C \uB2F4\uB2F9\uD558\uBA70
     \uC5F4\uC2EC\uD788 \uD588\uC2B5\uB2C8\uB2E4!"
   - "\uC0AC\uB78C\uB4E4\uB3C4 \uBCC4\uB85C\uACE0 \uD558\uAE30 \uC2EB\uC5B4\uC11C \uD3EC\uAE30\uD588\uC2B5\uB2C8\uB2E4."
-  - "\uC5B4\uCC0C\uC800\uCC0C \uBC84\uC2A4 \uD0D4\uC2B5\uB2C8\uB2E4!.."
+  - "\uC5B4\uCC0C\uC800\uCC0C \uBC84\uC2A4 \uD0D4\uC2B5\uB2C8\uB2E4!.. \uC2B9\uCC28\uAC10
+    \uC88B\uB124\uC694"
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 150d3b423f0a1284897175b1f3d2b2c2, type: 3}
+  - {fileID: 21300000, guid: aa394982346d93d49bfc9db7636ea29e, type: 3}
+  - {fileID: 21300000, guid: 69a2a8e5cd56c004fa4b240bf817e7ac, type: 3}
+  - {fileID: 21300000, guid: df61402c18eec5841a732efcdbb7a325, type: 3}
   fassionVal:
   - -1
   - 2

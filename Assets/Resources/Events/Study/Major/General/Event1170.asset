@@ -30,7 +30,7 @@ MonoBehaviour:
   - "\uD734, \uADF8\uB0E5 \uB79C\uB364\uC73C\uB85C \uBD80\uB978\uAC70\uC600\uC2B5\uB2C8\uB2E4."
   resultSituation:
   - {fileID: 21300000, guid: 150d3b423f0a1284897175b1f3d2b2c2, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: afbba51736fb5d1438cbc358259904bb, type: 3}
   fassionVal:
   - 5
   - 2
