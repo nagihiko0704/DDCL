@@ -12,15 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
   m_Name: Event1161
   m_EditorClassIdentifier: 
-  eventCode: 0
-  eventProbability: 0
-  title: []
-  message: []
-  situation: []
+  eventCode: 1160
+  eventProbability: 1
+  title:
+  - "\uD300 \uD50C"
+  message:
+  - "\uB9D0\uB85C\uB9CC \uB4E3\uB358 \uD300\uD50C\uC785\uB2C8\uB2E4.. \uC798 \uB418\uAE38
+    \uAE30\uC6D0\uD569\uC2DC\uB2E4!"
+  situation:
+  - {fileID: 21300000, guid: f7788d6d210c2614aa1ad55fc815ef42, type: 3}
   minigameExplanation: []
-  choiceMessage: []
-  resultMessage: []
-  resultSituation: []
-  fassionVal: []
-  staminaVal: []
-  socialVal: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - "\uD30C\uC774\uD305!"
+  resultMessage:
+  - "\uBA87\uBA85\uC740 \uC7A0\uC218\uC5D0.. \uBA87\uBA85\uC740 \uD2B8\uB864\uC774\uB77C
+    \uADF8\uB0E5 \uC774\uC545\uBB3C\uACE0 \uCE90\uB9AC\uD588\uC2B5\uB2C8\uB2E4."
+  - "\uC801\uC808\uD788 \uBD84\uC704\uAE30\uBA54\uC774\uCEE4\uB97C \uB2F4\uB2F9\uD558\uBA70
+    \uC5F4\uC2EC\uD788 \uD588\uC2B5\uB2C8\uB2E4!"
+  - "\uC0AC\uB78C\uB4E4\uB3C4 \uBCC4\uB85C\uACE0 \uD558\uAE30 \uC2EB\uC5B4\uC11C \uD3EC\uAE30\uD588\uC2B5\uB2C8\uB2E4."
+  - "\uC5B4\uCC0C\uC800\uCC0C \uBC84\uC2A4 \uD0D4\uC2B5\uB2C8\uB2E4!.."
+  resultSituation:
+  - {fileID: 21300000, guid: 150d3b423f0a1284897175b1f3d2b2c2, type: 3}
+  - {fileID: 21300000, guid: aa394982346d93d49bfc9db7636ea29e, type: 3}
+  - {fileID: 21300000, guid: 69a2a8e5cd56c004fa4b240bf817e7ac, type: 3}
+  - {fileID: 0}
+  fassionVal:
+  - -1
+  - 2
+  - -3
+  - 0
+  staminaVal:
+  - -3
+  - 0
+  - 1
+  - 0
+  socialVal:
+  - 0
+  - 3
+  - -2
+  - 0
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName: []

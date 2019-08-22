@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event2012
+  m_EditorClassIdentifier: 
+  eventCode: 2012
+  eventProbability: 0
+  title:
+  - "\uB3D9\uC544\uB9AC \uBC15\uB78C\uD68C"
+  message:
+  - "\uB3D9\uC544\uB9AC \uBC15\uB78C\uD68C \uB0A0\uC785\uB2C8\uB2E4! \uC5B4\uB5A4
+    \uB3D9\uC544\uB9AC\uB97C \uB4E4\uC5B4\uAC08\uAE4C \uB458\uB7EC\uBD05\uC2DC\uB2E4\u314F"
+  situation:
+  - {fileID: 21300000, guid: 2f1ec1a4e19875a459ba7543a29ca725, type: 3}
+  minigameExplanation: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - "\uC591\uAD81!"
+  - "\uBC29\uC1A1\uBD80!"
+  resultMessage:
+  - "\uB098 \uBC29\uAE08 \uACFC\uB141 \uC815\uC911\uC559 \uB9DE\uD788\uB294 \uC0C1\uC0C1\uD568
+    \u314B\u314B\u314B"
+  - "\uD558\uC9C0\uB9CC \uC0B4\uC778 \uC2A4\uCF00\uC974\uB85C \uD3EC\uAE30\uD574\uBC84\uB9AC\uAE30!
+    \uAC8C\uC784 \uC81C\uC791 \uB3D9\uC544\uB9AC\uB098 \uB4E4\uC5B4\uAC00\uC790.."
+  - "\uB3D9\uC544\uB9AC\uC758 \uB85C\uB9DD! \uC5F0\uC560\uAC00 \uAF43\uD53C\uB294
+    \uBC29\uC1A1\uBD80!"
+  - "\uD558\uC9C0\uB9CC \uC5B4\uB9BC\uB3C4 \uC5C6\uC9C0! \uC815\uC6D0 \uB9C8\uAC10!
+    ..\uAC8C\uC784 \uC81C\uC791 \uB3D9\uC544\uB9AC\uB098 \uB4E4\uC5B4\uAC00\uC790.."
+  resultSituation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fassionVal: []
+  staminaVal: []
+  socialVal: []
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName:
+  - CheckEvent2012Result

@@ -63,8 +63,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         Debug.Log("스케쥴 설정됨");
 
-        Schedule tempSchedule = new Schedule();
-
         studyResult = GameManager.Inst.studyResultArray;
 
         Debug.Log("type: " + studyResult[0].studyType);
@@ -73,23 +71,41 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         switch(randomNum)
         {
             case (1):
-                InitScheduleType1(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType1(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (2):
-                InitScheduleType2(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType2(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (3):
-                InitScheduleType3(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType3(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (4):
-                InitScheduleType4(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType4(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
-        }
-
-        for (int i = 0; i < 16; i++)
-        {
-            GameManager.Inst.player.schedules[i] = tempSchedule;
-            GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
         }
     }
     
@@ -310,12 +326,9 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         doEvent = true;
 
-        MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
+        GameManager.Inst.eventLog.Add(_curEvent.eventCode);
 
-        //if(_curEvent.methodName != null)
-        //{
-        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
-        //}
+        MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
         while (doEvent)
         {

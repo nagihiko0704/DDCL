@@ -20,19 +20,19 @@ MonoBehaviour:
   - "\uACB0\uC804\uC758 \uB0A0\uC785\uB2C8\uB2E4. \uC2DC\uD5D8\uC744 \uC870\uC9C0\uACE0
     \uC635\uC2DC\uB2E4."
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c5a939a2e3cc67c4dae8544d8282d7ee, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
   - "\uD30C\uC774\uD305!"
   resultMessage:
-  - 
-  - 
+  - "\uB4DC\uB514\uC5B4 \uC720\uB9AC \uBCBD\uB3CC\uC774 \uB208\uC55E\uC5D0..!!"
+  - "\uC6D0\uB798 \uBB34\uB09C\uD55C\uAC8C \uCD5C\uACE0\uB7AC\uC5B4. \uC554\uC554."
   - "\uD558\uC9C0\uB9CC \uC5B8\uC81C\uB098 \uC870\uC838\uC9C0\uB294 \uAC83\uC740 \uB098\uC600\uB2E4."
   resultSituation:
+  - {fileID: 21300000, guid: 89c78cc059e2c1c4fba2bd9c93a9c170, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: df61402c18eec5841a732efcdbb7a325, type: 3}
   fassionVal:
   - 25
   - 0
@@ -44,4 +44,5 @@ MonoBehaviour:
   fassionMaxVal: []
   staminaMaxVal: []
   socialMaxVal: []
-  methodName: []
+  methodName:
+  - CheckEvent1020Result

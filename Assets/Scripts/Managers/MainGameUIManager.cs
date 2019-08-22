@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 {
@@ -17,6 +18,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public GameObject textMonth;
     public GameObject textDay;
     public GameObject textTime;
+    public GameObject textPeriod;
 
     //main game canvas
     public GameObject mainGameCanvas;
@@ -47,6 +49,7 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDoingTaskIndicator();
         SetTimeUI();
         SetDateUI();
+        SetPeriodUI();
         SetStatUI();
     }
 
@@ -56,45 +59,23 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         Day _curDay = ScheduleManager.Inst.currentDay;
 
         Task tempTask;
-        Color colorTaskBg;
         string taskName;
 
         //for every task in current schedule
         for (int task = 0; task < 6; task++)
         {
             tempTask = _curSchedule.taskArray[task, (int)_curDay];
-            colorTaskBg = new Color(0f, 0f, 0f);
-            taskName = "삐\n빅";
-
-            //chage background as task type
-            //color change is for test
-            if(tempTask.GetType() == typeof(Study))
-            {
-                colorTaskBg = new Color(0.25f, 0.25f, 0);
-                /***************HERE**************/ 
-                taskName = tempTask.taskName;
-            }
-            else if(tempTask.GetType() == typeof(Club))
-            {
-                colorTaskBg = new Color(0.25f, 0, 0.25f);
-                taskName = "동\n아\n리";
-            }
-            else if(tempTask.GetType() == typeof(Rest))
-            {
-                colorTaskBg = new Color(0, 0.25f, 0.25f);
-                taskName = "휴\n\n식";
-            }
+            taskName = tempTask.taskName;
 
             //applicate background and text
-            scheduleList[task].GetComponent<Image>().color = colorTaskBg;
             scheduleList[task].GetComponentInChildren<Text>().text = taskName;
         }
     }
 
     private void SetDoingTaskIndicator()
     {
-        const float START_Y = -600f;
-        const float END_Y = 600f;
+        const float START_Y = -660f;
+        const float END_Y = 660f;
         float currentTime = ScheduleManager.Inst.curTime;
 
         float indicatorX;
@@ -249,6 +230,13 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         return (month, day);
     }
 
+    private void SetPeriodUI()
+    {
+        int curPeriod = (int)ScheduleManager.Inst.currentPeriod + 1;
+
+        textPeriod.GetComponent<Text>().text = curPeriod.ToString();
+    }
+
     private void InitDateTimeUI()
     {
         //set start date depend on start semester
@@ -285,5 +273,10 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         statList[1].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurFassion.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxFassion.ToString();
         statList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
         statList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
+    }
+
+    public void OnClickChallenge()
+    {
+        SceneManager.LoadScene(6);
     }
 }
