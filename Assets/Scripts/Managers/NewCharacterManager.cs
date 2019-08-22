@@ -19,6 +19,7 @@ public class NewCharacterManager : MonoBehaviour
 
     public GameObject explainChoiceButton;
     public GameObject explainImage;
+    public GameObject explainText;
 
     public GameObject[] canvas = new GameObject[2];
 
@@ -32,8 +33,7 @@ public class NewCharacterManager : MonoBehaviour
         canvas[0].SetActive(true);
         canvas[1].SetActive(false);
 
-        choiceCharacter.GetComponent<Image>().sprite=characterSprite[0];
-        explainChoiceButton.GetComponent<Image>().sprite = characterExplain[0];
+        SetCharacterExplain(0);
 
     }
 
@@ -51,8 +51,7 @@ public class NewCharacterManager : MonoBehaviour
         else
             _nowChracter--;
 
-        choiceCharacter.GetComponent<Image>().sprite = characterSprite[_nowChracter];
-        explainImage.GetComponent<Image>().sprite = characterExplain[_nowChracter];
+        SetCharacterExplain(_nowChracter);
     }
 
     //rightArea
@@ -63,8 +62,7 @@ public class NewCharacterManager : MonoBehaviour
         else
             _nowChracter++;
 
-        choiceCharacter.GetComponent<Image>().sprite = characterSprite[_nowChracter];
-        explainImage.GetComponent<Image>().sprite = characterExplain[_nowChracter];
+        SetCharacterExplain(_nowChracter);
     }
 
     //explainChoiceButton+choiceCharacterButton
@@ -99,6 +97,22 @@ public class NewCharacterManager : MonoBehaviour
         canvas[0].SetActive(true);
         canvas[1].SetActive(false);
         Debug.Log("돌아간다 ㅂㅅ아");
+    }
+
+    private void SetCharacterExplain(int characterNum)
+    {
+        choiceCharacter.GetComponent<Image>().sprite = characterSprite[characterNum];
+        explainImage.GetComponent<Image>().sprite = characterExplain[characterNum];
+
+        switch (characterNum)
+        {
+            case 0:
+                explainText.GetComponent<Text>().text = "죄송합니다, 캐릭터 준비중입니다.";
+                break;
+            case 1:
+                explainText.GetComponent<Text>().text = "이제 막 대학에 입학한 컴퓨터학과 새내기이다.";
+                break;
+        }
     }
 }
 
