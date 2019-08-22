@@ -34,6 +34,12 @@ public class GameManager : SingletonBehaviour<GameManager>
         player = new Player();
 
         DontDestroyOnLoad(this.gameObject);
+
+        //acheivement
+        for(int i = 0; i < 10; i++)
+        {
+            acheivemnet[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +53,21 @@ public class GameManager : SingletonBehaviour<GameManager>
             ScheduleManager.Inst.curTime = 0;
 
             isMainSceneStart = false;
+        }
+
+        CheckAcheivement();
+    }
+
+    private void CheckAcheivement()
+    {
+        if (eventLog.Contains((3120, 1)))
+        {
+            acheivemnet[0] = true;
+        }
+
+        if (eventLog.Contains((3120, 2)))
+        {
+            acheivemnet[1] = true;
         }
     }
 }
