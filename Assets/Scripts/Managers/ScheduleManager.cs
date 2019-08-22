@@ -18,6 +18,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
     public float TASK_TIME;
 
+    public Ending end;
+
     //public List<Study> lectureList = new List<Study>();
 
     //for schedule form
@@ -334,5 +336,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         {
             yield return null;
         }
+    }
+
+    void EndCheck()
+    {
+        if (GameManager.Inst.player.playerCharacter.CurStamina <= 10)
+        {
+            PlayerPrefs.SetInt("ending",6);
+            SceneManager.LoadScene(9);
+        }
+
     }
 }
