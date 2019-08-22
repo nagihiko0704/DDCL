@@ -12,7 +12,14 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public GameObject[] scheduleList = new GameObject[6];
     public GameObject taskIndicator;
 
-    //task background
+    //field
+    public GameObject ImageField;
+
+    public List<Sprite> ImageMajorFieldList = new List<Sprite>();
+    public List<Sprite> ImageDiscussFieldList = new List<Sprite>();
+    public List<Sprite> ImageSportFieldList = new List<Sprite>();
+    public List<Sprite> ImageClubFieldList = new List<Sprite>();
+    public List<Sprite> ImageRestFieldList = new List<Sprite>();
 
     //time ui    
     public GameObject textMonth;
@@ -28,6 +35,10 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     public GameObject[] statList = new GameObject[4];
 
+    //acheivement
+    public GameObject ImageAcheivement;
+    public bool[] isAcheivementActivated = new bool[10];
+
     public float TASK_TIME;
     public float SCHEDULE_TIME;
 
@@ -40,6 +51,11 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         InitDateTimeUI();
 
         eventPopUp.SetActive(false);
+
+        for(int i = 0; i < 10; i++)
+        {
+            isAcheivementActivated[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +67,19 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDateUI();
         SetPeriodUI();
         SetStatUI();
+        //SetFieldUI();
+
+        //acheivement
+        for (int i = 0; i < 10; i++)
+        {
+            if (GameManager.Inst.acheivemnet[i] == true)
+            {
+                if (isAcheivementActivated[i] == false)
+                {
+                    AlarmAcheivement(i);
+                }
+            }
+        }
     }
 
     private void SetScheduleUI()
@@ -96,13 +125,6 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
         taskIndicator.transform.localPosition = indicatorLoaction;
     }
-
-
-    //need to change
-    //TODO:
-    //1. character has start date
-    //2. SetDateUI and CalculateDate should be changed
-
 
     private void SetDateUI()
     {
@@ -286,4 +308,41 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(8);
     }
+
+    private void SetFieldUI()
+    {
+        if (ScheduleManager.Inst.CurrentTask is Study)
+        {
+            Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+
+            if (curStudy.studyType == Type.Major)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageMajorFieldList[UnityEngine.Random.Range(0, ImageMajorFieldList.Count)];
+            }
+            else if (curStudy.studyType == Type.Discuss)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageDiscussFieldList[UnityEngine.Random.Range(0, ImageDiscussFieldList.Count)];
+            }
+            else if (curStudy.studyType == Type.Sport)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageSportFieldList[UnityEngine.Random.Range(0, ImageSportFieldList.Count)];
+            }
+        }
+        else if (ScheduleManager.Inst.CurrentTask is Club)
+        {
+            ImageField.GetComponent<Image>().sprite = ImageClubFieldList[UnityEngine.Random.Range(0, ImageClubFieldList.Count)];
+        }
+        else if (ScheduleManager.Inst.CurrentTask is Rest)
+        {
+            ImageField.GetComponent<Image>().sprite = ImageRestFieldList[UnityEngine.Random.Range(0, ImageRestFieldList.Count)];
+        }
+    }
+
+    private void AlarmAcheivement(int index)
+    {
+        isAcheivementActivated[index] = true;
+
+        ImageAcheivement.GetComponent<Animator>().Play("Acheivement Animation");
+    }
+
 }

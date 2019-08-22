@@ -7,8 +7,9 @@ public class GameManager : SingletonBehaviour<GameManager>
     public Player player;
 
     //for acheivement
-    public List<int> eventLog = new List<int>();
+    public List<(int, int)> eventLog = new List<(int, int)>();
     public List<Task> taskLog = new List<Task>();
+    public bool[] acheivemnet = new bool[10];
 
     //for lecture choice score
     public static int[] lectureChoiceScore = new int[5];
@@ -25,12 +26,20 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public bool isMainSceneStart = false;
 
+    public bool isSemesterEnd = false;
+
 
     void Awake()
     {
         player = new Player();
 
         DontDestroyOnLoad(this.gameObject);
+
+        //acheivement
+        for(int i = 0; i < 10; i++)
+        {
+            acheivemnet[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -44,6 +53,21 @@ public class GameManager : SingletonBehaviour<GameManager>
             ScheduleManager.Inst.curTime = 0;
 
             isMainSceneStart = false;
+        }
+
+        CheckAcheivement();
+    }
+
+    private void CheckAcheivement()
+    {
+        if (eventLog.Contains((3120, 1)))
+        {
+            acheivemnet[0] = true;
+        }
+
+        if (eventLog.Contains((3120, 2)))
+        {
+            acheivemnet[1] = true;
         }
     }
 }

@@ -234,6 +234,26 @@ public class EventPopUp : MonoBehaviour
 
         //apply stat change
         ApplyStat();
+
+        //save eventLog
+        if (this.taskEvent.eventCode % 10 == 0
+            || this.taskEvent.eventCode % 10 == 2)
+        {
+            //if already exist, don't add
+            if (!GameManager.Inst.eventLog.Contains((taskEvent.eventCode, _resultIndex)))
+            {
+                GameManager.Inst.eventLog.Add((taskEvent.eventCode, _resultIndex));
+            }
+        }
+        else if (this.taskEvent.eventCode % 10 == 1)
+        {
+            //if already exist, don't add
+            if (!GameManager.Inst.eventLog.Contains((taskEvent.eventCode, EventManager.Inst.miniGameResult)))
+            {
+                GameManager.Inst.eventLog.Add((taskEvent.eventCode, EventManager.Inst.miniGameResult));
+            }
+        }
+        
         
         //make okay button
         foreach (Transform child in choiceArea.transform)

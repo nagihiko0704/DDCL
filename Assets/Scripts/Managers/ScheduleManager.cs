@@ -313,6 +313,12 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 }
             }
 
+            //check semester is end
+            if (nextWeek >= 16)
+            {
+                GameManager.Inst.isSemesterEnd = true;
+            }
+
             //for time correction
             curTime = Mathf.Floor(curTime);
         }
@@ -330,8 +336,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
 
         doEvent = true;
-
-        GameManager.Inst.eventLog.Add(_curEvent.eventCode);
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 
