@@ -28,7 +28,8 @@ public class HomeManager : MonoBehaviour
 
     public void OnclickBuccon0()
     {
-        //??????
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(8);
     }
 
     public void OnclickButton1()
@@ -38,11 +39,12 @@ public class HomeManager : MonoBehaviour
 
     public void OnClickButton2()
     {
-        //scence load main scene???
+        SceneManager.LoadScene(4);
     }
 
     public void OnClickButton3()
     {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(6);
     }
 }

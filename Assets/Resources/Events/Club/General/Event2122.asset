@@ -19,7 +19,7 @@ MonoBehaviour:
   message:
   - "\uC624\uB298\uC740 \uC220 \uBA39\uB294 \uB0A0\uC785\uB2C8\uB2E4!"
   situation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 193d9203f3f97c343ae24ea70fa454cc, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
@@ -38,7 +38,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3ce6e19ec52a4be4e845c219a460cd0f, type: 3}
   - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
   - {fileID: 21300000, guid: 69a2a8e5cd56c004fa4b240bf817e7ac, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 315764fbf54a70c44b7ddd2007ab88d0, type: 3}
   fassionVal:
   - 0
   - 0

@@ -277,6 +277,13 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     public void OnClickChallenge()
     {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(6);
+    }
+
+    public void OnClickSetting()
+    {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(8);
     }
 }
