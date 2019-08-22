@@ -279,4 +279,9 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     {
         SceneManager.LoadScene(6);
     }
+
+    public void OnClickSetting()
+    {
+        SceneManager.LoadScene(8);
+    }
 }
