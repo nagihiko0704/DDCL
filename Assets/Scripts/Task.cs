@@ -9,6 +9,7 @@ public class Task
     //stats that task make player's change
     public float staminaVal;
     public float socialVal;
+    public float fassionVal;
 
     //where is task in scedule
     public (Period, Day) scheduleLocation;
@@ -22,6 +23,7 @@ public class Task
         this.taskName = null;
         this.staminaVal = 0;
         this.socialVal = 0;
+        this.fassionVal = 0;
         this.scheduleLocation = (0, 0);
         this.taskEvent = null;
     }
@@ -31,6 +33,7 @@ public class Task
         this.taskName = _taskName;
         this.staminaVal = 0;
         this.socialVal = 0;
+        this.fassionVal = 0;
         this.scheduleLocation = (0, 0);
         this.taskEvent = null;
     }
@@ -40,6 +43,7 @@ public class Task
         this.taskName = null;
         this.staminaVal = 0;
         this.socialVal = 0;
+        this.fassionVal = 0;
         this.scheduleLocation = _scheduleLocation;
         this.taskEvent = null;
     }
@@ -49,6 +53,7 @@ public class Task
         this.taskName = null;
         this.staminaVal = 0;
         this.socialVal = 0;
+        this.fassionVal = 0;
         this.scheduleLocation = (0, 0);
         this.taskEvent = _taskEvent;
     }
@@ -84,14 +89,17 @@ public class Study : Task
             case (Type.Major):
                 this.staminaVal = -2;
                 this.socialVal = 0;
+                this.fassionVal = 0;
                 break;
             case (Type.Discuss):
                 this.staminaVal = -3;
                 this.socialVal = 0;
+                this.fassionVal = 0;
                 break;
             case (Type.Sport):
                 this.staminaVal = -5;
                 this.socialVal = 0;
+                this.fassionVal = 0;
                 break;
         }
 
@@ -100,18 +108,26 @@ public class Study : Task
             case ("S"):
             case ("s"):
                 this.staminaVal += 1;
+                this.fassionVal += 0;
+                this.socialVal += 0;
                 break;
             case ("A"):
             case ("a"):
                 this.staminaVal += 0;
+                this.fassionVal += -1;
+                this.socialVal += -1;
                 break;
             case ("B"):
             case ("b"):
                 this.staminaVal += -1;
+                this.fassionVal += -2;
+                this.socialVal += -2;
                 break;
             case ("C"):
             case ("c"):
                 this.staminaVal += -2;
+                this.fassionVal += -3;
+                this.socialVal += -3;
                 break;
         }
     }
@@ -162,6 +178,7 @@ public class Study : Task
         study.taskName = this.taskName;
         study.staminaVal = this.staminaVal;
         study.socialVal = this.socialVal;
+        study.fassionVal = this.fassionVal;
         study.scheduleLocation = this.scheduleLocation;
         study.taskEvent = this.taskEvent;
 
@@ -177,20 +194,29 @@ public class Club : Task
 {
     public Club() : base()
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
-        this.socialVal = 0;
+        this.socialVal = -2f;
+        this.fassionVal = -1f;
     }
 
     public Club((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
-        this.socialVal = 0;
+        this.socialVal = -2f;
+        this.fassionVal = -1f;
     }
 
     public Club((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
-        this.socialVal = 0;
+        this.socialVal = -2f;
+        this.fassionVal = -1f;
     }
 }
 
@@ -198,17 +224,26 @@ public class Rest : Task
 {
     public Rest() : base()
     {
-        
+        this.taskName = "휴식";
+
+        this.staminaVal = 1f;
+        this.socialVal = 3f;
     }
 
     public Rest((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
+        this.taskName = "휴식";
 
+        this.staminaVal = 1f;
+        this.socialVal = 3f;
     }
 
     public Rest((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
     {
+        this.taskName = "휴식";
 
+        this.staminaVal = 1f;
+        this.socialVal = 3f;
     }
 
 }

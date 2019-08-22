@@ -49,6 +49,8 @@ public class EventPopUp : MonoBehaviour
         resultWindow.SetActive(false);
         choiceArea.SetActive(true);
 
+        this.textMessage.fontSize = 60;
+
         this.taskEvent = _taskEvent;
 
         this.textTitle.text = taskEvent.SelectedTitle;
@@ -122,7 +124,8 @@ public class EventPopUp : MonoBehaviour
 
         if (eventResultNum / eventChoiceNum > 1
             && ScheduleManager.Inst.CurrentTask.taskEvent.methodName.Count != 0
-            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != "")
+            && ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0] != ""
+            && !ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0].Contains("MiniGame"))
         {
             //if event is not minigame type, method num must be one
             EventManager.Inst.ApplyEventEffect(ScheduleManager.Inst.CurrentTask.taskEvent.methodName[0]);
@@ -199,7 +202,9 @@ public class EventPopUp : MonoBehaviour
         resultWindow.SetActive(true);
         choiceArea.SetActive(true);
 
-        if(EventManager.Inst.eventResultIndex != -1)
+        this.textMessage.fontSize = 60;
+
+        if (EventManager.Inst.eventResultIndex != -1)
         {
             _resultIndex = EventManager.Inst.eventResultIndex;
         }
@@ -219,10 +224,12 @@ public class EventPopUp : MonoBehaviour
             || this.taskEvent.eventCode % 10 == 2)
         {
             textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_resultIndex];
+            imageSituation.GetComponent<Image>().sprite = taskEvent.resultSituation[_resultIndex];
         }
         else if(this.taskEvent.eventCode % 10 == 1)
         {
             textMessage.GetComponent<Text>().text = taskEvent.resultMessage[EventManager.Inst.miniGameResult];
+            imageSituation.GetComponent<Image>().sprite = taskEvent.resultSituation[EventManager.Inst.miniGameResult];
         }
 
         //apply stat change
