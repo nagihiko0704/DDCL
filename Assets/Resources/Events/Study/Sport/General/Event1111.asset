@@ -59,4 +59,4 @@ MonoBehaviour:
   socialMaxVal: []
   methodName:
   - MiniGameBulbCatch
-  - MiniGameBulbCatch
+  - MiniGameCorrectButtonClick
