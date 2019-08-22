@@ -177,18 +177,24 @@ public class Club : Task
 {
     public Club() : base()
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
         this.socialVal = 0;
     }
 
     public Club((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
         this.socialVal = 0;
     }
 
     public Club((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
     {
+        this.taskName = "동아리";
+
         this.staminaVal = -8f;
         this.socialVal = 0;
     }
@@ -198,17 +204,17 @@ public class Rest : Task
 {
     public Rest() : base()
     {
-        
+        this.taskName = "휴식";
     }
 
     public Rest((Period, Day) _scheduleLocation) : base(_scheduleLocation)
     {
-
+        this.taskName = "휴식";
     }
 
     public Rest((Period, Day) _scheduleLocation, Event _taskEvent) : base(_scheduleLocation, _taskEvent)
     {
-
+        this.taskName = "휴식";
     }
 
 }
