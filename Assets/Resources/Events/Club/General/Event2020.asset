@@ -29,8 +29,8 @@ MonoBehaviour:
   - "\uBC1C\uD45C\uB294 \uC5B4\uB824\uC6CC.."
   - "\uBB34\uC0AC\uD788 \uB05D\uB0C8\uC2B5\uB2C8\uB2E4! \uC774\uC81C \uC220\uB9C8\uC2DC\uC790\u314F\u314F!!"
   resultSituation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: afbba51736fb5d1438cbc358259904bb, type: 3}
+  - {fileID: 21300000, guid: 3ce6e19ec52a4be4e845c219a460cd0f, type: 3}
   fassionVal:
   - -3
   - 5

@@ -22,8 +22,8 @@ MonoBehaviour:
   - "\uC694\uC998 \uC2DC\uB300\uC5D0 \uB204\uAC00 \uADF8\uB0E5 \uC2A4\uD3EC\uCE20
     \uBCF4\uB098!"
   situation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4f668de6651d6c64ba4829670ad0317c, type: 3}
+  - {fileID: 21300000, guid: aa6184bc50897e74c9216f8301840d66, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
@@ -34,7 +34,7 @@ MonoBehaviour:
   - "\uD39C\uD0C0\uD0AC!!! \uC774\uC81C \uC5EC\uD55C\uC774 \uC5C6\uB2E4-"
   - "\uADF8\uB0E5 \uC9D1\uC5D0\uC11C \uD578\uB4DC\uD3F0\uC73C\uB85C \uBCFC\uAEC4.."
   resultSituation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2224fa4c9fb21144cbefc1067c113877, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

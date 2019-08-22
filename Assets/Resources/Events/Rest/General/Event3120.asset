@@ -16,14 +16,13 @@ MonoBehaviour:
   eventProbability: 24
   title:
   - "\uB9C8\uC74C\uC758 \uACE0\uD5A5"
-  - 
-  - "\uB9C8\uC74C\uC758 \uC591\uC2DD"
+  - "\uBCFC\uB9C1\uC7A5"
   message:
   - "\uB0A8\uB294 \uC2DC\uAC04\uC5D4 \uB2F9\uC5F0\uD788 PC\uBC29\uC774\uC9C0!"
   - "\uC624\uB298\uB530\uB77C \uACF5\uC774 \uAC00\uBCCD\uB2E4!"
   situation:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 54cb52d2c958dfd42a5be3bde88d5da6, type: 3}
+  - {fileID: 21300000, guid: 745ed681ad6aa764d9f02db89c000b42, type: 3}
   minigameExplanation: []
   minigameExplanationImage: []
   choiceMessage:
@@ -39,7 +38,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
   fassionVal:
   - 2
   - 0

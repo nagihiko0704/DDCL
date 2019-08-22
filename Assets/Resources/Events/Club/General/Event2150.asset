@@ -28,7 +28,7 @@ MonoBehaviour:
   resultMessage:
   - "\uACE0\uAE30\uB294 \uC5ED\uC2DC \uCD5C\uACE0 \uC785\uB2C8\uB2E4."
   resultSituation:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c286be3ee6d970541b86743ed63bc819, type: 3}
   fassionVal: []
   staminaVal:
   - 10

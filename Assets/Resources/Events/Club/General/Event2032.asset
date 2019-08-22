@@ -36,7 +36,7 @@ MonoBehaviour:
   resultSituation:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 16516d0e15590494984431648f9d22be, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   fassionVal:
