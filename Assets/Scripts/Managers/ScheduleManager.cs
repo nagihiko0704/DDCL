@@ -348,8 +348,8 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         if (GameManager.Inst.player.playerCharacter.CurStamina <= 10)
         {
             GameManager.Inst.isEndingSix = true;
+            Debug.Log("넘어가요ㅛ");
             SceneManager.LoadScene(9);
-            Destroy(this.gameObject);
         }
             
 
