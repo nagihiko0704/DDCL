@@ -240,12 +240,14 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             int nextWeek;
 
             float recoverStamina;
+            float recoverFassion;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
             nextWeek = currentWeek;
 
             recoverStamina = 0;
+            recoverFassion = 0;
 
             if (currentPeriod == Period.Sixth)
             {
@@ -254,6 +256,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
 
                 recoverStamina = 10f;
+                recoverFassion = 5f;
             }
 
             if(currentDay == Day.Fri && currentPeriod == Period.Sixth)
@@ -268,6 +271,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //apply stat change
             GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
+            Debug.Log("fassionVal" + CurrentTask.fassionVal);
 
             //insert event
             EventManager.Inst.InsertEvent();
@@ -288,6 +292,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //if day passed, recover 10 stamina
             GameManager.Inst.player.playerCharacter.ChangeStat("stamina", recoverStamina);
+            GameManager.Inst.player.playerCharacter.ChangeStat("fassion", recoverFassion);
 
             //Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             //Debug.Log("---------");
@@ -308,6 +313,12 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 }
             }
 
+            //check semester is end
+            if (nextWeek >= 16)
+            {
+                GameManager.Inst.isSemesterEnd = true;
+            }
+
             //for time correction
             curTime = Mathf.Floor(curTime);
         }
@@ -325,8 +336,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         }
 
         doEvent = true;
-
-        GameManager.Inst.eventLog.Add(_curEvent.eventCode);
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
 

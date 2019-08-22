@@ -49,6 +49,8 @@ public class EventPopUp : MonoBehaviour
         resultWindow.SetActive(false);
         choiceArea.SetActive(true);
 
+        this.textMessage.fontSize = 60;
+
         this.taskEvent = _taskEvent;
 
         this.textTitle.text = taskEvent.SelectedTitle;
@@ -200,7 +202,9 @@ public class EventPopUp : MonoBehaviour
         resultWindow.SetActive(true);
         choiceArea.SetActive(true);
 
-        if(EventManager.Inst.eventResultIndex != -1)
+        this.textMessage.fontSize = 60;
+
+        if (EventManager.Inst.eventResultIndex != -1)
         {
             _resultIndex = EventManager.Inst.eventResultIndex;
         }
@@ -220,14 +224,36 @@ public class EventPopUp : MonoBehaviour
             || this.taskEvent.eventCode % 10 == 2)
         {
             textMessage.GetComponent<Text>().text = taskEvent.resultMessage[_resultIndex];
+            imageSituation.GetComponent<Image>().sprite = taskEvent.resultSituation[_resultIndex];
         }
         else if(this.taskEvent.eventCode % 10 == 1)
         {
             textMessage.GetComponent<Text>().text = taskEvent.resultMessage[EventManager.Inst.miniGameResult];
+            imageSituation.GetComponent<Image>().sprite = taskEvent.resultSituation[EventManager.Inst.miniGameResult];
         }
 
         //apply stat change
         ApplyStat();
+
+        //save eventLog
+        if (this.taskEvent.eventCode % 10 == 0
+            || this.taskEvent.eventCode % 10 == 2)
+        {
+            //if already exist, don't add
+            if (!GameManager.Inst.eventLog.Contains((taskEvent.eventCode, _resultIndex)))
+            {
+                GameManager.Inst.eventLog.Add((taskEvent.eventCode, _resultIndex));
+            }
+        }
+        else if (this.taskEvent.eventCode % 10 == 1)
+        {
+            //if already exist, don't add
+            if (!GameManager.Inst.eventLog.Contains((taskEvent.eventCode, EventManager.Inst.miniGameResult)))
+            {
+                GameManager.Inst.eventLog.Add((taskEvent.eventCode, EventManager.Inst.miniGameResult));
+            }
+        }
+        
         
         //make okay button
         foreach (Transform child in choiceArea.transform)

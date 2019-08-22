@@ -625,7 +625,7 @@ public class EventManager : SingletonBehaviour<EventManager>
     {
         int result = -1;
 
-        result = Random.Range(0, 4);
+        result = Random.Range(choiceNum * 2, 2);
 
         this.eventResultIndex = result;
     }
