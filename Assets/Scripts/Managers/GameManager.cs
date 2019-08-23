@@ -71,5 +71,50 @@ public class GameManager : SingletonBehaviour<GameManager>
         {
             acheivemnet[1] = true;
         }
+
+        if (eventLog.Contains((3130, 2)))
+        {
+            acheivemnet[2] = true;
+        }
+
+        if(eventLog.Contains((1180, 1)))
+        {
+            acheivemnet[3] = true;
+        }
+
+        if(eventLog.Contains((1170, 0)))
+        {
+            acheivemnet[4] = true;
+        }
+        for(int i = 0; i < 3; i++)
+        {
+            if (eventLog.Contains((3170, i)))
+            {
+                acheivemnet[5] = true;
+            }
+        }
+
+        if (eventLog.Contains((3142, 0)))
+        {
+            acheivemnet[6] = true;
+        }
+
+        if(eventLog.Contains((3192, 0)))
+        {
+            acheivemnet[7] = true;
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            if (eventLog.Contains((2032, i)))
+            {
+                acheivemnet[8] = true;
+            }
+        }
+        
+        if(eventLog.Contains((2140, 1)))
+        {
+            acheivemnet[9] = true;
+        }
+       
     }
 }
