@@ -42,6 +42,8 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public float TASK_TIME;
     public float SCHEDULE_TIME;
 
+    private bool _periodIsChanged; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +70,11 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDateUI();
         SetPeriodUI();
         SetStatUI();
-        //SetFieldUI();
+        if (_periodIsChanged)
+        {
+            SetFieldUI();
+            _periodIsChanged = false;
+        }
 
         //acheivement
         for (int i = 0; i < 10; i++)
@@ -256,11 +262,10 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     private void SetPeriodUI()
     {
         int curPeriod = (int)ScheduleManager.Inst.currentPeriod + 1;
-        /*if (!Equals(textPeriod.GetComponent<Text>().text, curPeriod.ToString()))
+        if (!Equals(textPeriod.GetComponent<Text>().text, curPeriod.ToString()))
         {
-            SetFieldUI();
-            Debug.Log("필드 바꼈냐 ?");
-        }*/
+            _periodIsChanged = true;
+        }
         textPeriod.GetComponent<Text>().text = curPeriod.ToString();
     }
 
