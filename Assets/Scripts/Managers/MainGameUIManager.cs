@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 {
@@ -11,12 +12,20 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
     public GameObject[] scheduleList = new GameObject[6];
     public GameObject taskIndicator;
 
-    //task background
+    //field
+    public GameObject ImageField;
+
+    public List<Sprite> ImageMajorFieldList = new List<Sprite>();
+    public List<Sprite> ImageDiscussFieldList = new List<Sprite>();
+    public List<Sprite> ImageSportFieldList = new List<Sprite>();
+    public List<Sprite> ImageClubFieldList = new List<Sprite>();
+    public List<Sprite> ImageRestFieldList = new List<Sprite>();
 
     //time ui    
     public GameObject textMonth;
     public GameObject textDay;
     public GameObject textTime;
+    public GameObject textPeriod;
 
     //main game canvas
     public GameObject mainGameCanvas;
@@ -26,8 +35,14 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
     public GameObject[] statList = new GameObject[4];
 
+    //acheivement
+    public GameObject ImageAcheivement;
+    public bool[] isAcheivementActivated = new bool[10];
+
     public float TASK_TIME;
     public float SCHEDULE_TIME;
+
+    private bool _periodIsChanged; 
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +53,12 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         InitDateTimeUI();
 
         eventPopUp.SetActive(false);
+
+        for(int i = 0; i < 10; i++)
+        {
+            isAcheivementActivated[i] = false;
+        }
+        SetFieldUI();
     }
 
     // Update is called once per frame
@@ -47,7 +68,25 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         SetDoingTaskIndicator();
         SetTimeUI();
         SetDateUI();
+        SetPeriodUI();
         SetStatUI();
+        if (_periodIsChanged)
+        {
+            SetFieldUI();
+            _periodIsChanged = false;
+        }
+
+        //acheivement
+        for (int i = 0; i < 10; i++)
+        {
+            if (GameManager.Inst.acheivemnet[i] == true)
+            {
+                if (isAcheivementActivated[i] == false)
+                {
+                    AlarmAcheivement(i);
+                }
+            }
+        }
     }
 
     private void SetScheduleUI()
@@ -56,45 +95,23 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         Day _curDay = ScheduleManager.Inst.currentDay;
 
         Task tempTask;
-        Color colorTaskBg;
         string taskName;
 
         //for every task in current schedule
         for (int task = 0; task < 6; task++)
         {
             tempTask = _curSchedule.taskArray[task, (int)_curDay];
-            colorTaskBg = new Color(0f, 0f, 0f);
-            taskName = "삐\n빅";
-
-            //chage background as task type
-            //color change is for test
-            if(tempTask.GetType() == typeof(Study))
-            {
-                colorTaskBg = new Color(0.25f, 0.25f, 0);
-                /***************HERE**************/ 
-                taskName = tempTask.taskName;
-            }
-            else if(tempTask.GetType() == typeof(Club))
-            {
-                colorTaskBg = new Color(0.25f, 0, 0.25f);
-                taskName = "동\n아\n리";
-            }
-            else if(tempTask.GetType() == typeof(Rest))
-            {
-                colorTaskBg = new Color(0, 0.25f, 0.25f);
-                taskName = "휴\n\n식";
-            }
+            taskName = tempTask.taskName;
 
             //applicate background and text
-            scheduleList[task].GetComponent<Image>().color = colorTaskBg;
             scheduleList[task].GetComponentInChildren<Text>().text = taskName;
         }
     }
 
     private void SetDoingTaskIndicator()
     {
-        const float START_Y = -600f;
-        const float END_Y = 600f;
+        const float START_Y = -660f;
+        const float END_Y = 660f;
         float currentTime = ScheduleManager.Inst.curTime;
 
         float indicatorX;
@@ -115,13 +132,6 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
 
         taskIndicator.transform.localPosition = indicatorLoaction;
     }
-
-
-    //need to change
-    //TODO:
-    //1. character has start date
-    //2. SetDateUI and CalculateDate should be changed
-
 
     private void SetDateUI()
     {
@@ -249,6 +259,16 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         return (month, day);
     }
 
+    private void SetPeriodUI()
+    {
+        int curPeriod = (int)ScheduleManager.Inst.currentPeriod + 1;
+        if (!Equals(textPeriod.GetComponent<Text>().text, curPeriod.ToString()))
+        {
+            _periodIsChanged = true;
+        }
+        textPeriod.GetComponent<Text>().text = curPeriod.ToString();
+    }
+
     private void InitDateTimeUI()
     {
         //set start date depend on start semester
@@ -286,4 +306,53 @@ public class MainGameUIManager : SingletonBehaviour<MainGameUIManager>
         statList[2].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurStamina.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxStamina.ToString();
         statList[3].GetComponent<Text>().text = GameManager.Inst.player.playerCharacter.CurSocial.ToString() + " / " + GameManager.Inst.player.playerCharacter.MaxSocial.ToString();
     }
+
+    public void OnClickChallenge()
+    {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(6);
+    }
+
+    public void OnClickSetting()
+    {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(8);
+    }
+
+    private void SetFieldUI()
+    {
+        if (ScheduleManager.Inst.CurrentTask is Study)
+        {
+            Study curStudy = ScheduleManager.Inst.CurrentTask as Study;
+
+            if (curStudy.studyType == Type.Major)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageMajorFieldList[UnityEngine.Random.Range(0, ImageMajorFieldList.Count)];
+            }
+            else if (curStudy.studyType == Type.Discuss)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageDiscussFieldList[UnityEngine.Random.Range(0, ImageDiscussFieldList.Count)];
+            }
+            else if (curStudy.studyType == Type.Sport)
+            {
+                ImageField.GetComponent<Image>().sprite = ImageSportFieldList[UnityEngine.Random.Range(0, ImageSportFieldList.Count)];
+            }
+        }
+        else if (ScheduleManager.Inst.CurrentTask is Club)
+        {
+            ImageField.GetComponent<Image>().sprite = ImageClubFieldList[UnityEngine.Random.Range(0, ImageClubFieldList.Count)];
+        }
+        else if (ScheduleManager.Inst.CurrentTask is Rest)
+        {
+            ImageField.GetComponent<Image>().sprite = ImageRestFieldList[UnityEngine.Random.Range(0, ImageRestFieldList.Count)];
+        }
+    }
+
+    private void AlarmAcheivement(int index)
+    {
+        isAcheivementActivated[index] = true;
+
+        ImageAcheivement.GetComponent<Animator>().Play("Acheivement Animation");
+    }
+
 }

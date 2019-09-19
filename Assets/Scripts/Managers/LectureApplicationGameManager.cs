@@ -3,42 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LectureApplicationGameManager : MonoBehaviour
 {
     public Button buttonApplication;
+    public Image fire;
+    public Sprite[] fireSprite = new Sprite[4];
+    public Text countText;
 
     public const int GAME_TIME = 2;
     public float countTime = GAME_TIME;
+    public float beforeGameTime = 3;
     public int lectureCount;
+
+    public bool start=false;
 
     private int _clickCount;
     private int applicationScore;
+    private int _fireLevel;
+    private int _pastLecture;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        buttonApplication.onClick.AddListener(AddApplicationCount);
-
+        fire.GetComponent<Image>().sprite = fireSprite[0];
     }
 
     // Update is called once per frame
     void Update()
     {
         float time = Time.deltaTime;
-        countTime -= time;
 
-        if (countTime <= 0)
+        if (start == false)
         {
-            ApplicationEnd(lectureCount);
+            beforeGameTime -= time;
+            if (beforeGameTime <= 2&&beforeGameTime>1)
+                countText.GetComponent<Text>().text = "2";
+            if (beforeGameTime <= 1 && beforeGameTime > 0)
+                countText.GetComponent<Text>().text = "1";
+
+            if(beforeGameTime <= 0)
+            {
+                start = true;
+                countText.GetComponent<Text>().text = "START!!!";
+
+                buttonApplication.onClick.AddListener(AddApplicationCount);
+            }
+
         }
+
+        else if (start == true)
+        {
+            countTime -= time;
+            if (countTime <= 0)
+                ApplicationEnd(lectureCount);
+
+            ChangeSpriteFire(_clickCount, lectureCount);
+        }
+
 
         if (lectureCount == 5)
         {
             SceneManager.LoadScene(3);
         }
-            
     }
 
     private void AddApplicationCount()
@@ -69,6 +97,19 @@ public class LectureApplicationGameManager : MonoBehaviour
         lectureCount++;
         countTime = 2;
         _clickCount = 0;
+    }
+
+    private void ChangeSpriteFire(int countClick,int countLecture)
+    {
+        if (countLecture != _pastLecture)
+        {
+            if (countClick >= 19)
+            {
+                _fireLevel++;
+                fire.GetComponent<Image>().sprite = fireSprite[_fireLevel];
+                _pastLecture = countLecture;
+            }
+        }
     }
 }
  

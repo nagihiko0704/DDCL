@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eddad6ef1959fc41a381a03db0cf2eb, type: 3}
+  m_Name: Event2110
+  m_EditorClassIdentifier: 
+  eventCode: 2110
+  eventProbability: 11
+  title:
+  - "\uC2A4\uD130\uB514"
+  message:
+  - "\uB3D9\uC544\uB9AC\uC758 \uAF43! \uC2A4\uD130\uB514\uB9CC \uC5F4\uC2EC\uD788
+    \uD558\uBA74 \uB098\uB3C4!"
+  situation:
+  - {fileID: 21300000, guid: f7788d6d210c2614aa1ad55fc815ef42, type: 3}
+  minigameExplanation: []
+  minigameExplanationImage: []
+  choiceMessage:
+  - "\uC5F4\uC2EC\uD788 \uD558\uC790!"
+  resultMessage:
+  - "\uB108\uBB34 \uD53C\uACE4\uD588\uC73C\uB2C8\uAE4C.. \uB2E4\uC74C\uBD80\uD130
+    \uC5F4\uC2EC\uD788 \uD558\uC790 \u314E\u314E"
+  - "\uAE30\uB300\uD558\uACE0 \uAC14\uB354\uB2C8, \uB2E4 \uC544\uB294 \uB0B4\uC6A9\uC774\uC5C8\uC2B5\uB2C8\uB2E4.."
+  - "\uBA38\uB9AC\uAC00 \uC88B\uC544\uC9C4 \uAE30\uBD84\uC785\uB2C8\uB2E4! \uC544\uBB34\uD2BC
+    \uADF8\uB807\uC2B5\uB2C8\uB2E4."
+  resultSituation:
+  - {fileID: 21300000, guid: 89c78cc059e2c1c4fba2bd9c93a9c170, type: 3}
+  - {fileID: 21300000, guid: 7f3845514e2a30d41a3adf976748bbf2, type: 3}
+  - {fileID: 21300000, guid: e7566c751aef2944ea60c97da3ee5c57, type: 3}
+  fassionVal:
+  - 2
+  - -2
+  - 0
+  staminaVal:
+  - 3
+  - 0
+  - 0
+  socialVal:
+  - 0
+  - 0
+  - 3
+  favorVal: []
+  intelliMaxVal: []
+  fassionMaxVal: []
+  staminaMaxVal: []
+  socialMaxVal: []
+  methodName:
+  - CheckEvent2110Result

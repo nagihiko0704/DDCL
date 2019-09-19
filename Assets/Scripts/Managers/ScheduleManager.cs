@@ -54,8 +54,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {   
         if(!doEvent)
         {
-            float tempTime = Time.deltaTime;
-            curTime += tempTime;
+            curTime += Time.deltaTime;
         }
     }
 
@@ -64,31 +63,49 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     {
         Debug.Log("스케쥴 설정됨");
 
-        Schedule tempSchedule = new Schedule();
-
         studyResult = GameManager.Inst.studyResultArray;
 
+        Debug.Log("type: " + studyResult[0].studyType);
+
         int randomNum = Random.Range(1, 5);
-        switch(1)
+        switch(randomNum)
         {
             case (1):
-                InitScheduleType1(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType1(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (2):
-                InitScheduleType2(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType2(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (3):
-                InitScheduleType3(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType3(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
             case (4):
-                InitScheduleType4(tempSchedule);
+                for (int i = 0; i < 16; i++)
+                {
+                    Schedule tempSchedule = new Schedule();
+                    InitScheduleType4(tempSchedule);
+                    GameManager.Inst.player.schedules[i] = tempSchedule;
+                    GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
+                }
                 break;
-        }
-
-        for (int i = 0; i < 16; i++)
-        {
-            GameManager.Inst.player.schedules[i] = tempSchedule;
-            GameManager.Inst.player.schedules[i].scheduleWeek = i + 1;
         }
     }
     
@@ -97,54 +114,45 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
     private void InitScheduleType1(Schedule schedule)
     {
         //Mon
-        schedule.AddTask(studyResult[0], Period.First, Day.Mon);
-        schedule.AddTask(studyResult[1], Period.Second, Day.Mon);
-
-        //for test and metoring
-        schedule.taskArray[(int)Period.First, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1152") as Event;
-        schedule.taskArray[(int)Period.Second, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1170") as Event;
-        
-
+        schedule.AddTask(studyResult[0].Clone(), Period.First, Day.Mon);
+        schedule.AddTask(studyResult[1].Clone(), Period.Second, Day.Mon);
         schedule.AddTask(new Club((Period.Third, Day.Mon)));
-
-        schedule.taskArray[(int)Period.Third, (int)Day.Mon].taskEvent = Resources.Load("Events/Event1111") as Event;
-
-        schedule.AddTask(studyResult[2], Period.Fourth, Day.Mon);
+        schedule.AddTask(studyResult[2].Clone(), Period.Fourth, Day.Mon);
 
         //Tue
-        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
-        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(studyResult[2].Clone(), Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[2].Clone(), Period.Third, Day.Tue);
         schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
         schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
 
         //Wed
-        schedule.AddTask(studyResult[0], Period.First, Day.Wed);
-        schedule.AddTask(studyResult[1], Period.Second, Day.Wed);
-        schedule.AddTask(studyResult[4], Period.Fourth, Day.Wed);
+        schedule.AddTask(studyResult[0].Clone(), Period.First, Day.Wed);
+        schedule.AddTask(studyResult[1].Clone(), Period.Second, Day.Wed);
+        schedule.AddTask(studyResult[4].Clone(), Period.Fourth, Day.Wed);
         schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
 
         //Thu
         schedule.AddTask(new Club((Period.Second, Day.Thu)));
-        schedule.AddTask(studyResult[2], Period.Third, Day.Thu);
-        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+        schedule.AddTask(studyResult[2].Clone(), Period.Third, Day.Thu);
+        schedule.AddTask(studyResult[4].Clone(), Period.Fifth, Day.Thu);
 
         //Fri
-        schedule.AddTask(studyResult[3], Period.Second, Day.Fri);
-        schedule.AddTask(studyResult[3], Period.Third, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Third, Day.Fri);
         schedule.AddTask(new Club((Period.Fifth, Day.Fri)));
     }
 
     private void InitScheduleType2(Schedule schedule)
     {
         //Mon
-        schedule.AddTask(studyResult[0], Period.Second, Day.Mon);
-        schedule.AddTask(studyResult[1], Period.Third, Day.Mon);
+        schedule.AddTask(studyResult[0].Clone(), Period.Second, Day.Mon);
+        schedule.AddTask(studyResult[1].Clone(), Period.Third, Day.Mon);
         schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
         schedule.AddTask(new Club((Period.Sixth, Day.Mon)));
 
         //Tue
-        schedule.AddTask(studyResult[2], Period.Fourth, Day.Tue);
-        schedule.AddTask(studyResult[2], Period.Third, Day.Tue);
+        schedule.AddTask(studyResult[2].Clone(), Period.Fourth, Day.Tue);
+        schedule.AddTask(studyResult[2].Clone(), Period.Third, Day.Tue);
         schedule.AddTask(new Club((Period.Sixth, Day.Tue)));
 
         //Wed
@@ -152,44 +160,44 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
         //Thu
         schedule.AddTask(new Club((Period.Second, Day.Thu)));
-        schedule.AddTask(studyResult[4], Period.Fourth, Day.Thu);
-        schedule.AddTask(studyResult[4], Period.Fifth, Day.Thu);
+        schedule.AddTask(studyResult[4].Clone(), Period.Fourth, Day.Thu);
+        schedule.AddTask(studyResult[4].Clone(), Period.Fifth, Day.Thu);
         schedule.AddTask(new Club((Period.Sixth, Day.Thu)));
 
         //Fri
-        schedule.AddTask(studyResult[0], Period.Second, Day.Fri);
-        schedule.AddTask(studyResult[1], Period.Third, Day.Fri);
+        schedule.AddTask(studyResult[0].Clone(), Period.Second, Day.Fri);
+        schedule.AddTask(studyResult[1].Clone(), Period.Third, Day.Fri);
         schedule.AddTask(new Club((Period.Fourth, Day.Fri)));
-        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
-        schedule.AddTask(studyResult[3], Period.Sixth, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Fifth, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Sixth, Day.Fri);
     }
 
     private void InitScheduleType3(Schedule schedule)
     {
         //Mon
-        schedule.AddTask(studyResult[0], Period.Third, Day.Mon);
-        schedule.AddTask(studyResult[1], Period.Fourth, Day.Mon);
+        schedule.AddTask(studyResult[0].Clone(), Period.Third, Day.Mon);
+        schedule.AddTask(studyResult[1].Clone(), Period.Fourth, Day.Mon);
         schedule.AddTask(new Club((Period.Fifth, Day.Mon)));
 
         //Tue
-        schedule.AddTask(studyResult[2], Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[2].Clone(), Period.Second, Day.Tue);
         schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
+        schedule.AddTask(studyResult[4].Clone(), Period.Sixth, Day.Tue);
 
         //Wed
-        schedule.AddTask(studyResult[0], Period.Third, Day.Wed);
-        schedule.AddTask(studyResult[1], Period.Fourth, Day.Wed);
+        schedule.AddTask(studyResult[0].Clone(), Period.Third, Day.Wed);
+        schedule.AddTask(studyResult[1].Clone(), Period.Fourth, Day.Wed);
         schedule.AddTask(new Club((Period.Fifth, Day.Wed)));
         schedule.AddTask(new Club((Period.Sixth, Day.Wed)));
 
         //Thu
-        schedule.AddTask(studyResult[2], Period.Second, Day.Thu);
+        schedule.AddTask(studyResult[2].Clone(), Period.Second, Day.Thu);
         schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
-        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
+        schedule.AddTask(studyResult[4].Clone(), Period.Sixth, Day.Thu);
 
         //Fri
-        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
-        schedule.AddTask(studyResult[3], Period.Fifth, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Fourth, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Fifth, Day.Fri);
         schedule.AddTask(new Club((Period.Sixth, Day.Fri)));
     }
 
@@ -198,28 +206,28 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         //Mon
         schedule.AddTask(new Club((Period.First, Day.Mon)));
         schedule.AddTask(new Club((Period.Second, Day.Mon)));
-        schedule.AddTask(studyResult[2], Period.Fifth, Day.Mon);
+        schedule.AddTask(studyResult[2].Clone(), Period.Fifth, Day.Mon);
 
         //Tue
-        schedule.AddTask(studyResult[0], Period.Second, Day.Tue);
-        schedule.AddTask(studyResult[1], Period.Third, Day.Tue);
+        schedule.AddTask(studyResult[0].Clone(), Period.Second, Day.Tue);
+        schedule.AddTask(studyResult[1].Clone(), Period.Third, Day.Tue);
         schedule.AddTask(new Club((Period.Fifth, Day.Tue)));
-        schedule.AddTask(studyResult[4], Period.Sixth, Day.Tue);
+        schedule.AddTask(studyResult[4].Clone(), Period.Sixth, Day.Tue);
 
         //Wed
-        schedule.AddTask(studyResult[3], Period.Fourth, Day.Wed);
-        schedule.AddTask(studyResult[2], Period.Fifth, Day.Wed);
+        schedule.AddTask(studyResult[3].Clone(), Period.Fourth, Day.Wed);
+        schedule.AddTask(studyResult[2].Clone(), Period.Fifth, Day.Wed);
 
         //Thu
-        schedule.AddTask(studyResult[0], Period.Second, Day.Thu);
-        schedule.AddTask(studyResult[1], Period.Third, Day.Thu);
+        schedule.AddTask(studyResult[0].Clone(), Period.Second, Day.Thu);
+        schedule.AddTask(studyResult[1].Clone(), Period.Third, Day.Thu);
         schedule.AddTask(new Club((Period.Fifth, Day.Thu)));
-        schedule.AddTask(studyResult[4], Period.Sixth, Day.Thu);
+        schedule.AddTask(studyResult[4].Clone(), Period.Sixth, Day.Thu);
 
         //Fri
         schedule.AddTask(new Club((Period.First, Day.Fri)));
         schedule.AddTask(new Club((Period.Second, Day.Fri)));
-        schedule.AddTask(studyResult[3], Period.Fourth, Day.Fri);
+        schedule.AddTask(studyResult[3].Clone(), Period.Fourth, Day.Fri);
     }
 
 
@@ -232,12 +240,14 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             int nextWeek;
 
             float recoverStamina;
+            float recoverFassion;
                      
             nextTaskPeriod = (Period)(((int)currentPeriod + 1) % 6);
             nextTaskDay = currentDay;
             nextWeek = currentWeek;
 
             recoverStamina = 0;
+            recoverFassion = 0;
 
             if (currentPeriod == Period.Sixth)
             {
@@ -246,6 +256,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                 nextTaskDay = (Day)(((int)currentDay + 1) % 5);
 
                 recoverStamina = 10f;
+                recoverFassion = 5f;
             }
 
             if(currentDay == Day.Fri && currentPeriod == Period.Sixth)
@@ -260,6 +271,10 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //apply stat change
             GameManager.Inst.player.playerCharacter.ChangeStat(CurrentTask);
+            Debug.Log("fassionVal" + CurrentTask.fassionVal);
+
+            //insert event
+            EventManager.Inst.InsertEvent();
 
             yield return new WaitForSeconds(TASK_TIME / 2);
 
@@ -277,6 +292,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
 
             //if day passed, recover 10 stamina
             GameManager.Inst.player.playerCharacter.ChangeStat("stamina", recoverStamina);
+            GameManager.Inst.player.playerCharacter.ChangeStat("fassion", recoverFassion);
 
             //Debug.Log("Changed period:" + nextTaskPeriod + " Changed day: " + nextTaskDay);
             //Debug.Log("---------");
@@ -286,7 +302,7 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
             {
                 for(int i = 0; i< 5; i++)
                 {
-                    if (GameManager.Inst.studyResultArray[i].Equals(CurrentTask))
+                    if (GameManager.Inst.studyResultArray[i].taskName.Equals(CurrentTask.taskName))
                     {
                         //Debug.Log("디용");
 
@@ -296,6 +312,15 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
                     }
                 }
             }
+
+            //check semester is end
+            if (nextWeek >= 16)
+            {
+                GameManager.Inst.isSemesterEnd = true;
+            }
+
+            //for time correction
+            curTime = Mathf.Floor(curTime);
         }
     }
 
@@ -313,11 +338,6 @@ public class ScheduleManager : SingletonBehaviour<ScheduleManager>
         doEvent = true;
 
         MainGameUIManager.Inst.MakeEventPopUp(_curEvent);
-
-        //if(_curEvent.methodName != null)
-        //{
-        //    EventManager.Inst.ApplyEventEffect(_curEvent.SelectedMethod);
-        //}
 
         while (doEvent)
         {
